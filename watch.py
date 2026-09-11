@@ -14,6 +14,7 @@ TICK = int(os.environ.get("TICK_SECONDS", "20"))
 GG_FEE, GAS = 0.02, 0.3
 MIN_NET_PCT, MAX_NET_PCT, MIN_ABS_NET = 15.0, 300.0, 2.0
 REFRESH_SEC = int(os.environ.get("REFS_REFRESH_SEC", "1800"))
+MAX_RUN_SEC = int(os.environ.get("MAX_RUN_SEC", "0"))   # 0 = run forever
 HITS = "data/watch_hits.jsonl"
 DESC = re.compile(r"appearance (.+?) on a (.+?) background with (.+?) icons")
 
@@ -53,7 +54,7 @@ def coll_names():
 
 
 def main():
-    refs = build_refs(); names = coll_names(); last_refresh = time.time()
+    refs = build_refs(); names = coll_names(); last_refresh = time.time(); started = time.time(); last_paper = 0.0
     seen = set(); last_ts = int(time.time() * 1000) - 5 * 60 * 1000
     hits_total = 0
     print(f"watching {len(names)} collections, tick {TICK}s", flush=True)
@@ -99,6 +100,13 @@ def main():
                 seen = set(list(seen)[-2000:])
             if time.time() - last_refresh > REFRESH_SEC:
                 git_sync(); refs = build_refs(); names = coll_names(); last_refresh = time.time()
+            if time.time() - last_paper > 3600 and os.environ.get("GITHUB_ACTIONS"):
+                # GitHub skips many scheduled runs; trigger the hourly reference rebuild ourselves
+                subprocess.run(["gh", "workflow", "run", "paper.yml"], check=False, capture_output=True,
+                               env={**os.environ, "GH_TOKEN": os.environ.get("GH_TOKEN", os.environ.get("GITHUB_TOKEN", ""))})
+                last_paper = time.time()
+            if MAX_RUN_SEC and time.time() - started > MAX_RUN_SEC:
+                git_sync(); print("max run time reached, exiting for re-dispatch", flush=True); return
         except Exception as e:
             print("tick err", e, file=sys.stderr, flush=True); time.sleep(10)
         time.sleep(TICK)

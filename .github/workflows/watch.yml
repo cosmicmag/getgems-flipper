@@ -14,6 +14,7 @@ concurrency:
 
 permissions:
   contents: write
+  actions: write
 
 jobs:
   watch:
@@ -29,8 +30,15 @@ jobs:
           GG_KEY: ${{ secrets.GG_KEY }}
           TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
           TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
-          TICK_SECONDS: "20"
+          GH_TOKEN: ${{ github.token }}
+          TICK_SECONDS: "10"
+          MAX_RUN_SEC: "20400"   # 5h40m, then exit so the re-dispatch step starts a fresh instance
         run: |
           git config user.name "watch-bot"
           git config user.email "watch-bot@users.noreply.github.com"
           python3 watch.py
+      - name: Re-dispatch (GitHub drops scheduled runs; keep the loop alive ourselves)
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run watch.yml || true

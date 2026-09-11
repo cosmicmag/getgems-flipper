@@ -67,6 +67,7 @@ def main():
                 item["_pf"] = pf.get(attrs(item).get("model", "").lower())
         print(f"  {name[:24]:24} listings={n} sold_hist={len(hist)} fills_total={len(fills.rows)}", flush=True)
 
+    print(f"gg fills persisted: {fills.dump_gg()}")
     refs = fills.references()
     print(f"references: {len(refs)} (model/tier keys)")
     cands = []

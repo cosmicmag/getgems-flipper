@@ -56,6 +56,28 @@ class Fills:
             t = time.mktime(time.strptime(r["t"][:19], "%Y-%m-%dT%H:%M:%S"))
             self.add(r["coll"], r.get("model"), r.get("backdrop"), r["amount"], t, "portals")
 
+    def load_gg(self, path="data/gg_fills.jsonl"):
+        if not os.path.exists(path):
+            return
+        for line in open(path):
+            r = json.loads(line)
+            self.add(r["coll"], r["model"], r["backdrop"], r["price"], r["t"], "gg")
+
+    def dump_gg(self, path="data/gg_fills.jsonl", max_age_days=30):
+        """Merge this run's Getgems fills into the persisted file (dedupe by coll/model/price/t)."""
+        old = []
+        if os.path.exists(path):
+            old = [json.loads(l) for l in open(path)]
+        cutoff = time.time() - max_age_days * 86400
+        keyed = {(r["coll"], r["model"], r["price"], int(r["t"])): r for r in old if r["t"] > cutoff}
+        for r in self.rows:
+            if r["src"] == "gg" and r["t"] > cutoff:
+                keyed[(r["coll"], r["model"], r["price"], int(r["t"]))] = dict(coll=r["coll"], model=r["model"], backdrop=r["backdrop"], price=r["price"], t=r["t"])
+        with open(path, "w") as f:
+            for r in keyed.values():
+                f.write(json.dumps(r, ensure_ascii=False) + "\n")
+        return len(keyed)
+
     def load_gg_history(self, coll_name: str, hist: list[dict]):
         """hist = Getgems /v1/collection/history items (types=sold). Resolves models via toncenter in batches of 50."""
         onchain = [h for h in hist if not h["address"].startswith("EQf_") and (h.get("typeData") or {}).get("price")]

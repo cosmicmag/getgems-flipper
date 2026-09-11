@@ -1,0 +1,36 @@
+name: getgems-flipper watcher
+
+# Long-running loop job (tick every 20s) restarted hourly by the schedule; concurrency keeps exactly one
+# instance alive. Reads the listings feed only; no wallet key, no trading.
+
+on:
+  schedule:
+    - cron: "41 * * * *"
+  workflow_dispatch: {}
+
+concurrency:
+  group: watcher
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Watch new listings
+        env:
+          GG_KEY: ${{ secrets.GG_KEY }}
+          TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
+          TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
+          TICK_SECONDS: "20"
+        run: |
+          git config user.name "watch-bot"
+          git config user.email "watch-bot@users.noreply.github.com"
+          python3 watch.py

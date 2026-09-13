@@ -122,7 +122,13 @@ def buy(nft: str, version: str, price: float, meta: dict, dry_run=False) -> dict
     bal = balance()
     if bal - price - 1.0 < RESERVE_TON:
         return log(dict(kind="buy", nft=nft, price=price, ok=False, reason=f"balance {bal:.1f} too low", **meta))
-    tx = gg_post(f"/v1/nfts/buy-fix-price/{nft}", {"version": version})
+    try:
+        tx = gg_post(f"/v1/nfts/buy-fix-price/{nft}", {"version": version})
+    except RuntimeError as e:
+        # HTTP 400 here means the sale object is gone or changed: somebody bought it first (or the seller relisted)
+        if "HTTP 400" in str(e):
+            return log(dict(kind="buy", nft=nft, price=price, ok=False, reason="lost race: sale gone before our buy", **meta))
+        raise
     total = sum(int(m["amount"]) for m in tx["list"]) / 1e9
     if total > price * 1.15 + 1.5:
         return log(dict(kind="buy", nft=nft, price=price, ok=False, reason=f"tx total {total} inconsistent with price", **meta))

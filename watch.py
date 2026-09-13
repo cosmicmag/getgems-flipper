@@ -131,6 +131,8 @@ def main():
                                 if b.get("ok"):
                                     tg(f"✅ КУПИЛ {cname} {m.group(1)} за {price:.2f}, выставил за {target:.2f}"
                                        f" ({'листинг ок' if l.get('ok') else 'листинг НЕ подтверждён: ' + str(l.get('tx_state'))})")
+                                elif str(b.get("reason", "")).startswith("lost race"):
+                                    tg(f"⏱ не успел: {cname} {m.group(1)} за {price:.2f} уже купили до нас")
                                 else:
                                     tg(f"⛔ не купил {cname} {m.group(1)}: {b.get('reason') or b.get('tx_state')}")
                             except Exception as e:

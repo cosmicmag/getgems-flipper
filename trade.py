@@ -122,7 +122,7 @@ def buy(nft: str, version: str, price: float, meta: dict, dry_run=False) -> dict
         return log(dict(kind="buy", nft=nft, price=price, ok=False, dry_run=True, tx_total=total, **meta))
     state = wait_tx(tx)
     owner = None
-    for _ in range(12):
+    for _ in range(36):          # up to 3 min: Getgems indexes ownership with a lag
         try:
             d = gg(f"/v1/nft/{nft}"); owner = d.get("actualOwnerAddress") or d.get("ownerAddress")
             if owner and addr_hash(owner) == addr_hash(WALLET):
@@ -131,12 +131,24 @@ def buy(nft: str, version: str, price: float, meta: dict, dry_run=False) -> dict
             pass
         time.sleep(5)
     mine = bool(owner) and addr_hash(owner) == addr_hash(WALLET)
+    if not mine and state == "Ready":
+        mine = True            # tx confirmed by Getgems; ownership index may still lag -> listing will retry
     return log(dict(kind="buy", nft=nft, price=price, ok=mine, tx_state=state, tx_total=total, owner=owner, seqno=sent.get("seqno"), **meta))
 
 
 def list_for_sale(nft: str, full_price: float, meta: dict, dry_run=False) -> dict:
-    """Relist an on-chain NFT we own at a fixed price (TON)."""
-    tx = gg_post(f"/v1/nfts/put-on-sale-fix-price/{nft}", {"ownerAddress": WALLET, "fullPrice": str(int(round(full_price * 1e9)))})
+    """Relist an on-chain NFT we own at a fixed price (TON). Retries while Getgems still shows the old owner."""
+    tx = None
+    for attempt in range(8):
+        try:
+            tx = gg_post(f"/v1/nfts/put-on-sale-fix-price/{nft}", {"ownerAddress": WALLET, "fullPrice": str(int(round(full_price * 1e9)))})
+            break
+        except RuntimeError as e:
+            if "FPS_ALREADY_ON_SALE" in str(e) or "belong" in str(e):
+                time.sleep(20); continue
+            raise
+    if tx is None:
+        return log(dict(kind="list", nft=nft, price=full_price, ok=False, reason="ownership not indexed after retries", **meta))
     sent = sign_and_send(tx, dry_run)
     if dry_run:
         return log(dict(kind="list", nft=nft, price=full_price, ok=False, dry_run=True, **meta))

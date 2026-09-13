@@ -50,8 +50,21 @@ def git_sync():
             subprocess.run(["git", "fetch", "-q", "origin", "main"], check=False, capture_output=True)
             rb = subprocess.run(["git", "rebase", "-X", "theirs", "origin/main"], check=False, capture_output=True)
             if rb.returncode != 0:
+                # keep our appended records: abort, reset to remote, re-append and commit again
                 subprocess.run(["git", "rebase", "--abort"], check=False, capture_output=True)
+                keep = {}
+                for fpath in (HITS, "data/trades.jsonl"):
+                    if os.path.exists(fpath):
+                        keep[fpath] = open(fpath).read()
                 subprocess.run(["git", "reset", "--hard", "origin/main"], check=False, capture_output=True)
+                for fpath, content in keep.items():
+                    have = open(fpath).read() if os.path.exists(fpath) else ""
+                    missing = [l for l in content.splitlines() if l and l not in have]
+                    if missing:
+                        with open(fpath, "a") as f:
+                            f.write("\n".join(missing) + "\n")
+                subprocess.run(["git", "add", HITS, "data/trades.jsonl"], check=False, capture_output=True)
+                subprocess.run(["git", "commit", "-qm", "watch: hits/trades (re-applied)"], check=False, capture_output=True)
             if subprocess.run(["git", "push", "-q"], check=False, capture_output=True).returncode == 0:
                 return
             time.sleep(5 + attempt * 5)

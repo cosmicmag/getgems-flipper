@@ -9,6 +9,7 @@ from __future__ import annotations
 import json, os, re, subprocess, sys, time, urllib.parse, urllib.request
 from gg_api import gg, nano
 from refs import Fills, norm_coll
+import trade
 
 TICK = int(os.environ.get("TICK_SECONDS", "20"))
 GG_FEE, GAS = 0.02, 0.3
@@ -16,6 +17,8 @@ MIN_NET_PCT, MAX_NET_PCT, MIN_ABS_NET = 15.0, 300.0, 2.0
 MAX_REF_AGE_D, MIN_REF_N = 3.0, 4   # stale or thin references produced unsold "hits" (Voodoo Dolls, Clover Pins)
 REFRESH_SEC = int(os.environ.get("REFS_REFRESH_SEC", "1800"))
 MAX_RUN_SEC = int(os.environ.get("MAX_RUN_SEC", "0"))   # 0 = run forever
+AUTO_BUY = os.environ.get("AUTO_BUY") == "1"          # live trading only when explicitly enabled
+ALERT_HITS = os.environ.get("ALERT_HITS", "1") == "1"  # the GitHub watcher alerts hits; a local trader may alert trades only
 HITS = "data/watch_hits.jsonl"
 DESC = re.compile(r"appearance (.+?) on a (.+?) background with (.+?) icons")
 
@@ -103,8 +106,22 @@ def main():
                                version=(d.get("sale") or {}).get("version"))
                     with open(HITS, "a") as f:
                         f.write(json.dumps(rec, ensure_ascii=False) + "\n")
-                    tg(f"🎯 {cname} · {m.group(1)} / {m.group(2)}\nлистинг {price:.2f} TON, филлы p25 {target:.1f} (med {ref['med']:.1f}, n={ref['n']}, {ref['last_age_d']}d)\n"
+                    if ALERT_HITS: tg(f"🎯 {cname} · {m.group(1)} / {m.group(2)}\nлистинг {price:.2f} TON, филлы p25 {target:.1f} (med {ref['med']:.1f}, n={ref['n']}, {ref['last_age_d']}d)\n"
                        f"net ≈ +{net:.1f} TON ({pct:.0f}%)\nhttps://getgems.io/nft/{x['address']}")
+                    if AUTO_BUY:
+                        if d.get("kind") != "CollectionItem":
+                            print("  skip auto-buy: offchain gift (relist needs SignData)", flush=True)
+                        else:
+                            try:
+                                res = trade.flip(x["address"], (d.get("sale") or {}).get("version"), price, target, rec)
+                                b = res.get("buy", res); l = res.get("list") or {}
+                                if b.get("ok"):
+                                    tg(f"✅ КУПИЛ {cname} {m.group(1)} за {price:.2f}, выставил за {target:.2f}"
+                                       f" ({'листинг ок' if l.get('ok') else 'листинг НЕ подтверждён: ' + str(l.get('tx_state'))})")
+                                else:
+                                    tg(f"⛔ не купил {cname} {m.group(1)}: {b.get('reason') or b.get('tx_state')}")
+                            except Exception as e:
+                                print("auto-buy err", e, file=sys.stderr, flush=True); tg(f"💥 auto-buy error: {str(e)[:200]}")
             if len(seen) > 5000:
                 seen = set(list(seen)[-2000:])
             if time.time() - last_refresh > REFRESH_SEC:

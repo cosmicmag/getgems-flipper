@@ -23,6 +23,15 @@ const arg = (f: string) => { const i = args.indexOf(f); return i >= 0 ? args[i +
 
 const MAX_SINGLE_TON = Number(process.env.MAX_SINGLE_TON ?? '300');   // hard cap per broadcast, safety net
 
+/** Keyless toncenter allows ~1 req/s and answers 429 above that: retry with backoff. */
+async function rpc<T>(fn: () => Promise<T>, tries = 6): Promise<T> {
+  let last: unknown;
+  for (let i = 0; i < tries; i++) {
+    try { return await fn(); } catch (e) { last = e; await new Promise((r) => setTimeout(r, 1500 * (i + 1))); }
+  }
+  throw last;
+}
+
 function mnemonic(): string[] {
   const env = process.env.MNEMONIC;
   const raw = env ?? execSync(
@@ -40,7 +49,7 @@ async function main() {
   const contract = client.open(wallet);
 
   if (has('--balance')) {
-    const bal = await contract.getBalance();
+    const bal = await rpc(() => contract.getBalance());
     console.log(JSON.stringify({ address: wallet.address.toString({ bounceable: false }), balanceTon: Number(bal) / 1e9 }));
     return;
   }
@@ -71,12 +80,12 @@ async function main() {
     totalTon: total, timeout: tx.timeout, uuid: tx.uuid }));
   if (!has('--send')) { console.log(JSON.stringify({ dryRun: true, totalTon: total, messages: list.length })); return; }
 
-  const seqno = await contract.getSeqno();
-  await contract.sendTransfer({ seqno, secretKey: key.secretKey, sendMode: SendMode.PAY_GAS_SEPARATELY | SendMode.IGNORE_ERRORS, messages });
+  const seqno = await rpc(() => contract.getSeqno());
+  await rpc(() => contract.sendTransfer({ seqno, secretKey: key.secretKey, sendMode: SendMode.PAY_GAS_SEPARATELY | SendMode.IGNORE_ERRORS, messages }), 3);
   // wait for seqno to advance
   for (let i = 0; i < 40; i++) {
-    await new Promise((r) => setTimeout(r, 1500));
-    const s = await contract.getSeqno();
+    await new Promise((r) => setTimeout(r, 2500));
+    const s = await rpc(() => contract.getSeqno(), 3).catch(() => seqno);
     if (s > seqno) { console.log(JSON.stringify({ sent: true, seqno: s, uuid: tx.uuid })); return; }
   }
   console.log(JSON.stringify({ sent: 'unknown', seqno, uuid: tx.uuid }));

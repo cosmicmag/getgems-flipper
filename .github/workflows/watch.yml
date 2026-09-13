@@ -1,7 +1,7 @@
 name: getgems-flipper watcher
 
-# Long-running loop job (tick every 20s) restarted hourly by the schedule; concurrency keeps exactly one
-# instance alive. Reads the listings feed only; no wallet key, no trading.
+# Long-running loop job (tick every 10s), re-dispatched by itself before the timeout; concurrency keeps exactly
+# one instance alive. Trades with the bot wallet (secret MNEMONIC) within the risk limits below.
 
 on:
   schedule:
@@ -25,12 +25,23 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Watch new listings
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install signer deps
+        run: npm ci --prefix signer --silent
+      - name: Watch new listings and trade
         env:
           GG_KEY: ${{ secrets.GG_KEY }}
           TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
           TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
           GH_TOKEN: ${{ github.token }}
+          MNEMONIC: ${{ secrets.MNEMONIC }}        # bot wallet seed; trading is capped by MAX_LOT_TON / DAILY_CAP_TON
+          AUTO_BUY: "1"
+          MAX_LOT_TON: "50"
+          DAILY_CAP_TON: "150"
+          WEEKLY_LOSS_STOP_TON: "30"
+          MAX_SINGLE_TON: "60"
           TICK_SECONDS: "10"
           MAX_RUN_SEC: "20400"   # 5h40m, then exit so the re-dispatch step starts a fresh instance
         run: |

@@ -44,7 +44,7 @@ def build_refs():
 def git_sync():
     """Pull newer fills committed by the hourly scan; push our hits. Safe no-op outside a git checkout."""
     try:
-        subprocess.run(["git", "add", HITS], check=False, capture_output=True)
+        subprocess.run(["git", "add", HITS, "data/trades.jsonl"], check=False, capture_output=True)
         subprocess.run(["git", "commit", "-qm", "watch: hits"], check=False, capture_output=True)
         for attempt in range(4):
             subprocess.run(["git", "fetch", "-q", "origin", "main"], check=False, capture_output=True)

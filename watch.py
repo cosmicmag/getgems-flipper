@@ -13,6 +13,7 @@ from refs import Fills, norm_coll
 TICK = int(os.environ.get("TICK_SECONDS", "20"))
 GG_FEE, GAS = 0.02, 0.3
 MIN_NET_PCT, MAX_NET_PCT, MIN_ABS_NET = 15.0, 300.0, 2.0
+MAX_REF_AGE_D, MIN_REF_N = 3.0, 4   # stale or thin references produced unsold "hits" (Voodoo Dolls, Clover Pins)
 REFRESH_SEC = int(os.environ.get("REFS_REFRESH_SEC", "1800"))
 MAX_RUN_SEC = int(os.environ.get("MAX_RUN_SEC", "0"))   # 0 = run forever
 HITS = "data/watch_hits.jsonl"
@@ -42,8 +43,15 @@ def git_sync():
     try:
         subprocess.run(["git", "add", HITS], check=False, capture_output=True)
         subprocess.run(["git", "commit", "-qm", "watch: hits"], check=False, capture_output=True)
-        subprocess.run(["git", "pull", "-q", "--rebase", "-X", "theirs"], check=False, capture_output=True)
-        subprocess.run(["git", "push", "-q"], check=False, capture_output=True)
+        for attempt in range(4):
+            subprocess.run(["git", "fetch", "-q", "origin", "main"], check=False, capture_output=True)
+            rb = subprocess.run(["git", "rebase", "-X", "theirs", "origin/main"], check=False, capture_output=True)
+            if rb.returncode != 0:
+                subprocess.run(["git", "rebase", "--abort"], check=False, capture_output=True)
+                subprocess.run(["git", "reset", "--hard", "origin/main"], check=False, capture_output=True)
+            if subprocess.run(["git", "push", "-q"], check=False, capture_output=True).returncode == 0:
+                return
+            time.sleep(5 + attempt * 5)
     except Exception as e:
         print("git sync err", e, file=sys.stderr)
 
@@ -81,7 +89,8 @@ def main():
                 if not ref:
                     continue
                 target = ref["p25"]; net = target * (1 - GG_FEE) - price - GAS; pct = net / price * 100
-                status = "HIT" if (net >= MIN_ABS_NET and MIN_NET_PCT <= pct <= MAX_NET_PCT) else "seen"
+                fresh = ref["last_age_d"] <= MAX_REF_AGE_D and ref["n"] >= MIN_REF_N
+                status = "HIT" if (fresh and net >= MIN_ABS_NET and MIN_NET_PCT <= pct <= MAX_NET_PCT) else ("weak" if net >= MIN_ABS_NET and pct >= MIN_NET_PCT else "seen")
                 line = (f"{time.strftime('%H:%M:%S')} {status:4} {cname[:16]:16} {m.group(1)[:16]:16} {m.group(2)[:12]:12} "
                         f"price {price:>8.2f} refP25 {target:>7.1f} med {ref['med']:>7.1f} n={ref['n']} age={ref['last_age_d']}d "
                         f"net {net:>7.2f} ({pct:5.1f}%) https://getgems.io/nft/{x['address']}")

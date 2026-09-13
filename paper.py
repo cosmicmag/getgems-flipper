@@ -32,35 +32,42 @@ def cmd_log():
 
 
 def cmd_check():
+    """Outcome of a candidate: 'sniped' = someone bought it near our entry price (market agrees it was cheap),
+    'resold' = the sniper sold it again -> that resale is our modelled exit; 'still' / 'unsold_7d' otherwise."""
     rows = load(); upd = 0
     for r in rows:
-        if r.get("outcome") or time.time() - r["logged_at"] < 3600:
+        if (r.get("outcome") or {}).get("kind") in ("resold", "unsold_7d") or time.time() - r["logged_at"] < 600:
             continue
         try:
             h = gg(f"/v1/nft/history/{r['nft']}", limit=20)
         except Exception as e:
             print("hist err", r["nft"][:20], e); continue
-        items = h.get("items", [])
-        sold = [x for x in items if (x.get("typeData") or {}).get("type") == "sold" and x["timestamp"] / 1000 > r["logged_at"] - 600]
-        listing_gone = not any((x.get("typeData") or {}).get("type") in ("putUpForSale",) for x in items[:1])
-        if sold:
-            price = float(sold[0]["typeData"]["price"])
-            r["outcome"] = dict(kind="sold", price=price, at=sold[0]["timestamp"] / 1000,
-                                # if we had bought at gg_price and the next buyer paid `price`, that is our exit
-                                paper_net=round(price * 0.98 - r["gg_price"] - 0.3, 2))
-            upd += 1
+        ev = sorted(((x["timestamp"] / 1000, (x.get("typeData") or {}).get("type"), (x.get("typeData") or {}).get("price"))
+                     for x in h.get("items", [])), key=lambda e: e[0])
+        sold = [e for e in ev if e[1] == "sold" and e[0] >= r["logged_at"] - 3600 and e[2]]
+        if len(sold) >= 2:
+            resale = float(sold[1][2]); net = resale * 0.98 - r["gg_price"] - 0.3
+            r["outcome"] = dict(kind="resold", sniped_at=sold[0][0], sniped_price=float(sold[0][2]), resale=resale, paper_net=round(net, 2)); upd += 1
+        elif sold:
+            r["outcome"] = dict(kind="sniped", sniped_at=sold[0][0], sniped_price=float(sold[0][2]),
+                                minutes=round((sold[0][0] - r["logged_at"]) / 60)); upd += 1
         elif time.time() - r["logged_at"] > 7 * 86400:
             r["outcome"] = dict(kind="unsold_7d"); upd += 1
     save(rows)
-    done = [r for r in rows if r.get("outcome")]
-    sold = [r for r in done if r["outcome"]["kind"] == "sold"]
-    print(f"checked, updated {upd}; outcomes: {len(done)} of {len(rows)}; sold {len(sold)}")
-    if sold:
-        net = sum(r["outcome"]["paper_net"] for r in sold)
-        wins = sum(1 for r in sold if r["outcome"]["paper_net"] > 0)
-        print(f"paper: bought at candidate price -> next real sale: total net {net:.1f} TON, wins {wins}/{len(sold)}")
-        for r in sold:
-            print(f"  {r['coll'][:14]:14} {r['model'][:14]:14} buy {r['gg_price']:>7.2f} -> sold {r['outcome']['price']:>7.2f} net {r['outcome']['paper_net']:>7.2f}")
+    kinds = {}
+    for r in rows:
+        kinds[(r.get("outcome") or {}).get("kind") or "open"] = kinds.get((r.get("outcome") or {}).get("kind") or "open", 0) + 1
+    print(f"checked, updated {upd}; total {len(rows)}; outcomes {kinds}")
+    resold = [r for r in rows if (r.get("outcome") or {}).get("kind") == "resold"]
+    if resold:
+        net = sum(r["outcome"]["paper_net"] for r in resold); wins = sum(1 for r in resold if r["outcome"]["paper_net"] > 0)
+        print(f"paper (entry -> sniper's resale): net {net:+.1f} TON, wins {wins}/{len(resold)}")
+        for r in resold:
+            print(f"  {r['coll'][:14]:14} {r['model'][:14]:14} buy {r['gg_price']:>7.2f} -> resold {r['outcome']['resale']:>7.2f} net {r['outcome']['paper_net']:>+7.2f}")
+    sn = [r for r in rows if (r.get("outcome") or {}).get("kind") == "sniped"]
+    if sn:
+        import statistics
+        print(f"sniped (market agreed, awaiting resale): {len(sn)}, median minutes to snipe {statistics.median(r['outcome']['minutes'] for r in sn)}")
 
 
 if __name__ == "__main__":

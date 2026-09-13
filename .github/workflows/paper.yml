@@ -44,7 +44,14 @@ jobs:
         run: |
           git config user.name "paper-bot"
           git config user.email "paper-bot@users.noreply.github.com"
+          git config merge.union.driver true
           git add data/*.jsonl scan_dump.json paper_runs.txt
-          git diff --cached --quiet || git commit -m "paper: $(date -u '+%F %H:%M') run"
-          git pull --rebase -q || true
-          git push
+          git diff --cached --quiet && exit 0
+          git commit -m "paper: $(date -u '+%F %H:%M') run"
+          for i in 1 2 3 4 5; do
+            git fetch -q origin main
+            git rebase -X theirs origin/main || { git checkout --theirs . ; git add -A; GIT_EDITOR=true git rebase --continue || git rebase --abort; }
+            git push -q && exit 0
+            sleep $((i*7))
+          done
+          echo "push failed after retries"; exit 1

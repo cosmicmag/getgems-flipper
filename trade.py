@@ -30,6 +30,14 @@ def addr_hash(a: str | None) -> str:
     return raw[2:34].hex()
 
 
+RESERVED = {"kind", "nft", "price", "ok", "reason", "tx_state", "tx_total", "owner", "seqno", "dry_run", "t", "entry"}
+
+
+def clean_meta(meta: dict) -> dict:
+    """Drop keys that collide with the trade record's own fields (a watcher hit carries nft/price/net...)."""
+    return {("hit_" + k if k in RESERVED else k): v for k, v in (meta or {}).items()}
+
+
 def log(rec: dict):
     rec = dict(rec, t=time.time())
     with open(TRADES, "a") as f:
@@ -107,6 +115,7 @@ def limits_ok(price: float) -> tuple[bool, str]:
 
 def buy(nft: str, version: str, price: float, meta: dict, dry_run=False) -> dict:
     """Buy a fixed-price listing. Returns the trade record (ok=True when ownership is confirmed)."""
+    meta = clean_meta(meta)
     ok, why = limits_ok(price)
     if not ok:
         return log(dict(kind="buy", nft=nft, price=price, ok=False, reason=why, **meta))
@@ -138,6 +147,7 @@ def buy(nft: str, version: str, price: float, meta: dict, dry_run=False) -> dict
 
 def list_for_sale(nft: str, full_price: float, meta: dict, dry_run=False) -> dict:
     """Relist an on-chain NFT we own at a fixed price (TON). Retries while Getgems still shows the old owner."""
+    meta = clean_meta(meta)
     tx = None
     for attempt in range(8):
         try:

@@ -30,6 +30,10 @@ jobs:
           node-version: "22"
       - name: Install signer deps
         run: npm ci --prefix signer --silent
+      - name: Wallet check (fails fast if the seed secret is wrong)
+        env:
+          MNEMONIC: ${{ secrets.MNEMONIC }}
+        run: cd signer && npx tsx send.ts --balance
       - name: Watch new listings and trade
         env:
           GG_KEY: ${{ secrets.GG_KEY }}

@@ -42,10 +42,10 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           MNEMONIC: ${{ secrets.MNEMONIC }}        # bot wallet seed; trading is capped by MAX_LOT_TON / DAILY_CAP_TON
           AUTO_BUY: "1"
-          MAX_LOT_TON: "50"
+          MAX_LOT_TON: "60"
           DAILY_CAP_TON: "150"
           WEEKLY_LOSS_STOP_TON: "30"
-          MAX_SINGLE_TON: "60"
+          MAX_SINGLE_TON: "70"
           TICK_SECONDS: "10"
           MAX_RUN_SEC: "20400"   # 5h40m, then exit so the re-dispatch step starts a fresh instance
         run: |

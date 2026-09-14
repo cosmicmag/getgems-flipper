@@ -108,9 +108,14 @@ class Fills:
         """{(coll, model): ref, (coll, model, backdrop): ref} where ref = dict(med, n, last_age_d, srcs)."""
         now = time.time(); cutoff = now - MAX_AGE_DAYS * 86400
         by_model, by_tier = defaultdict(list), defaultdict(list)
+        seen = set()   # the same sale is reported by several sources (chain + Getgems history): count it once
         for r in self.rows:
             if r["t"] < cutoff:
                 continue
+            key = (r["coll"], r["model"], round(r["price"], 2), int(r["t"] // 600))
+            if key in seen:
+                continue
+            seen.add(key)
             by_model[(r["coll"], r["model"])].append(r)
             if r["backdrop"]:
                 by_tier[(r["coll"], r["model"], r["backdrop"])].append(r)

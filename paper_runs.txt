@@ -6079,3 +6079,50 @@ sniped (market agreed, awaiting resale): 11, median minutes to snipe 3136
   Vice Cream #324645: 12.11 TON, on shelf 22.6h — too early
   Vice Cream #382067: 12.11 TON, on shelf 22.6h — too early
   Low Rider #7908: 59.67 TON, on shelf 22.6h — too early
+fills loaded: chain+portals=4367
+  Plush Pepes              listings=273 sold_hist=300 fills_total=4534
+    toncenter batch err: <urlopen error [Errno 104] Connection reset by peer>
+  Scared Cats              listings=481 sold_hist=300 fills_total=4713
+    toncenter batch err: <urlopen error [Errno 104] Connection reset by peer>
+  Heart Lockets            listings=154 sold_hist=300 fills_total=4813
+    toncenter batch err: IncompleteRead(10666 bytes read, 118539 more expected)
+  Swiss Watches            listings=408 sold_hist=300 fills_total=5020
+    toncenter batch err: <urlopen error [Errno 104] Connection reset by peer>
+  Durov’s Caps             listings=379 sold_hist=300 fills_total=5158
+  Precious Peaches         listings=245 sold_hist=300 fills_total=5352
+    toncenter batch err: <urlopen error [Errno 104] Connection reset by peer>
+  Toy Bears                listings=400 sold_hist=300 fills_total=5560
+  Algorithm Cups           listings=3 sold_hist=1 fills_total=5561
+  Loot Bags                listings=410 sold_hist=300 fills_total=5774
+    toncenter batch err: <urlopen error [Errno 104] Connection reset by peer>
+  Stellar Rockets          listings=476 sold_hist=300 fills_total=6024
+    toncenter batch err: <urlopen error [Errno 104] Connection reset by peer>
+  Voodoo Dolls             listings=499 sold_hist=300 fills_total=6273
+  Vintage Cigars           listings=409 sold_hist=300 fills_total=6531
+    toncenter batch err: <urlopen error [Errno 104] Connection reset by peer>
+  Snoop Doggs              listings=536 sold_hist=300 fills_total=6720
+    toncenter batch err: <urlopen error [Errno 104] Connection reset by peer>
+  Timeless Books           listings=440 sold_hist=300 fills_total=6945
+  Liberty Figures          listings=475 sold_hist=300 fills_total=7216
+    toncenter batch err: <urlopen error [Errno 104] Connection reset by peer>
+  Witch Hats               listings=460 sold_hist=300 fills_total=7442
+    toncenter batch err: <urlopen error [Errno 104] Connection reset by peer>
+  Chill Flames             listings=542 sold_hist=300 fills_total=7662
+  Vice Creams              listings=516 sold_hist=300 fills_total=7931
+  Winter Wreaths           listings=418 sold_hist=300 fills_total=8200
+  Astral Shards            listings=400 sold_hist=300 fills_total=8440
+gg fills persisted: 7468
+references: 686 (model/tier keys)
+
+=== CANDIDATES vs fills (p25 of last 14d), 0 ===
+coll            model            backdrop            GG  refP25  refMed   n  age        src   P.ask     net   net%  nft
+
+done in 345s
+logged 0 new candidates, total 38
+checked, updated 11; total 38; outcomes {'sniped': 11, 'open': 27}
+sniped (market agreed, awaiting resale): 11, median minutes to snipe 3136
+  Chill Flame #153117: 4.6 TON already at/below target 4.78 (floor 4.78)
+  Stellar Rocket #12256: 17.7 TON, on shelf 23.6h — too early
+  Vice Cream #324645: 12.11 TON, on shelf 23.6h — too early
+  Vice Cream #382067: 12.11 TON, on shelf 23.6h — too early
+  Low Rider #7908: 59.67 TON, on shelf 23.6h — too early

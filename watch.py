@@ -14,7 +14,9 @@ import trade
 TICK = int(os.environ.get("TICK_SECONDS", "20"))
 GG_FEE, GAS = 0.02, 0.3
 MIN_NET_PCT, MAX_NET_PCT, MIN_ABS_NET = 15.0, 300.0, 2.0
-MAX_REF_AGE_D, MIN_REF_N = 3.0, 4   # stale or thin references produced unsold "hits" (Voodoo Dolls, Clover Pins)
+MAX_REF_AGE_D, MIN_REF_N = 10.0, 4
+AGE_PENALTY_PCT = 5.0   # an older reference is less trustworthy, so demand a wider margin instead of dropping it:
+                        # required margin = MIN_NET_PCT + AGE_PENALTY_PCT per day of reference age beyond 2 days
 REFRESH_SEC = int(os.environ.get("REFS_REFRESH_SEC", "1800"))
 MAX_RUN_SEC = int(os.environ.get("MAX_RUN_SEC", "0"))   # 0 = run forever
 AUTO_BUY = os.environ.get("AUTO_BUY") == "1"          # live trading only when explicitly enabled
@@ -105,11 +107,13 @@ def main():
                 if not ref:
                     continue
                 target = ref["p25"]; net = target * (1 - GG_FEE) - price - GAS; pct = net / price * 100
-                fresh = ref["last_age_d"] <= MAX_REF_AGE_D and ref["n"] >= MIN_REF_N
-                status = "HIT" if (fresh and net >= MIN_ABS_NET and MIN_NET_PCT <= pct <= MAX_NET_PCT) else ("weak" if net >= MIN_ABS_NET and pct >= MIN_NET_PCT else "seen")
+                required_pct = MIN_NET_PCT + AGE_PENALTY_PCT * max(0.0, ref["last_age_d"] - 2.0)
+                usable = ref["last_age_d"] <= MAX_REF_AGE_D and ref["n"] >= MIN_REF_N
+                status = ("HIT" if (usable and net >= MIN_ABS_NET and required_pct <= pct <= MAX_NET_PCT)
+                          else "weak" if net >= MIN_ABS_NET and pct >= MIN_NET_PCT else "seen")
                 line = (f"{time.strftime('%H:%M:%S')} {status:4} {cname[:16]:16} {m.group(1)[:16]:16} {m.group(2)[:12]:12} "
                         f"price {price:>8.2f} refP25 {target:>7.1f} med {ref['med']:>7.1f} n={ref['n']} age={ref['last_age_d']}d "
-                        f"net {net:>7.2f} ({pct:5.1f}%) https://getgems.io/nft/{x['address']}")
+                        f"net {net:>7.2f} ({pct:5.1f}% vs {required_pct:4.1f}% req) https://getgems.io/nft/{x['address']}")
                 print(line, flush=True)
                 if status == "HIT":
                     hits_total += 1

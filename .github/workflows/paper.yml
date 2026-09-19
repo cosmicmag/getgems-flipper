@@ -48,6 +48,7 @@ jobs:
           python3 scan.py 20 | tee -a paper_runs.txt
           python3 paper.py log | tee -a paper_runs.txt
           python3 paper.py check | tee -a paper_runs.txt
+          python3 list_inventory.py --send | tee -a paper_runs.txt
           python3 sales.py | tee -a paper_runs.txt
           python3 reprice.py --send | tee -a paper_runs.txt
       - name: Commit results

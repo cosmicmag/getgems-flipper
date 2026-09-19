@@ -16,6 +16,7 @@ STEP_PCT = float(os.environ.get("REPRICE_STEP_PCT", "7")) / 100
 GAS = float(os.environ.get("REPRICE_GAS_TON", "0.3"))
 COOLDOWN_H = float(os.environ.get("REPRICE_COOLDOWN_H", "20"))
 MIN_AGE_H = float(os.environ.get("REPRICE_MIN_AGE_H", "24"))
+OWNER_LOT_FLOOR = float(os.environ.get("REPRICE_OWNER_FLOOR", "0.75"))   # gifts sent in by the owner: stop at 75% of the first ask
 
 
 def history() -> dict[str, dict]:
@@ -59,8 +60,10 @@ def run(dry_run: bool = True) -> list[dict]:
             continue
         nft = item["address"]; cur = int(sale["fullPrice"]) / 1e9
         h = hist.get(nft)
-        if not h or not h.get("entry") or not h.get("listed_at"):
+        if not h or not h.get("listed_at"):
             print(f"  {item['name']}: no trade history, skipped"); continue
+        if not h.get("entry"):
+            h = dict(h, entry=h.get("first_ask", cur) * OWNER_LOT_FLOOR)   # owner transfer: no cost basis
         age_h = (now - h["listed_at"]) / 3600
         since_reprice_h = (now - h.get("last_reprice", 0)) / 3600
         if age_h < MIN_AGE_H or since_reprice_h < COOLDOWN_H:

@@ -14,13 +14,20 @@ from trade import GG_FEE, WALLET, log, trades, STOP_FILE
 from reprice import relist
 
 UNDERCUT = float(os.environ.get("LIST_UNDERCUT_TON", "0.1"))
-MIN_OF_MED = float(os.environ.get("LIST_MIN_OF_MED", "0.75"))
+# Hard anti-dump floor only. A softer floor (0.75) overrode live comparable asks and parked our lot above
+# the book (Seeing Red: would ask 52.5 while a same-backdrop rival sat at 46).
+MIN_OF_MED = float(os.environ.get("LIST_MIN_OF_MED", "0.60"))
 MAX_PER_RUN = int(os.environ.get("LIST_MAX_PER_RUN", "8"))
 
 
-def asks_by_model(collection: str) -> dict[str, float]:
-    """Cheapest live TON ask per model in a collection."""
-    best: dict[str, float] = {}
+def asks_by_model(collection: str) -> dict[tuple, float]:
+    """Cheapest live TON ask per model and per (model, backdrop).
+
+    The cheapest ask for a model is often a different backdrop (Seeing Red: 40 on Mint Green vs 46 on
+    Roman Silver), so undercutting it blindly gives away the backdrop premium. A same-backdrop ask is the
+    comparable one; the model-wide ask is the fallback.
+    """
+    best: dict[tuple, float] = {}
     cursor = None
     for _ in range(6):
         r = gg(f"/v1/nfts/on-sale/{collection}", limit=100, after=cursor)
@@ -31,9 +38,11 @@ def asks_by_model(collection: str) -> dict[str, float]:
             model = next((a["value"] for a in x.get("attributes", []) if a["traitType"].lower() == "model"), None)
             if not model:
                 continue
+            backdrop = next((a["value"] for a in x.get("attributes", []) if a["traitType"].lower() == "backdrop"), "")
             p = int(s["fullPrice"]) / 1e9
-            if p < best.get(model.lower(), 1e9):
-                best[model.lower()] = p
+            for key in ((model.lower(),), (model.lower(), backdrop.lower())):
+                if p < best.get(key, 1e9):
+                    best[key] = p
         cursor = r.get("cursor")
         if not cursor:
             break
@@ -61,7 +70,8 @@ def run(dry_run: bool = True) -> list[dict]:
         ref = refs.get((cname, model))
         if coll not in books:
             books[coll] = asks_by_model(coll)
-        rival = books[coll].get(model)
+        backdrop = (attrs.get("backdrop") or "").lower()
+        rival = books[coll].get((model, backdrop)) or books[coll].get((model,))
         if ref:
             price = min(ref["med"] - 1, rival - UNDERCUT) if rival else ref["med"] - 1
             price = max(price, ref["med"] * MIN_OF_MED)
@@ -71,7 +81,7 @@ def run(dry_run: bool = True) -> list[dict]:
             print(f"  {x['name']}: no fills and no rival ask, skipped"); continue
         price = round(max(price, 1.0), 2)
         print(f"  {x['name']} ({attrs.get('model')}): list at {price}"
-              f" (fills med {ref['med'] if ref else '-'}, cheapest rival {rival})")
+              f" (fills med {ref['med'] if ref else '-'}, comparable rival {rival})")
         if dry_run:
             continue
         try:

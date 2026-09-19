@@ -144,6 +144,12 @@ def main():
             if len(seen) > 5000:
                 seen = set(list(seen)[-2000:])
             if time.time() - last_refresh > REFRESH_SEC:
+                try:
+                    import sales
+                    for rec in sales.run():
+                        tg(f"💰 ПРОДАНО {rec['name']}: {rec['entry']:.2f} → {rec['price']:.2f} TON, чистыми {rec['pnl']:+.2f}")
+                except Exception as e:
+                    print("sales check err", e, file=sys.stderr)
                 git_sync(); refs = build_refs(); names = coll_names(); last_refresh = time.time()
             if time.time() - last_paper > 3600 and os.environ.get("GITHUB_ACTIONS"):
                 # GitHub skips many scheduled runs; trigger the hourly reference rebuild ourselves

@@ -17,7 +17,7 @@ MIN_BID_TON = float(os.environ.get("MIN_BID_TON", "8"))
 # A bid far under the market never fills, it just freezes cash (Scared Cat Obelisk: cap 60 against a 2815
 # market). Only bid when the cap still leaves us within reach of the book.
 MIN_BID_OF_P25 = float(os.environ.get("MIN_BID_OF_P25", "0.5"))
-OFFER_BUDGET_TON = float(os.environ.get("OFFER_BUDGET_TON", "100"))
+OFFER_BUDGET_TON = float(os.environ.get("OFFER_BUDGET_TON", "120"))
 OFFER_DAYS = int(os.environ.get("OFFER_DAYS", "3"))
 MIN_FILLS = int(os.environ.get("OFFER_MIN_FILLS", "5"))
 MAX_REF_AGE_D = float(os.environ.get("OFFER_MAX_REF_AGE_D", "3"))
@@ -43,6 +43,17 @@ def active_keys() -> set:
     return keys
 
 
+def recent_keys() -> set:
+    """Offers we placed recently. The offers API lags behind a fresh transaction, so the journal is the
+    authority for a few minutes after placing one."""
+    keys, cutoff = set(), time.time() - OFFER_DAYS * 86400
+    cancelled = {r.get("offer") for r in trades() if r["kind"] == "offer_cancel"}
+    for r in trades():
+        if r["kind"] == "offer" and r.get("ok") and r["t"] > cutoff and r.get("offer") not in cancelled:
+            keys.add((r.get("coll_address") or r.get("coll"), (r.get("model") or "").lower()))
+    return keys
+
+
 def plan() -> list[dict]:
     fills = Fills(); fills.load_onchain(); fills.load_gg(); fills.load_portals()
     refs = fills.references()
@@ -65,13 +76,19 @@ def plan() -> list[dict]:
                           med=ref["med"], p25=ref["p25"], n=ref["n"], age=ref["last_age_d"],
                           upside=round(ref["p25"] * 0.98 - bid - 0.3, 2)))
     cands.sort(key=lambda c: -c["upside"])
-    taken = active_keys()
-    cands = [c for c in cands if (c["address"], c["model"]) not in taken]
+    taken = active_keys() | recent_keys()
+    cands = [c for c in cands if (c["address"], c["model"]) not in taken and (c["coll"], c["model"]) not in taken]
+    # The budget caps TOTAL escrow. Counting only this run's bids let each hourly run add another 100 TON
+    # until the wallet was empty (197 TON locked, 17 TON cash).
+    locked = sum(int(o["fullPrice"]) / 1e9 for o in live_offers())
+    room = OFFER_BUDGET_TON - locked
     picked, spent = [], 0.0
     for c in cands:
-        if spent + c["bid"] > OFFER_BUDGET_TON:
+        if spent + c["bid"] > room:
             continue
         picked.append(c); spent += c["bid"]
+    if room <= 0:
+        print(f"escrow budget full: {locked:.1f} of {OFFER_BUDGET_TON} TON already locked")
     return picked
 
 
@@ -86,7 +103,8 @@ def place(c: dict, dry_run=True) -> dict:
     sign_and_send(tx, dry_run=False)
     state = wait_tx(tx)
     return log(dict(kind="offer", nft=None, price=c["bid"], ok=state == "Ready", tx_state=state,
-                    coll=c["coll"], model=c["model"], escrow=total, med=c["med"], upside=c["upside"]))
+                    coll=c["coll"], coll_address=c["address"], model=c["model"], escrow=total,
+                    med=c["med"], upside=c["upside"]))
 
 
 def cancel_expired(dry_run=True) -> int:
@@ -114,6 +132,46 @@ def cancel_expired(dry_run=True) -> int:
     return n
 
 
+def trim_to_budget(dry_run=True) -> int:
+    """Cancel the weakest bids until locked escrow fits the budget, keeping the ones with the best upside."""
+    fills = Fills(); fills.load_onchain(); fills.load_gg(); fills.load_portals()
+    refs = fills.references()
+    live = live_offers()
+    locked = sum(int(o["fullPrice"]) / 1e9 for o in live)
+    if locked <= OFFER_BUDGET_TON:
+        return 0
+    coll_name = {}
+    scored = []
+    for o in live:
+        bid = int(o["fullPrice"]) / 1e9
+        models = [v.lower() for a in (o.get("attributes") or []) for v in a.get("values", [])]
+        addr = o.get("collectionAddress")
+        if addr not in coll_name:
+            try:
+                coll_name[addr] = norm_coll(gg(f"/v1/collection/{addr}").get("name") or "")
+            except Exception:
+                coll_name[addr] = ""
+        ref = refs.get((coll_name[addr], models[0])) if models else None
+        upside = (ref["p25"] * 0.98 - bid - 0.3) if ref else -bid
+        scored.append((upside, bid, o))
+    scored.sort()                       # weakest first
+    freed = 0
+    for upside, bid, o in scored:
+        if locked <= OFFER_BUDGET_TON:
+            break
+        print(f"  trim offer {bid:.2f} TON (upside {upside:+.2f})")
+        locked -= bid; freed += 1
+        if dry_run:
+            continue
+        try:
+            tx = gg_post("/v1/offer/collection/cancel", {"userAddress": WALLET, "offerAddress": o["offerAddress"]})
+            sign_and_send(tx, dry_run=False); wait_tx(tx)
+            log(dict(kind="offer_cancel", nft=None, price=bid, ok=True, offer=o["offerAddress"], reason="over budget"))
+        except Exception as e:
+            print(f"    cancel failed: {e}")
+    return freed
+
+
 def main():
     if os.path.exists(STOP_FILE):
         print("STOP file present"); return
@@ -132,7 +190,7 @@ def main():
             print("  budget/balance exhausted"); break
         r = place(c, dry_run=False); spent += c["bid"]
         print(f"  -> {'placed' if r.get('ok') else 'failed'} {r.get('tx_state','')}")
-    freed = cancel_expired(dry_run=dry)
+    freed = cancel_expired(dry_run=dry) + trim_to_budget(dry_run=dry)
     if freed:
         print(f"expired offers cancelled: {freed}")
     live = live_offers()

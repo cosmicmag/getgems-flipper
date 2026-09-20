@@ -1,0 +1,126 @@
+"""Collection offers (bids) on specific models: let sellers come to us instead of racing snipers to listings.
+
+A bid is escrowed on chain, so this only bids on models whose fills prove both liquidity and a spread:
+  bid = model median * (1 - BID_DISCOUNT), capped by MAX_BID_TON and the total OFFER_BUDGET_TON.
+Attribute offers target one model, so nobody can fill us with a 4 TON common when we bid 40 for a premium.
+"""
+from __future__ import annotations
+import json, os, sys, time
+
+from gg_api import gg
+from refs import Fills, norm_coll
+from trade import WALLET, gg_post, log, sign_and_send, trades, wait_tx, STOP_FILE, balance
+
+BID_DISCOUNT = float(os.environ.get("BID_DISCOUNT", "0.25"))
+MAX_BID_TON = float(os.environ.get("MAX_BID_TON", "60"))
+MIN_BID_TON = float(os.environ.get("MIN_BID_TON", "8"))
+# A bid far under the market never fills, it just freezes cash (Scared Cat Obelisk: cap 60 against a 2815
+# market). Only bid when the cap still leaves us within reach of the book.
+MIN_BID_OF_P25 = float(os.environ.get("MIN_BID_OF_P25", "0.5"))
+OFFER_BUDGET_TON = float(os.environ.get("OFFER_BUDGET_TON", "100"))
+OFFER_DAYS = int(os.environ.get("OFFER_DAYS", "3"))
+MIN_FILLS = int(os.environ.get("OFFER_MIN_FILLS", "5"))
+MAX_REF_AGE_D = float(os.environ.get("OFFER_MAX_REF_AGE_D", "3"))
+RESERVE_TON = float(os.environ.get("RESERVE_TON", "5"))
+
+COLLECTIONS = {}     # filled from the top gift collections
+
+
+def live_offers() -> list[dict]:
+    try:
+        return gg(f"/v1/offers/by-user/{WALLET}", limit=100).get("items", [])
+    except Exception as e:
+        print("offers fetch err", e); return []
+
+
+def plan() -> list[dict]:
+    fills = Fills(); fills.load_onchain(); fills.load_gg(); fills.load_portals()
+    refs = fills.references()
+    top = gg("/v1/gifts/collections/top", kind="week", limit=25)["items"]
+    for t in top:
+        COLLECTIONS[norm_coll(t["collection"]["name"] or "")] = t["collection"]["address"]
+    cands = []
+    for key, ref in refs.items():
+        if len(key) != 2:
+            continue                       # model-level only: an attribute offer targets Model
+        coll, model = key
+        if coll not in COLLECTIONS or ref["n"] < MIN_FILLS or ref["last_age_d"] > MAX_REF_AGE_D:
+            continue
+        bid = round(min(ref["med"] * (1 - BID_DISCOUNT), MAX_BID_TON), 2)
+        if bid < MIN_BID_TON or bid >= ref["p25"]:
+            continue                       # no room under the market
+        if bid < ref["p25"] * MIN_BID_OF_P25:
+            continue                       # capped far below the book: would never fill
+        cands.append(dict(coll=coll, address=COLLECTIONS[coll], model=model, bid=bid,
+                          med=ref["med"], p25=ref["p25"], n=ref["n"], age=ref["last_age_d"],
+                          upside=round(ref["p25"] * 0.98 - bid - 0.3, 2)))
+    cands.sort(key=lambda c: -c["upside"])
+    picked, spent = [], 0.0
+    for c in cands:
+        if spent + c["bid"] > OFFER_BUDGET_TON:
+            continue
+        picked.append(c); spent += c["bid"]
+    return picked
+
+
+def place(c: dict, dry_run=True) -> dict:
+    body = {"userAddress": WALLET, "collectionAddress": c["address"], "price": str(int(round(c["bid"] * 1e9))),
+            "amount": 1, "finishAt": int(time.time()) + OFFER_DAYS * 86400,
+            "attributes": [{"trait": "Model", "values": [c["model"].title()]}]}
+    tx = gg_post("/v1/offer/collection/create", body)
+    total = sum(int(m["amount"]) for m in tx["list"]) / 1e9
+    if dry_run:
+        return dict(c, escrow=total, dry_run=True)
+    sign_and_send(tx, dry_run=False)
+    state = wait_tx(tx)
+    return log(dict(kind="offer", nft=None, price=c["bid"], ok=state == "Ready", tx_state=state,
+                    coll=c["coll"], model=c["model"], escrow=total, med=c["med"], upside=c["upside"]))
+
+
+def cancel_expired(dry_run=True) -> int:
+    """Getgems keeps the escrow until an offer is cancelled, so reclaim cash from finished offers."""
+    n = 0
+    for o in live_offers():
+        finish = (o.get("finishAt") or 0) / 1000
+        if finish and finish > time.time():
+            continue
+        if dry_run:
+            print(f"  would cancel offer {o.get('offerAddress','')[:14]}"); n += 1; continue
+        try:
+            tx = gg_post("/v1/offer/collection/cancel", {"userAddress": WALLET, "offerAddress": o["offerAddress"]})
+            sign_and_send(tx, dry_run=False); wait_tx(tx)
+            log(dict(kind="offer_cancel", nft=None, price=int(o.get("fullPrice", 0)) / 1e9, ok=True,
+                     offer=o["offerAddress"]))
+            n += 1
+        except Exception as e:
+            print(f"  cancel failed {o.get('offerAddress','')[:14]}: {e}")
+    return n
+
+
+def main():
+    if os.path.exists(STOP_FILE):
+        print("STOP file present"); return
+    dry = "--send" not in sys.argv
+    picked = plan()
+    bal = balance()
+    print(f"balance {bal:.1f} TON | budget {OFFER_BUDGET_TON} | candidates {len(picked)}")
+    print(f"{'collection':16} {'model':18} {'bid':>7} {'p25':>7} {'med':>7} {'n':>3} {'age':>5} {'upside':>7}")
+    spent = 0.0
+    for c in picked:
+        print(f"{c['coll'][:16]:16} {c['model'][:18]:18} {c['bid']:>7.2f} {c['p25']:>7.1f} {c['med']:>7.1f} "
+              f"{c['n']:>3} {c['age']:>5} {c['upside']:>7.2f}")
+        if dry:
+            continue
+        if bal - spent - c["bid"] - 1 < RESERVE_TON:
+            print("  budget/balance exhausted"); break
+        r = place(c, dry_run=False); spent += c["bid"]
+        print(f"  -> {'placed' if r.get('ok') else 'failed'} {r.get('tx_state','')}")
+    freed = cancel_expired(dry_run=dry)
+    if freed:
+        print(f"expired offers cancelled: {freed}")
+    live = live_offers()
+    print(f"live offers now: {len(live)}")
+
+
+if __name__ == "__main__":
+    main()

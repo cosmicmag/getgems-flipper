@@ -10457,3 +10457,84 @@ escrow budget full: 120.0 of 120.0 TON already locked
 balance 95.2 TON | budget 120.0 | candidates 0
 collection       model                  bid     p25     med   n   age  upside
 live offers now: 2
+fills loaded: chain+portals=4367
+portals collections err HTTP 525 https://portal-market.com/api/collections?limit=300&offset=0&favorites_only=false {"type":"https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-5xx-errors/error-525/","title":"Error 525: SSL handshake failed","status":525,"detail":"The SSL/TLS hand
+  Plush Pepes              listings=283 sold_hist=300 fills_total=4532
+  Scared Cats              listings=478 sold_hist=300 fills_total=4754
+  Heart Lockets            listings=178 sold_hist=300 fills_total=4907
+  Swiss Watches            listings=410 sold_hist=300 fills_total=5161
+  Durov’s Caps             listings=385 sold_hist=300 fills_total=5350
+  Precious Peaches         listings=246 sold_hist=300 fills_total=5545
+  Algorithm Cups           listings=5 sold_hist=2 fills_total=5547
+  Witch Hats               listings=464 sold_hist=300 fills_total=5838
+  Toy Bears                listings=400 sold_hist=300 fills_total=6096
+  Loot Bags                listings=411 sold_hist=300 fills_total=6314
+  Voodoo Dolls             listings=499 sold_hist=300 fills_total=6565
+  Snoop Doggs              listings=539 sold_hist=300 fills_total=6819
+  Liberty Figures          listings=468 sold_hist=300 fills_total=7068
+  Vintage Cigars           listings=409 sold_hist=300 fills_total=7327
+  Chill Flames             listings=538 sold_hist=300 fills_total=7605
+  Timeless Books           listings=444 sold_hist=300 fills_total=7879
+  Vice Creams              listings=519 sold_hist=300 fills_total=8151
+  Westside Signs           listings=486 sold_hist=300 fills_total=8388
+  Ion Gems                 listings=400 sold_hist=300 fills_total=8639
+  Snoop Cigars             listings=466 sold_hist=300 fills_total=8878
+gg fills persisted: 9034
+references: 595 (model/tier keys)
+
+=== CANDIDATES vs fills (p25 of last 14d), 20 ===
+coll            model            backdrop            GG  refP25  refMed   n  age        src   P.ask     net   net%  nft
+Precious Peache Cutout           Lemongrass     1111.00  1734.2  1792.1   4  0.2         gg       -  588.22   52.9  https://getgems.io/nft/EQA0tXR8TWlI3Ftpno-CuSyZ7_07AbyhPbpgTmwj6pLf_Ys6
+Toy Bears       Toady Bear       Coral Red        44.00   163.0   163.5   6  7.1         gg       -  115.44  262.4  OFF https://getgems.io/nft/EQf_tg_gift_______________________8V9WjCAAAxuDCa
+Toy Bears       Toady Bear       Sky Blue         44.00   163.0   163.5   6  7.1         gg       -  115.44  262.4  OFF https://getgems.io/nft/EQf_tg_gift_______________________8V9WjCAABgLd4I
+Toy Bears       Toady Bear       Platinum         44.00   163.0   163.5   6  7.1         gg       -  115.44  262.4  OFF https://getgems.io/nft/EQf_tg_gift_______________________8V9WjCAACs-Bbp
+Toy Bears       Toady Bear       Platinum         44.00   163.0   163.5   6  7.1         gg       -  115.44  262.4  OFF https://getgems.io/nft/EQf_tg_gift_______________________8V9WjCAACth6qg
+Scared Cats     Endercat         Mint Green      385.00   480.0   510.0   5  0.7         gg       -   85.10   22.1  OFF https://getgems.io/nft/EQf_tg_gift_______________________8e4aWuAAAMGLQv
+Swiss Watches   Zenith           Lemongrass      115.00   168.0   200.0   3  0.3         gg       -   49.34   42.9  https://getgems.io/nft/EQDIkio1jOIcAIzMCCq12LxRlAvXfsCP6o0vYtqD8GEMDtfm
+Swiss Watches   Zenith           Coral Red       115.00   168.0   200.0   3  0.3         gg       -   49.34   42.9  https://getgems.io/nft/EQAznMWgG6T_QfZfpJ3z6F-fyULpXkwWc5T0rGQgdOibfylD
+Swiss Watches   Zenith           Desert Sand     116.00   168.0   200.0   3  0.3         gg       -   48.34   41.7  https://getgems.io/nft/EQBEz3uGhv4En4WZDq0LqJ0gnREFax5XtVB17uHNHDL9znYR
+Swiss Watches   Zenith           Purple          123.00   168.0   200.0   3  0.3         gg       -   41.34   33.6  https://getgems.io/nft/EQCpc3Wyh4XEPVVnaFhkcUVuMw-WncSO7HVt-WSQgMaWAcPc
+Swiss Watches   Zenith           Emerald         125.00   168.0   200.0   3  0.3         gg       -   39.34   31.5  https://getgems.io/nft/EQC3F4i9nMHtoMqwFWy7rT_6MKNdh_kxt_1uDtz-2EN1vVa1
+Voodoo Dolls    Concept Art      Desert Sand     150.00   188.0   228.5   4  8.1         gg       -   33.94   22.6  OFF https://getgems.io/nft/EQf_tg_gift_______________________91drG_AABmHlz3
+Toy Bears       Pajamas          Pure Gold        44.00    55.0    55.0   3  0.7         gg       -    9.60   21.8  OFF https://getgems.io/nft/EQf_tg_gift_______________________8V9WjCAAAXkwnT
+Toy Bears       Pajamas          Mint Green       44.00    55.0    55.0   3  0.7         gg       -    9.60   21.8  OFF https://getgems.io/nft/EQf_tg_gift_______________________8V9WjCAAA0zPF8
+Toy Bears       Pajamas          Pistachio        44.00    55.0    55.0   3  0.7         gg       -    9.60   21.8  OFF https://getgems.io/nft/EQf_tg_gift_______________________8V9WjCAADPh8fo
+Toy Bears       Pajamas          French Blue      44.00    55.0    55.0   3  0.7         gg       -    9.60   21.8  OFF https://getgems.io/nft/EQf_tg_gift_______________________8V9WjCAAAfvUXW
+Toy Bears       Pajamas          Malachite        44.00    55.0    55.0   3  0.7         gg       -    9.60   21.8  OFF https://getgems.io/nft/EQf_tg_gift_______________________8V9WjCAAAgW82V
+Toy Bears       Pajamas          Carrot Juice     44.00    55.0    55.0   3  0.7         gg       -    9.60   21.8  OFF https://getgems.io/nft/EQf_tg_gift_______________________8V9WjCAAAx8tkU
+Toy Bears       Pajamas          Amber            44.00    55.0    55.0   3  0.7         gg       -    9.60   21.8  OFF https://getgems.io/nft/EQf_tg_gift_______________________8V9WjCAAA25SJV
+Toy Bears       Pajamas          Hunter Green     44.00    55.0    55.0   3  0.7         gg       -    9.60   21.8  OFF https://getgems.io/nft/EQf_tg_gift_______________________8V9WjCAABreRiD
+
+done in 344s
+logged 0 new candidates, total 61
+checked, updated 13; total 61; outcomes {'sniped': 13, 'unsold_7d': 26, 'resold': 1, 'open': 21}
+paper (entry -> sniper's resale): net -1.1 TON, wins 0/1
+  Voodoo Dolls   Bitten Lip     buy   38.33 -> resold   38.33 net   -1.07
+sniped (market agreed, awaiting resale): 13, median minutes to snipe 2780
+nothing idle to list
+buys 6 | sales 4 | flip PnL +3.83 TON | owner gifts sold 3 for 110.72 TON net
+  Stellar Rocket #12256        12.00 ->   16.46    +3.83
+  Vintage Cigar #1399           gift ->   39.90   +38.80
+  Vintage Cigar #11961          gift ->   37.50   +36.45
+  Vintage Cigar #21955          gift ->   36.50   +35.47
+  Chill Flame #153117: 4.6 TON already at/below target 4.78 (floor 4.78)
+  Vice Cream #324645: 11.26 TON already at/below target 11.26 (floor 6.43)
+  Vice Cream #382067: 11.26 TON already at/below target 11.26 (floor 5.92)
+  Low Rider #7908: 59.03 TON already at/below target 59.03 (floor 59.03)
+  Vice Cream #159953: 43.24 TON already at/below target 43.24 (floor 41.12)
+  Vintage Cigar #2187: 45.9 TON, on shelf 22.6h — too early
+  Vintage Cigar #11454: 49.9 TON, on shelf 22.6h — too early
+  Vintage Cigar #672: 38.0 TON, on shelf 22.3h — too early
+  Vintage Cigar #5256: 42.0 TON, on shelf 22.3h — too early
+  Vintage Cigar #7633: 55.45 TON, on shelf 22.3h — too early
+  Vintage Cigar #9411: 39.7 TON, on shelf 22.3h — too early
+  Vintage Cigar #15136: 43.5 TON, on shelf 22.3h — too early
+  Vintage Cigar #21952: 42.0 TON, on shelf 22.3h — too early
+  Vintage Cigar #20936: 49.9 TON, on shelf 22.3h — too early
+  Vintage Cigar #20623: 119.9 TON, on shelf 22.3h — too early
+  Vintage Cigar #1135: 38.0 TON, on shelf 3.3h — too early
+  Vintage Cigar #16521: 39.9 TON, on shelf 3.3h — too early
+escrow budget full: 120.0 of 120.0 TON already locked
+balance 95.2 TON | budget 120.0 | candidates 0
+collection       model                  bid     p25     med   n   age  upside
+live offers now: 2

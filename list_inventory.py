@@ -67,11 +67,16 @@ def run(dry_run: bool = True) -> list[dict]:
         attrs = {a["traitType"].lower(): a["value"] for a in x.get("attributes", [])}
         model = (attrs.get("model") or "").lower()
         cname = norm_coll((gg(f"/v1/collection/{coll}").get("name") if coll else "") or "")
-        ref = refs.get((cname, model))
         if coll not in books:
             books[coll] = asks_by_model(coll)
         backdrop = (attrs.get("backdrop") or "").lower()
-        rival = books[coll].get((model, backdrop)) or books[coll].get((model,))
+        # A rare backdrop is a different asset from the common ones (Vice Cream Chilly Bones: Black fills at
+        # 50, every other backdrop at 4.15). When fills prove that premium, price only against same-backdrop
+        # asks -- falling back to the model-wide ask would list a 50 TON gift at 4.4.
+        tier_ref = refs.get((cname, model, backdrop))   # premium backdrop confirmed by fills
+        ref = tier_ref or refs.get((cname, model))
+        rival_same = books[coll].get((model, backdrop))
+        rival = rival_same if tier_ref else (rival_same or books[coll].get((model,)))
         if ref:
             price = min(ref["med"] - 1, rival - UNDERCUT) if rival else ref["med"] - 1
             price = max(price, ref["med"] * MIN_OF_MED)

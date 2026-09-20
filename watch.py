@@ -105,8 +105,14 @@ def main():
                 if not m:
                     continue
                 c = norm_coll(cname); model, bd = m.group(1).lower(), m.group(2).lower()
-                ref = refs.get((c, model, bd)) or refs.get((c, model))
+                tier = refs.get((c, model, bd))
+                ref = tier or refs.get((c, model))
                 if not ref:
+                    continue
+                if not tier and any(k[:2] == (c, model) and len(k) == 3 for k in refs):
+                    # some backdrop of this model carries a proven premium and ours is not it:
+                    # the model median is inflated by those sales, so skip rather than overpay
+                    print(f"  skip {cname} {m.group(1)}/{m.group(2)}: model median inflated by a premium backdrop", flush=True)
                     continue
                 target = ref["p25"]; net = target * (1 - GG_FEE) - price - GAS; pct = net / price * 100
                 required_pct = MIN_NET_PCT + AGE_PENALTY_PCT * max(0.0, ref["last_age_d"] - 2.0)

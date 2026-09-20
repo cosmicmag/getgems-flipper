@@ -33,6 +33,16 @@ def live_offers() -> list[dict]:
         print("offers fetch err", e); return []
 
 
+def active_keys() -> set:
+    """(collection, model) pairs we already have an escrowed bid on."""
+    keys = set()
+    for o in live_offers():
+        for a in (o.get("attributes") or []):
+            for v in a.get("values", []):
+                keys.add((o.get("collectionAddress"), v.lower()))
+    return keys
+
+
 def plan() -> list[dict]:
     fills = Fills(); fills.load_onchain(); fills.load_gg(); fills.load_portals()
     refs = fills.references()
@@ -55,6 +65,8 @@ def plan() -> list[dict]:
                           med=ref["med"], p25=ref["p25"], n=ref["n"], age=ref["last_age_d"],
                           upside=round(ref["p25"] * 0.98 - bid - 0.3, 2)))
     cands.sort(key=lambda c: -c["upside"])
+    taken = active_keys()
+    cands = [c for c in cands if (c["address"], c["model"]) not in taken]
     picked, spent = [], 0.0
     for c in cands:
         if spent + c["bid"] > OFFER_BUDGET_TON:
@@ -78,11 +90,16 @@ def place(c: dict, dry_run=True) -> dict:
 
 
 def cancel_expired(dry_run=True) -> int:
-    """Getgems keeps the escrow until an offer is cancelled, so reclaim cash from finished offers."""
+    """Reclaim escrow: Getgems holds the cash until an offer is cancelled, and an hourly job that does not
+    dedupe will stack a fresh bid on the same model every run."""
     n = 0
+    seen = set()
     for o in live_offers():
         finish = (o.get("finishAt") or 0) / 1000
-        if finish and finish > time.time():
+        key = (o.get("collectionAddress"), tuple(sorted(v for a in (o.get("attributes") or []) for v in a.get("values", []))))
+        duplicate = key in seen
+        seen.add(key)
+        if not duplicate and finish and finish > time.time():
             continue
         if dry_run:
             print(f"  would cancel offer {o.get('offerAddress','')[:14]}"); n += 1; continue
@@ -90,7 +107,7 @@ def cancel_expired(dry_run=True) -> int:
             tx = gg_post("/v1/offer/collection/cancel", {"userAddress": WALLET, "offerAddress": o["offerAddress"]})
             sign_and_send(tx, dry_run=False); wait_tx(tx)
             log(dict(kind="offer_cancel", nft=None, price=int(o.get("fullPrice", 0)) / 1e9, ok=True,
-                     offer=o["offerAddress"]))
+                     offer=o["offerAddress"], reason="duplicate" if duplicate else "expired"))
             n += 1
         except Exception as e:
             print(f"  cancel failed {o.get('offerAddress','')[:14]}: {e}")

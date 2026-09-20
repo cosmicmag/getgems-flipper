@@ -10,6 +10,7 @@ from __future__ import annotations
 import json, os, sys, time
 
 from gg_api import gg
+from refs import Fills, norm_coll
 from trade import GG_FEE, WALLET, gg_post, log, sign_and_send, trades, wait_tx, STOP_FILE
 
 STEP_PCT = float(os.environ.get("REPRICE_STEP_PCT", "7")) / 100
@@ -50,10 +51,29 @@ def relist(nft: str, price: float) -> str:
     return wait_tx(tx)
 
 
+def head_of_book(item, books, refs) -> float | None:
+    """Cheapest comparable live ask (same model, and same backdrop when fills prove a premium)."""
+    from list_inventory import asks_by_model
+    coll = item.get("collectionAddress")
+    if not coll:
+        return None
+    attrs = {a["traitType"].lower(): a["value"] for a in item.get("attributes", [])}
+    model = (attrs.get("model") or "").lower(); backdrop = (attrs.get("backdrop") or "").lower()
+    cname = norm_coll((gg(f"/v1/collection/{coll}").get("name") or "") if coll else "")
+    if coll not in books:
+        books[coll] = asks_by_model(coll)
+    same = books[coll].get((model, backdrop))
+    if refs.get((cname, model, backdrop)):
+        return same                      # premium backdrop: only a same-backdrop ask is comparable
+    return same or books[coll].get((model,))
+
+
 def run(dry_run: bool = True) -> list[dict]:
     if os.path.exists(STOP_FILE):
         print("STOP file present, skipping"); return []
     hist = history(); now = time.time(); done = []
+    fills = Fills(); fills.load_onchain(); fills.load_gg(); fills.load_portals()
+    refs = fills.references(); books: dict = {}
     for item in gg(f"/v1/nfts/owner/{WALLET}", limit=100).get("items", []):
         sale = item.get("sale") or {}
         if sale.get("type") != "FixPriceSale" or sale.get("currency", "TON") != "TON":
@@ -70,7 +90,13 @@ def run(dry_run: bool = True) -> list[dict]:
             print(f"  {item['name']}: {cur} TON, on shelf {age_h:.1f}h — too early"); continue
         floor = (h["entry"] + GAS) / (1 - GG_FEE)
         days = int((now - h["listed_at"]) // 86400) + 1
-        target = round(max(floor, h.get("first_ask", cur) * (1 - STEP_PCT) ** days), 2)
+        ladder = h.get("first_ask", cur) * (1 - STEP_PCT) ** days
+        # Sitting above the book means never trading: if a comparable ask is cheaper than our ladder step,
+        # go just under it (this is what actually sold the cigars), but never below break-even.
+        rival = head_of_book(item, books, refs)
+        if rival and rival - 0.1 < ladder:
+            ladder = rival - 0.1
+        target = round(max(floor, ladder), 2)
         if target >= cur - 0.01:
             print(f"  {item['name']}: {cur} TON already at/below target {target} (floor {floor:.2f})"); continue
         print(f"  {item['name']}: {cur} -> {target} TON (entry {h['entry']}, floor {floor:.2f}, {age_h:.0f}h)")

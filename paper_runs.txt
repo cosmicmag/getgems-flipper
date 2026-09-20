@@ -10684,3 +10684,73 @@ escrow budget full: 120.0 of 120.0 TON already locked
 balance 94.9 TON | budget 120.0 | candidates 0
 collection       model                  bid     p25     med   n   age  upside
 live offers now: 2
+fills loaded: chain+portals=4367
+  Plush Pepes              listings=286 sold_hist=300 fills_total=4532
+  Scared Cats              listings=479 sold_hist=300 fills_total=4755
+  Heart Lockets            listings=177 sold_hist=300 fills_total=4908
+  Swiss Watches            listings=410 sold_hist=300 fills_total=5162
+  Durov’s Caps             listings=385 sold_hist=300 fills_total=5351
+  Precious Peaches         listings=246 sold_hist=300 fills_total=5546
+  Algorithm Cups           listings=5 sold_hist=2 fills_total=5548
+  Witch Hats               listings=464 sold_hist=300 fills_total=5839
+  Toy Bears                listings=400 sold_hist=300 fills_total=6097
+  Loot Bags                listings=411 sold_hist=300 fills_total=6315
+  Snoop Doggs              listings=539 sold_hist=300 fills_total=6568
+  Voodoo Dolls             listings=499 sold_hist=300 fills_total=6819
+  Liberty Figures          listings=468 sold_hist=300 fills_total=7068
+  Vintage Cigars           listings=409 sold_hist=300 fills_total=7327
+  Chill Flames             listings=537 sold_hist=300 fills_total=7605
+  Timeless Books           listings=444 sold_hist=300 fills_total=7879
+  Vice Creams              listings=519 sold_hist=300 fills_total=8151
+  Westside Signs           listings=486 sold_hist=300 fills_total=8388
+  Ion Gems                 listings=400 sold_hist=300 fills_total=8639
+  Nail Bracelets           listings=376 sold_hist=300 fills_total=8845
+gg fills persisted: 9056
+references: 562 (model/tier keys)
+
+=== CANDIDATES vs fills (p25 of last 14d), 0 ===
+coll            model            backdrop            GG  refP25  refMed   n  age        src   P.ask     net   net%  nft
+
+done in 298s
+logged 0 new candidates, total 61
+checked, updated 13; total 61; outcomes {'sniped': 13, 'unsold_7d': 26, 'resold': 1, 'open': 21}
+paper (entry -> sniper's resale): net -1.1 TON, wins 0/1
+  Voodoo Dolls   Bitten Lip     buy   38.33 -> resold   38.33 net   -1.07
+sniped (market agreed, awaiting resale): 13, median minutes to snipe 2780
+nothing idle to list
+  Vintage Cigar #20035: left the wallet without a sale record
+buys 6 | sales 4 | flip PnL +3.83 TON | owner gifts sold 3 for 110.72 TON net
+  Stellar Rocket #12256        12.00 ->   16.46    +3.83
+  Vintage Cigar #1399           gift ->   39.90   +38.80
+  Vintage Cigar #11961          gift ->   37.50   +36.45
+  Vintage Cigar #21955          gift ->   36.50   +35.47
+  Chill Flame #153117: 4.6 TON already at/below target 4.78 (floor 4.78)
+  Vice Cream #324645: 11.26 TON already at/below target 11.26 (floor 6.43)
+  Vice Cream #382067: 11.26 TON already at/below target 11.26 (floor 5.92)
+  Low Rider #7908: 59.03 TON already at/below target 59.03 (floor 59.03)
+  Vice Cream #159953: 43.24 TON already at/below target 43.24 (floor 41.12)
+  Vintage Cigar #2187: 39.7 TON, on shelf 0.3h — too early
+  Vintage Cigar #11454: 43.16 TON, on shelf 0.3h — too early
+  Vintage Cigar #672: 38.0 -> 32.87 TON (entry 28.5, floor 29.39, 24h)
+  Vintage Cigar #5256: 42.0 -> 36.33 TON (entry 31.5, floor 32.45, 24h)
+  Vintage Cigar #7633: 55.45 -> 47.96 TON (entry 41.587500000000006, floor 42.74, 24h)
+  Vintage Cigar #9411: 39.7 -> 34.34 TON (entry 29.775000000000002, floor 30.69, 24h)
+  Vintage Cigar #15136: 43.5 -> 37.62 TON (entry 32.625, floor 33.60, 24h)
+  Vintage Cigar #21952: 42.0 -> 36.33 TON (entry 31.5, floor 32.45, 24h)
+  Vintage Cigar #20936: 49.9 -> 43.16 TON (entry 37.425, floor 38.49, 24h)
+  Vintage Cigar #20623: 119.9 -> 103.7 TON (entry 89.92500000000001, floor 92.07, 24h)
+  Vintage Cigar #1135: 38.0 TON, on shelf 5.0h — too early
+  Vintage Cigar #16521: 39.9 TON, on shelf 5.0h — too early
+  Vintage Cigar #18037: 38.5 TON, on shelf 0.7h — too early
+  Vintage Cigar #10726: 37.9 TON, on shelf 0.7h — too early
+  Vintage Cigar #16010: 37.9 TON, on shelf 0.7h — too early
+  Vintage Cigar #6163: 42.5 TON, on shelf 0.7h — too early
+  Vintage Cigar #21084: 36.0 TON, on shelf 0.7h — too early
+  Vintage Cigar #16037: 36.5 TON, on shelf 0.7h — too early
+  Vintage Cigar #16740: 55.35 TON, on shelf 0.7h — too early
+  Vintage Cigar #3657: 62.9 TON, on shelf 0.6h — too early
+[{"kind": "reprice", "nft": "EQAbE9tuygMXSteP_Kuuc_cU8DTQD1vwFDHhdiv_MS_0d-l8", "price": 32.87, "ok": true, "tx_state": "Ready/Ready", "name": "Vintage Cigar #672", "old_price": 38.0, "entry": 28.5, "t": 1789941384.4942472}, {"kind": "reprice", "nft": "EQA1UD_fIeld7_VuzNJ6J5r9baFGQS0XRqLiAnWrrHkkOXMc", "price": 36.33, "ok": true, "tx_state": "Ready/Ready", "name": "Vintage Cigar #5256", "old_price": 42.0, "entry": 31.5, "t": 1789941394.0088704}, {"kind": "reprice", "nft": "EQAsbybPb1tIHmowWY0BpwjX3aVy9n6aXsyY78WxqV-RPTj1", "price": 47.96, "ok": true, "tx_state": "Ready/Ready", "name": "Vintage Cigar #7633", "old_price": 55.45, "entry": 41.587500000000006, "t": 1789941403.6497812}, {"kind": "reprice", "nft": "EQDm9rxoTQNrt68Rc1TWZ04Vi-fbC4pTfmB8iK8Q2niKS3Cc", "price": 34.34, "ok": true, "tx_state": "Ready/Ready", "name": "Vintage Cigar #9411", "old_price": 39.7, "entry": 29.775000000000002, "t": 1789941413.324286}, {"kind": "reprice", "nft": "EQDKUQgBtPgySScOh8GXeILbekiMu4TVVKb6ZlanQ230PBBL", "price": 37.62, "ok": true, "tx_state": "Ready/Ready", "name": "Vintage Cigar #15136", "old_price": 43.5, "entry": 32.625, "t": 1789941422.6156077}, {"kind": "reprice", "nft": "EQAzv1Qwahf1izKkK4rRQJqnamWnwiFa48ZuluO5zv6Qulxx", "price": 36.33, "ok": true, "tx_state": "Ready/Ready", "name": "Vintage Cigar #21952", "old_price": 42.0, "entry": 31.5, "t": 1789941431.9383607}, {"kind": "reprice", "nft": "EQCDsDZEFcgBw51VZqT09yVLwxH55y9BQ0kjSuW26x_hijOJ", "price": 43.16, "ok": true, "tx_state": "Ready/Ready", "name": "Vintage Cigar #20936", "old_price": 49.9, "entry": 37.425, "t": 1789941441.3508549}, {"kind": "reprice", "nft": "EQAnHPGrRWncGsQz23eP9943gTvIrJ1nC4k7paYILaNDY7Md", "price": 103.7, "ok": true, "tx_state": "Ready/Ready", "name": "Vintage Cigar #20623", "old_price": 119.9, "entry": 89.92500000000001, "t": 1789941450.7517242}]
+escrow budget full: 120.0 of 120.0 TON already locked
+balance 192.2 TON | budget 120.0 | candidates 0
+collection       model                  bid     p25     med   n   age  upside
+live offers now: 2

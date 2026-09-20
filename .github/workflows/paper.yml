@@ -41,7 +41,8 @@ jobs:
           GG_KEY: ${{ secrets.GG_KEY }}
           PORTALS_AUTH: ${{ secrets.PORTALS_AUTH }}
           PORTALS_COOKIE: ${{ secrets.PORTALS_COOKIE }}
-          MNEMONIC: ${{ secrets.MNEMONIC }}     # needed to sign reprice transactions
+          MNEMONIC: ${{ secrets.MNEMONIC }}
+          TONCENTER_KEY: ${{ secrets.TONCENTER_KEY }}     # needed to sign reprice transactions
           TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
           TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
         run: |

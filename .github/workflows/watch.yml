@@ -33,6 +33,7 @@ jobs:
       - name: Wallet check (fails fast if the seed secret is wrong)
         env:
           MNEMONIC: ${{ secrets.MNEMONIC }}
+          TONCENTER_KEY: ${{ secrets.TONCENTER_KEY }}
         run: cd signer && npx tsx send.ts --balance
       - name: Watch new listings and trade
         env:
@@ -40,13 +41,14 @@ jobs:
           TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
           TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
           GH_TOKEN: ${{ github.token }}
-          MNEMONIC: ${{ secrets.MNEMONIC }}        # bot wallet seed; trading is capped by MAX_LOT_TON / DAILY_CAP_TON
+          MNEMONIC: ${{ secrets.MNEMONIC }}
+          TONCENTER_KEY: ${{ secrets.TONCENTER_KEY }}        # bot wallet seed; trading is capped by MAX_LOT_TON / DAILY_CAP_TON
           AUTO_BUY: "1"
           MAX_LOT_TON: "150"
           DAILY_CAP_TON: "300"
           WEEKLY_LOSS_STOP_TON: "30"
           MAX_SINGLE_TON: "170"
-          TICK_SECONDS: "10"
+          TICK_SECONDS: "3"
           MAX_RUN_SEC: "20400"   # 5h40m, then exit so the re-dispatch step starts a fresh instance
         run: |
           git config user.name "watch-bot"

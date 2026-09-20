@@ -27,7 +27,7 @@ const MAX_SINGLE_TON = Number(process.env.MAX_SINGLE_TON ?? '300');   // hard ca
 async function rpc<T>(fn: () => Promise<T>, tries = 6): Promise<T> {
   let last: unknown;
   for (let i = 0; i < tries; i++) {
-    try { return await fn(); } catch (e) { last = e; await new Promise((r) => setTimeout(r, 1500 * (i + 1))); }
+    try { return await fn(); } catch (e) { last = e; await new Promise((r) => setTimeout(r, (process.env.TONCENTER_KEY ? 400 : 1500) * (i + 1))); }
   }
   throw last;
 }
@@ -44,6 +44,7 @@ function mnemonic(): string[] {
 async function main() {
   const endpoint = process.env.TON_ENDPOINT ?? 'https://toncenter.com/api/v2/jsonRPC';
   const client = new TonClient({ endpoint, apiKey: process.env.TONCENTER_KEY });
+  if (!process.env.TONCENTER_KEY) console.error('note: no TONCENTER_KEY, using the keyless endpoint (rate limited)');
   const key = await mnemonicToPrivateKey(mnemonic());
   const wallet = WalletContractV5R1.create({ workchain: 0, publicKey: key.publicKey });
   const contract = client.open(wallet);

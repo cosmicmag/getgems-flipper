@@ -7,11 +7,14 @@ Budget: ~1 feed call per tick + 1 detail call per new listing (~2/min) -> far be
 """
 from __future__ import annotations
 import json, os, re, subprocess, sys, time, urllib.parse, urllib.request
+from concurrent.futures import ThreadPoolExecutor
+
 from gg_api import gg, nano
 from refs import Fills, norm_coll
 import trade
 
-TICK = int(os.environ.get("TICK_SECONDS", "20"))
+TICK = float(os.environ.get("TICK_SECONDS", "3"))
+DETAIL_WORKERS = int(os.environ.get("DETAIL_WORKERS", "4"))
 GG_FEE, GAS = 0.02, 0.3
 # The ladder cuts 7% a day, so a lot bought at +15% is at break-even within two days (Low Rider #7908).
 # Demand enough margin to survive two or three ladder steps and still exit in profit.
@@ -76,6 +79,14 @@ def git_sync():
         print("git sync err", e, file=sys.stderr)
 
 
+def _detail(addr: str):
+    try:
+        return gg(f"/v1/nft/{addr}")
+    except Exception as e:
+        print("detail err", addr[:16], e, file=sys.stderr)
+        return None
+
+
 def coll_names():
     top = gg("/v1/gifts/collections/top", kind="week", limit=50)["items"]
     return {t["collection"]["address"]: t["collection"]["name"] for t in top}
@@ -91,6 +102,16 @@ def main():
         try:
             feed = gg("/v1/nfts/history/gifts", limit=100, types=["putUpForSale"], minTime=last_ts)["items"]
             new = [x for x in feed if x["hash"] not in seen]
+            # The detail call is the only thing between seeing a listing and bidding for it: run the batch
+            # in parallel so one slow lookup does not delay the rest of the tick.
+            targets = [x for x in new if names.get(x.get("collectionAddress"))
+                       and (x.get("typeData") or {}).get("priceNano")]
+            details = {}
+            if targets:
+                with ThreadPoolExecutor(max_workers=DETAIL_WORKERS) as pool:
+                    for addr, d in zip([t["address"] for t in targets],
+                                       pool.map(lambda t: _detail(t["address"]), targets)):
+                        details[addr] = d
             for x in new:
                 seen.add(x["hash"]); last_ts = max(last_ts, x["timestamp"] - 1)
                 td = x.get("typeData") or {}
@@ -100,7 +121,9 @@ def main():
                 if not cname:
                     continue                                   # not a tracked top collection
                 price = nano(td["priceNano"])
-                d = gg(f"/v1/nft/{x['address']}")
+                d = details.get(x["address"]) or _detail(x["address"])
+                if not d:
+                    continue
                 m = DESC.search(d.get("description") or "")
                 if not m:
                     continue

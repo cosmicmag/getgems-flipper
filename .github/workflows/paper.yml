@@ -53,6 +53,7 @@ jobs:
           python3 sales.py | tee -a paper_runs.txt
           python3 reprice.py --send | tee -a paper_runs.txt
           python3 offers.py --send | tee -a paper_runs.txt
+          python3 withdraw.py sweep --send | tee -a paper_runs.txt
       - name: Commit results
         run: |
           git config user.name "paper-bot"

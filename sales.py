@@ -80,7 +80,13 @@ def run() -> list[dict]:
         if not sales:
             print(f"  {d.get('name')}: left the wallet without a sale record"); continue
         s = sorted(sales, key=lambda h: h["timestamp"])[-1]
-        price = float(s["typeData"]["price"]); kind = s["typeData"]["type"]
+        kind = s["typeData"]["type"]
+        price = float(s["typeData"]["price"])
+        if kind == "luckyBuy":
+            # The event price is what the lucky buyer paid; the seller still receives the full ask from the
+            # Getgems pool, so value the sale at our own listing price.
+            price = next((r["price"] for r in reversed(tr)
+                          if r.get("nft") == nft and r["kind"] in ("list", "reprice") and r.get("ok")), price)
         pnl = round(price * (1 - GG_FEE) - (0 if owner_lot else paid) - GAS, 2)
         new.append(log(dict(kind="sold", nft=nft, price=price, ok=True, entry=paid, pnl=pnl, owner_lot=owner_lot,
                             via=kind,

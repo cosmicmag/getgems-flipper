@@ -15,7 +15,8 @@ MAX_LOT_TON = float(os.environ.get("MAX_LOT_TON", "50"))
 DAILY_CAP_TON = float(os.environ.get("DAILY_CAP_TON", "150"))
 WEEKLY_LOSS_STOP_TON = float(os.environ.get("WEEKLY_LOSS_STOP_TON", "30"))
 RESERVE_TON = float(os.environ.get("RESERVE_TON", "3"))
-GG_FEE = 0.02
+# Marketplace fee is 2%, but gift collections add a 5% royalty: payouts land at 93% of the ask.
+GG_FEE = float(os.environ.get("GG_FEE", "0.07"))
 WALLET = os.environ.get("BOT_WALLET", "UQD-35-osBmsmtrajn-ZX6jc_Mkws-pHQ_oBTmVppgtvJHVz")
 
 

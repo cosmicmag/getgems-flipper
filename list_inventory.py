@@ -10,7 +10,7 @@ from collections import defaultdict
 
 from gg_api import gg
 from refs import Fills, norm_coll
-from trade import GG_FEE, WALLET, log, trades, STOP_FILE
+from trade import GG_FEE, WALLET, log, trades, STOP_FILE  # GG_FEE now reflects the 7% real take
 from reprice import relist
 
 UNDERCUT = float(os.environ.get("LIST_UNDERCUT_TON", "0.1"))

@@ -17,10 +17,13 @@ MIN_BID_TON = float(os.environ.get("MIN_BID_TON", "8"))
 # A bid far under the market never fills, it just freezes cash (Scared Cat Obelisk: cap 60 against a 2815
 # market). Only bid when the cap still leaves us within reach of the book.
 MIN_BID_OF_P25 = float(os.environ.get("MIN_BID_OF_P25", "0.5"))
-OFFER_BUDGET_TON = float(os.environ.get("OFFER_BUDGET_TON", "120"))
+OFFER_BUDGET_TON = float(os.environ.get("OFFER_BUDGET_TON", "250"))
 OFFER_DAYS = int(os.environ.get("OFFER_DAYS", "3"))
-MIN_FILLS = int(os.environ.get("OFFER_MIN_FILLS", "5"))
+MIN_FILLS = int(os.environ.get("OFFER_MIN_FILLS", "6"))
 MAX_REF_AGE_D = float(os.environ.get("OFFER_MAX_REF_AGE_D", "3"))
+# A model whose backdrops trade far apart (Vintage Cigar Vaporwave: 35 to 333) will be filled with its
+# cheapest variant while the median reflects the expensive one. Only bid on models that trade uniformly.
+MAX_BACKDROP_SPREAD = float(os.environ.get("MAX_BACKDROP_SPREAD", "2.0"))
 RESERVE_TON = float(os.environ.get("RESERVE_TON", "5"))
 
 COLLECTIONS = {}     # filled from the top gift collections
@@ -54,9 +57,25 @@ def recent_keys() -> set:
     return keys
 
 
+def backdrop_spread(fills) -> dict:
+    """max/min of per-backdrop medians for each (collection, model)."""
+    import statistics
+    from collections import defaultdict
+    by = defaultdict(lambda: defaultdict(list))
+    for r in fills.rows:
+        if r["backdrop"]:
+            by[(r["coll"], r["model"])][r["backdrop"]].append(r["price"])
+    out = {}
+    for key, bds in by.items():
+        meds = [statistics.median(v) for v in bds.values()]
+        out[key] = (max(meds) / min(meds)) if meds and min(meds) > 0 else 99.0
+    return out
+
+
 def plan() -> list[dict]:
     fills = Fills(); fills.load_onchain(); fills.load_gg(); fills.load_portals()
     refs = fills.references()
+    spread = backdrop_spread(fills)
     top = gg("/v1/gifts/collections/top", kind="week", limit=25)["items"]
     for t in top:
         COLLECTIONS[norm_coll(t["collection"]["name"] or "")] = t["collection"]["address"]
@@ -67,6 +86,8 @@ def plan() -> list[dict]:
         coll, model = key
         if coll not in COLLECTIONS or ref["n"] < MIN_FILLS or ref["last_age_d"] > MAX_REF_AGE_D:
             continue
+        if spread.get((coll, model), 1.0) > MAX_BACKDROP_SPREAD:
+            continue                       # uneven backdrops: we would be filled with the cheap variant
         bid = round(min(ref["med"] * (1 - BID_DISCOUNT), MAX_BID_TON), 2)
         if bid < MIN_BID_TON or bid >= ref["p25"]:
             continue                       # no room under the market

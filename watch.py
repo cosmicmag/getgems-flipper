@@ -18,7 +18,9 @@ DETAIL_WORKERS = int(os.environ.get("DETAIL_WORKERS", "4"))
 GG_FEE, GAS = 0.02, 0.3
 # The ladder cuts 7% a day, so a lot bought at +15% is at break-even within two days (Low Rider #7908).
 # Demand enough margin to survive two or three ladder steps and still exit in profit.
-MIN_NET_PCT, MAX_NET_PCT, MIN_ABS_NET = 30.0, 300.0, 2.0
+# Every small hit is lost to snipers who sit on their own nodes (3 hits, 3 lost races in 24h), so spend
+# attempts only where the edge is wide enough to be worth the race.
+MIN_NET_PCT, MAX_NET_PCT, MIN_ABS_NET = 50.0, 300.0, 4.0
 MAX_REF_AGE_D, MIN_REF_N = 10.0, 4
 AGE_PENALTY_PCT = 5.0   # an older reference is less trustworthy, so demand a wider margin instead of dropping it:
                         # required margin = MIN_NET_PCT + AGE_PENALTY_PCT per day of reference age beyond 2 days

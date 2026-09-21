@@ -18,9 +18,11 @@ DETAIL_WORKERS = int(os.environ.get("DETAIL_WORKERS", "4"))
 GG_FEE, GAS = 0.02, 0.3
 # The ladder cuts 7% a day, so a lot bought at +15% is at break-even within two days (Low Rider #7908).
 # Demand enough margin to survive two or three ladder steps and still exit in profit.
-# Every small hit is lost to snipers who sit on their own nodes (3 hits, 3 lost races in 24h), so spend
-# attempts only where the edge is wide enough to be worth the race.
-MIN_NET_PCT, MAX_NET_PCT, MIN_ABS_NET = 50.0, 300.0, 4.0
+MIN_NET_PCT, MAX_NET_PCT, MIN_ABS_NET = 20.0, 300.0, 3.0
+# A wide paper margin does not make a lot sellable: Gelato Rose bought at +144% has sat unsold for a week
+# because nobody else lists or hunts that model. What actually sold (the cigars) always had a live book we
+# could undercut. So require a real book for the model before buying into it.
+MIN_RIVAL_ASKS = int(os.environ.get("MIN_RIVAL_ASKS", "2"))
 MAX_REF_AGE_D, MIN_REF_N = 10.0, 4
 AGE_PENALTY_PCT = 5.0   # an older reference is less trustworthy, so demand a wider margin instead of dropping it:
                         # required margin = MIN_NET_PCT + AGE_PENALTY_PCT per day of reference age beyond 2 days
@@ -79,6 +81,19 @@ def git_sync():
             time.sleep(5 + attempt * 5)
     except Exception as e:
         print("git sync err", e, file=sys.stderr)
+
+
+def _model_asks(collection: str | None, model: str) -> int:
+    """How many live asks exist for this model: a proxy for whether anyone trades it at all."""
+    if not collection:
+        return 0
+    try:
+        items = gg(f"/v1/nfts/on-sale/{collection}", limit=100).get("items", [])
+    except Exception:
+        return 99          # on error do not block the buy
+    return sum(1 for x in items
+               if any(a["traitType"].lower() == "model" and a["value"].lower() == model.lower()
+                      for a in x.get("attributes", [])))
 
 
 def _detail(addr: str):
@@ -144,6 +159,12 @@ def main():
                 usable = ref["last_age_d"] <= MAX_REF_AGE_D and ref["n"] >= MIN_REF_N
                 status = ("HIT" if (usable and net >= MIN_ABS_NET and required_pct <= pct <= MAX_NET_PCT)
                           else "weak" if net >= MIN_ABS_NET and pct >= MIN_NET_PCT else "seen")
+                if status == "HIT" and MIN_RIVAL_ASKS:
+                    rivals = _model_asks(x.get("collectionAddress"), m.group(1))
+                    if rivals < MIN_RIVAL_ASKS:
+                        print(f"  skip {cname} {m.group(1)}: only {rivals} live asks for this model "
+                              f"(no book to undercut, would sit unsold)", flush=True)
+                        status = "weak"
                 line = (f"{time.strftime('%H:%M:%S')} {status:4} {cname[:16]:16} {m.group(1)[:16]:16} {m.group(2)[:12]:12} "
                         f"price {price:>8.2f} refP25 {target:>7.1f} med {ref['med']:>7.1f} n={ref['n']} age={ref['last_age_d']}d "
                         f"net {net:>7.2f} ({pct:5.1f}% vs {required_pct:4.1f}% req) https://getgems.io/nft/{x['address']}")

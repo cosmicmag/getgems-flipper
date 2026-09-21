@@ -18,7 +18,7 @@ DETAIL_WORKERS = int(os.environ.get("DETAIL_WORKERS", "4"))
 GG_FEE, GAS = 0.02, 0.3
 # The ladder cuts 7% a day, so a lot bought at +15% is at break-even within two days (Low Rider #7908).
 # Demand enough margin to survive two or three ladder steps and still exit in profit.
-MIN_NET_PCT, MAX_NET_PCT, MIN_ABS_NET = 20.0, 300.0, 3.0
+MIN_NET_PCT, MAX_NET_PCT, MIN_ABS_NET = 15.0, 300.0, 2.5
 # A wide paper margin does not make a lot sellable: Gelato Rose bought at +144% has sat unsold for a week
 # because nobody else lists or hunts that model. What actually sold (the cigars) always had a live book we
 # could undercut. So require a real book for the model before buying into it.

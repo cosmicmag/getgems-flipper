@@ -181,7 +181,13 @@ def main():
                        f"net ≈ +{net:.1f} TON ({pct:.0f}%)\nhttps://getgems.io/nft/{x['address']}")
                     if AUTO_BUY:
                         if d.get("kind") != "CollectionItem":
-                            print("  skip auto-buy: offchain gift (relist needs SignData)", flush=True)
+                            # Offchain gifts live inside Telegram: listing them back needs a SignData
+                            # signature the signer does not implement, so hand these to the owner instead.
+                            print("  offchain gift: alerting owner to buy manually", flush=True)
+                            tg(f"🙋 КУПИ САМ (offchain, бот не может)\n{cname} · {m.group(1)} / {m.group(2)}\n"
+                               f"цена {price:.2f} TON, продать можно за ~{target:.1f} (net +{net:.1f})\n"
+                               f"https://getgems.io/nft/{x['address']}\n"
+                               f"жми быстро: такие разбирают за 1-2 минуты")
                         else:
                             try:
                                 res = trade.flip(x["address"], (d.get("sale") or {}).get("version"), price, target, rec)

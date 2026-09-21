@@ -10,6 +10,19 @@ import json, sys, time
 from gg_api import gg
 from trade import GG_FEE, WALLET, addr_hash, log, trades
 
+
+def tg(text: str):
+    """Telegram alert; silent no-op when the bot credentials are not configured."""
+    import os, urllib.parse, urllib.request
+    tok, chat = os.environ.get("TG_BOT_TOKEN"), os.environ.get("TG_CHAT_ID")
+    if not tok or not chat:
+        return
+    try:
+        data = urllib.parse.urlencode({"chat_id": chat, "text": text, "disable_web_page_preview": "1"}).encode()
+        urllib.request.urlopen(f"https://api.telegram.org/bot{tok}/sendMessage", data=data, timeout=15)
+    except Exception as e:
+        print("tg err", e)
+
 GAS = 0.3
 
 
@@ -75,6 +88,9 @@ def run() -> list[dict]:
                             hold_h=round((s["timestamp"] / 1000 - 0) and (time.time() - s["timestamp"] / 1000) / 3600, 1))))
         print(f"  SOLD {d.get('name')}: {'owner gift' if owner_lot else paid} -> {price} TON, "
               f"{'proceeds' if owner_lot else 'realised'} {pnl:+.2f}")
+        via = " (lucky buy!)" if kind == "luckyBuy" else ""
+        tg(f"💰 ПРОДАНО {d.get('name')}{via}\n{price:.2f} TON, чистыми {pnl:+.2f}"
+           + ("" if owner_lot else f" (вход {paid})"))
     return new
 
 

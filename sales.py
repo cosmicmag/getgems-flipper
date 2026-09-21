@@ -13,7 +13,28 @@ from trade import GG_FEE, WALLET, addr_hash, log, trades
 GAS = 0.3
 
 
+def dedupe_log(path="data/trades.jsonl"):
+    """The hourly job and the watcher both detect sales in separate runners, so the same sale can be
+    appended twice before git merges them. Keep the first record per (kind, nft)."""
+    import os
+    if not os.path.exists(path):
+        return
+    rows = [json.loads(l) for l in open(path)]
+    seen, out = set(), []
+    for r in rows:
+        key = (r.get("kind"), r.get("nft"), r.get("offer"))
+        if r.get("kind") in ("sold", "offer_cancel") and key in seen:
+            continue
+        seen.add(key); out.append(r)
+    if len(out) != len(rows):
+        with open(path, "w") as f:
+            for r in out:
+                f.write(json.dumps(r, ensure_ascii=False) + "\n")
+        print(f"  deduped journal: {len(rows) - len(out)} duplicate records dropped")
+
+
 def run() -> list[dict]:
+    dedupe_log()
     tr = trades()
     entry, transferred, sold_seen = {}, {}, set()
     for r in tr:
@@ -40,15 +61,16 @@ def run() -> list[dict]:
         if owner and addr_hash(owner) == addr_hash(WALLET):
             continue                      # still ours (listed or idle)
         hist = gg(f"/v1/nft/history/{nft}", limit=20).get("items", [])
-        sales = [h for h in hist if (h.get("typeData") or {}).get("type") == "sold"
+        sales = [h for h in hist if (h.get("typeData") or {}).get("type") in ("sold", "luckyBuy")
                  and addr_hash((h["typeData"].get("newOwner") or "")) != addr_hash(WALLET)
                  and h["typeData"].get("price")]
         if not sales:
             print(f"  {d.get('name')}: left the wallet without a sale record"); continue
         s = sorted(sales, key=lambda h: h["timestamp"])[-1]
-        price = float(s["typeData"]["price"])
+        price = float(s["typeData"]["price"]); kind = s["typeData"]["type"]
         pnl = round(price * (1 - GG_FEE) - (0 if owner_lot else paid) - GAS, 2)
         new.append(log(dict(kind="sold", nft=nft, price=price, ok=True, entry=paid, pnl=pnl, owner_lot=owner_lot,
+                            via=kind,
                             name=d.get("name"), sold_at=s["timestamp"] / 1000,
                             hold_h=round((s["timestamp"] / 1000 - 0) and (time.time() - s["timestamp"] / 1000) / 3600, 1))))
         print(f"  SOLD {d.get('name')}: {'owner gift' if owner_lot else paid} -> {price} TON, "

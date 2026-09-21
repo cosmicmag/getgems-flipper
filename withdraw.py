@@ -43,7 +43,36 @@ def sweep(dry_run: bool = True) -> dict | None:
     return withdraw(round(spare, 2), dry_run)
 
 
+def reconcile() -> int:
+    """Recover withdraw records lost to a journal race: the chain is the source of truth."""
+    import urllib.request
+    have = {round(r["price"], 2) for r in __import__("trade").trades() if r["kind"] == "withdraw"}
+    ua = {"user-agent": "Mozilla/5.0 (Macintosh) Chrome/151", "accept": "application/json"}
+    try:
+        ev = json.loads(urllib.request.urlopen(urllib.request.Request(
+            f"https://tonapi.io/v2/accounts/{WALLET}/events?limit=50", headers=ua), timeout=60).read())["events"]
+    except Exception as e:
+        print("reconcile err", e); return 0
+    owner_raw = "2b08ca36e00c75"
+    added = 0
+    for e in ev:
+        for a in e.get("actions", []):
+            if a["type"] != "TonTransfer":
+                continue
+            t = a["TonTransfer"]; amt = round(t["amount"] / 1e9, 2)
+            if "fedf9f" in t["sender"]["address"] and owner_raw in t["recipient"]["address"] and amt > 1:
+                if amt in have:
+                    continue
+                log(dict(kind="withdraw", nft=None, price=amt, ok=True, to=OWNER,
+                         recovered=True, t_chain=e["timestamp"]))
+                have.add(amt); added += 1
+                print(f"  recovered withdraw {amt} TON")
+    return added
+
+
 if __name__ == "__main__":
+    if len(sys.argv) > 1 and sys.argv[1] == "reconcile":
+        print("recovered:", reconcile()); raise SystemExit
     dry = "--send" not in sys.argv
     if len(sys.argv) > 1 and sys.argv[1] not in ("--send", "sweep"):
         print(json.dumps(withdraw(float(sys.argv[1]), dry), ensure_ascii=False))

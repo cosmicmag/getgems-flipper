@@ -91,9 +91,11 @@ def _model_asks(collection: str | None, model: str) -> int:
         items = gg(f"/v1/nfts/on-sale/{collection}", limit=100).get("items", [])
     except Exception:
         return 99          # on error do not block the buy
+    # Count only TON asks: the same collection carries USDT listings (a 0.12 USDT lot reads as a 0.12 floor).
     return sum(1 for x in items
-               if any(a["traitType"].lower() == "model" and a["value"].lower() == model.lower()
-                      for a in x.get("attributes", [])))
+               if (x.get("sale") or {}).get("currency", "TON") == "TON"
+               and any(a["traitType"].lower() == "model" and a["value"].lower() == model.lower()
+                       for a in x.get("attributes", [])))
 
 
 def _detail(addr: str):

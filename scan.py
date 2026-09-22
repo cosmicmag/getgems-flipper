@@ -10,7 +10,7 @@ from refs import Fills, norm_coll
 
 GG_FEE = 0.02
 GAS = 0.3
-TOP_N = int(sys.argv[1]) if len(sys.argv) > 1 else 20
+TOP_N = int(sys.argv[1]) if len(sys.argv) > 1 else 40
 ONSALE_PAGES, OFFCHAIN_PAGES, HISTORY_PAGES = 4, 2, 3
 MIN_NET_PCT, MAX_NET_PCT = 15.0, 300.0
 MIN_ABS_NET = 2.0

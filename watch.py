@@ -107,8 +107,20 @@ def _detail(addr: str):
 
 
 def coll_names():
-    top = gg("/v1/gifts/collections/top", kind="week", limit=50)["items"]
-    return {t["collection"]["address"]: t["collection"]["name"] for t in top}
+    """Watch the widest set the API offers: rare mispricings are more likely outside the top names,
+    and the fill-based reference still gates anything we act on."""
+    out = {}
+    for kind in ("week", "month"):
+        for page in range(2):
+            try:
+                r = gg("/v1/gifts/collections/top", kind=kind, limit=100)
+            except Exception as e:
+                print("coll list err", e, file=sys.stderr); break
+            for t in r["items"]:
+                out[t["collection"]["address"]] = t["collection"]["name"]
+            if not r.get("cursor"):
+                break
+    return out
 
 
 def main():

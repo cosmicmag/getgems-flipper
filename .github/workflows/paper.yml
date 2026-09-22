@@ -46,7 +46,7 @@ jobs:
           TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
           TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
         run: |
-          python3 scan.py 20 | tee -a paper_runs.txt
+          python3 scan.py 40 | tee -a paper_runs.txt
           python3 paper.py log | tee -a paper_runs.txt
           python3 paper.py check | tee -a paper_runs.txt
           python3 list_inventory.py --send | tee -a paper_runs.txt

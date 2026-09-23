@@ -18,6 +18,10 @@ GAS = float(os.environ.get("REPRICE_GAS_TON", "0.3"))
 COOLDOWN_H = float(os.environ.get("REPRICE_COOLDOWN_H", "20"))
 MIN_AGE_H = float(os.environ.get("REPRICE_MIN_AGE_H", "24"))
 OWNER_LOT_FLOOR = float(os.environ.get("REPRICE_OWNER_FLOOR", "0.75"))   # gifts sent in by the owner: stop at 75% of the first ask
+# After this long on the shelf, break-even stops being a floor: holding a lot the market has repriced below
+# our cost just freezes capital (Low Rider: cost 57.5, break-even 62.2, market below both for nine days).
+STOP_LOSS_DAYS = float(os.environ.get("STOP_LOSS_DAYS", "14"))
+STOP_LOSS_MIN_OF_MED = float(os.environ.get("STOP_LOSS_MIN_OF_MED", "0.6"))
 
 
 def history() -> dict[str, dict]:
@@ -29,6 +33,7 @@ def history() -> dict[str, dict]:
         h = out.setdefault(r["nft"], {})
         if r["kind"] == "buy":
             h["entry"] = r["price"]
+            h.setdefault("bought_at", r["t"])
         elif r["kind"] == "list":
             h.setdefault("first_ask", r["price"])
             h["listed_at"] = r["t"]
@@ -89,6 +94,15 @@ def run(dry_run: bool = True) -> list[dict]:
         if age_h < MIN_AGE_H or since_reprice_h < COOLDOWN_H:
             print(f"  {item['name']}: {cur} TON, on shelf {age_h:.1f}h — too early"); continue
         floor = (h["entry"] + GAS) / (1 - GG_FEE)
+        held_days = (now - h.get("bought_at", h["listed_at"])) / 86400
+        stop_loss = held_days >= STOP_LOSS_DAYS
+        if stop_loss:
+            attrs = {a["traitType"].lower(): a["value"] for a in item.get("attributes", [])}
+            model = (attrs.get("model") or "").lower(); backdrop = (attrs.get("backdrop") or "").lower()
+            cname = norm_coll((gg(f"/v1/collection/{item['collectionAddress']}").get("name") or "")
+                              if item.get("collectionAddress") else "")
+            ref = refs.get((cname, model, backdrop)) or refs.get((cname, model))
+            floor = ref["med"] * STOP_LOSS_MIN_OF_MED if ref else floor * 0.6
         days = int((now - h["listed_at"]) // 86400) + 1
         ladder = h.get("first_ask", cur) * (1 - STEP_PCT) ** days
         # Sitting above the book means never trading: if a comparable ask is cheaper than our ladder step,
@@ -99,7 +113,8 @@ def run(dry_run: bool = True) -> list[dict]:
         target = round(max(floor, ladder), 2)
         if target >= cur - 0.01:
             print(f"  {item['name']}: {cur} TON already at/below target {target} (floor {floor:.2f})"); continue
-        print(f"  {item['name']}: {cur} -> {target} TON (entry {h['entry']}, floor {floor:.2f}, {age_h:.0f}h)")
+        print(f"  {item['name']}: {cur} -> {target} TON (entry {h['entry']}, floor {floor:.2f}, {age_h:.0f}h"
+              + (", STOP-LOSS" if stop_loss else "") + ")")
         if dry_run:
             continue
         try:
@@ -110,7 +125,14 @@ def run(dry_run: bool = True) -> list[dict]:
             print(f"    reprice failed: {e}"); log(dict(kind="reprice", nft=nft, price=target, ok=False, reason=str(e)[:200],
                                                         name=item.get("name"), old_price=cur)); continue
         done.append(log(dict(kind="reprice", nft=nft, price=target, ok=ok, tx_state=f"{st_cancel}/{st_list}",
-                             name=item.get("name"), old_price=cur, entry=h["entry"])))
+                             name=item.get("name"), old_price=cur, entry=h["entry"], stop_loss=stop_loss)))
+        if stop_loss and target < (h["entry"] + GAS) / (1 - GG_FEE):
+            try:
+                from sales import tg
+                tg(f"✂️ Стоп-лосс: {item.get('name')} {cur} → {target} TON\n"
+                   f"вход {h['entry']}, на полке {held_days:.0f} дн, режем к рынку")
+            except Exception:
+                pass
     return done
 
 

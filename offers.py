@@ -25,6 +25,9 @@ MAX_REF_AGE_D = float(os.environ.get("OFFER_MAX_REF_AGE_D", "3"))
 # cheapest variant while the median reflects the expensive one. Only bid on models that trade uniformly.
 MAX_BACKDROP_SPREAD = float(os.environ.get("MAX_BACKDROP_SPREAD", "2.0"))
 RESERVE_TON = float(os.environ.get("RESERVE_TON", "5"))
+# Bids must not swallow the cash the flipper needs: escrow grew to 245 TON while only 31 was left to buy
+# with, so the budget is capped by what remains after reserving for flips.
+FLIP_RESERVE_TON = float(os.environ.get("FLIP_RESERVE_TON", "100"))
 
 COLLECTIONS = {}     # filled from the top gift collections
 
@@ -102,14 +105,16 @@ def plan() -> list[dict]:
     # The budget caps TOTAL escrow. Counting only this run's bids let each hourly run add another 100 TON
     # until the wallet was empty (197 TON locked, 17 TON cash).
     locked = sum(int(o["fullPrice"]) / 1e9 for o in live_offers())
-    room = OFFER_BUDGET_TON - locked
+    budget = min(OFFER_BUDGET_TON, max(0.0, balance() + locked - FLIP_RESERVE_TON))
+    room = budget - locked
     picked, spent = [], 0.0
     for c in cands:
         if spent + c["bid"] > room:
             continue
         picked.append(c); spent += c["bid"]
     if room <= 0:
-        print(f"escrow budget full: {locked:.1f} of {OFFER_BUDGET_TON} TON already locked")
+        print(f"escrow budget full: {locked:.1f} locked, budget {budget:.1f} "
+              f"(cap {OFFER_BUDGET_TON}, flip reserve {FLIP_RESERVE_TON})")
     return picked
 
 
@@ -159,7 +164,8 @@ def trim_to_budget(dry_run=True) -> int:
     refs = fills.references()
     live = live_offers()
     locked = sum(int(o["fullPrice"]) / 1e9 for o in live)
-    if locked <= OFFER_BUDGET_TON:
+    budget = min(OFFER_BUDGET_TON, max(0.0, balance() + locked - FLIP_RESERVE_TON))
+    if locked <= budget:
         return 0
     coll_name = {}
     scored = []
@@ -178,7 +184,7 @@ def trim_to_budget(dry_run=True) -> int:
     scored.sort()                       # weakest first
     freed = 0
     for upside, bid, o in scored:
-        if locked <= OFFER_BUDGET_TON:
+        if locked <= budget:
             break
         print(f"  trim offer {bid:.2f} TON (upside {upside:+.2f})")
         locked -= bid; freed += 1

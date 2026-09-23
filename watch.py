@@ -23,6 +23,9 @@ MIN_NET_PCT, MAX_NET_PCT, MIN_ABS_NET = 15.0, 300.0, 2.5
 # because nobody else lists or hunts that model. What actually sold (the cigars) always had a live book we
 # could undercut. So require a real book for the model before buying into it.
 MIN_RIVAL_ASKS = int(os.environ.get("MIN_RIVAL_ASKS", "2"))
+# Buying the same model again and again concentrates the risk in one thin market: we ended up holding
+# three Chilly Bones / Black while that model's price slid from 40 to 25.
+MAX_SAME_MODEL = int(os.environ.get("MAX_SAME_MODEL", "2"))
 MAX_REF_AGE_D, MIN_REF_N = 10.0, 4
 AGE_PENALTY_PCT = 5.0   # an older reference is less trustworthy, so demand a wider margin instead of dropping it:
                         # required margin = MIN_NET_PCT + AGE_PENALTY_PCT per day of reference age beyond 2 days
@@ -81,6 +84,19 @@ def git_sync():
             time.sleep(5 + attempt * 5)
     except Exception as e:
         print("git sync err", e, file=sys.stderr)
+
+
+def _held_same_model(coll_key: str, model: str) -> int:
+    """How many unsold lots of this exact model we already own (by our own trade journal)."""
+    try:
+        import trade
+        rows = trade.trades()
+    except Exception:
+        return 0
+    sold = {r["nft"] for r in rows if r["kind"] == "sold"}
+    return sum(1 for r in rows
+               if r["kind"] == "buy" and r.get("ok") and r["nft"] not in sold
+               and (r.get("model") or "").lower() == model.lower())
 
 
 def _model_asks(collection: str | None, model: str) -> int:
@@ -173,6 +189,11 @@ def main():
                 usable = ref["last_age_d"] <= MAX_REF_AGE_D and ref["n"] >= MIN_REF_N
                 status = ("HIT" if (usable and net >= MIN_ABS_NET and required_pct <= pct <= MAX_NET_PCT)
                           else "weak" if net >= MIN_ABS_NET and pct >= MIN_NET_PCT else "seen")
+                if status == "HIT" and MAX_SAME_MODEL:
+                    held = _held_same_model(cname, m.group(1))
+                    if held >= MAX_SAME_MODEL:
+                        print(f"  skip {cname} {m.group(1)}: already holding {held} of this model", flush=True)
+                        status = "weak"
                 if status == "HIT" and MIN_RIVAL_ASKS:
                     rivals = _model_asks(x.get("collectionAddress"), m.group(1))
                     if rivals < MIN_RIVAL_ASKS:

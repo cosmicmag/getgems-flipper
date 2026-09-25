@@ -26,7 +26,12 @@ MIN_RIVAL_ASKS = int(os.environ.get("MIN_RIVAL_ASKS", "2"))
 # Buying the same model again and again concentrates the risk in one thin market: we ended up holding
 # three Chilly Bones / Black while that model's price slid from 40 to 25.
 MAX_SAME_MODEL = int(os.environ.get("MAX_SAME_MODEL", "2"))
-MAX_REF_AGE_D, MIN_REF_N = 10.0, 4
+# The age penalty below already demands more margin the older the reference is, so the hard cut-off only
+# needs to stop genuinely ancient data. A Sakura Flower at 15 against a 38 reference (146% margin, penalty
+# asked 61%) was rejected purely because the reference was 11 days old and had 3 fills instead of 4.
+MAX_REF_AGE_D, MIN_REF_N = 21.0, 4
+BIG_EDGE_PCT = float(os.environ.get("BIG_EDGE_PCT", "100"))   # above this, accept a thinner reference
+BIG_EDGE_MIN_N = int(os.environ.get("BIG_EDGE_MIN_N", "2"))
 AGE_PENALTY_PCT = 5.0   # an older reference is less trustworthy, so demand a wider margin instead of dropping it:
                         # required margin = MIN_NET_PCT + AGE_PENALTY_PCT per day of reference age beyond 2 days
 REFRESH_SEC = int(os.environ.get("REFS_REFRESH_SEC", "1800"))
@@ -186,7 +191,8 @@ def main():
                     continue
                 target = ref["p25"]; net = target * (1 - GG_FEE) - price - GAS; pct = net / price * 100
                 required_pct = MIN_NET_PCT + AGE_PENALTY_PCT * max(0.0, ref["last_age_d"] - 2.0)
-                usable = ref["last_age_d"] <= MAX_REF_AGE_D and ref["n"] >= MIN_REF_N
+                need_n = BIG_EDGE_MIN_N if pct >= BIG_EDGE_PCT else MIN_REF_N
+                usable = ref["last_age_d"] <= MAX_REF_AGE_D and ref["n"] >= need_n
                 status = ("HIT" if (usable and net >= MIN_ABS_NET and required_pct <= pct <= MAX_NET_PCT)
                           else "weak" if net >= MIN_ABS_NET and pct >= MIN_NET_PCT else "seen")
                 if status == "HIT" and MAX_SAME_MODEL:

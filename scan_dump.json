@@ -12,7 +12,7 @@
    "ref_med": 364.0,
    "ref_p25": 349.0,
    "ref_n": 10,
-   "ref_age_d": 2.6,
+   "ref_age_d": 2.7,
    "ref_srcs": "gg",
    "tier": false,
    "portals_model_floor": 398.0,
@@ -30,9 +30,9 @@
    "backdrop": "Silver Blue",
    "symbol": "Coat of Arms",
    "gg_price": 20.0,
-   "ref_med": 24.49,
+   "ref_med": 24.99,
    "ref_p25": 24.0,
-   "ref_n": 4,
+   "ref_n": 3,
    "ref_age_d": 6.2,
    "ref_srcs": "gg",
    "tier": false,
@@ -51,9 +51,9 @@
    "backdrop": "Shamrock Green",
    "symbol": "Police Hat",
    "gg_price": 20.0,
-   "ref_med": 24.49,
+   "ref_med": 24.99,
    "ref_p25": 24.0,
-   "ref_n": 4,
+   "ref_n": 3,
    "ref_age_d": 6.2,
    "ref_srcs": "gg",
    "tier": false,
@@ -64,13 +64,23 @@
    "version": "1b30bce64a1ab000,s:96rherk:TON,m:fed33205ab93a5a3"
   }
  ],
- "ts": 1790711454.825416,
+ "ts": 1790715031.4139729,
  "refs": {
+  "scaredcat|niko": {
+   "med": 499.0,
+   "n": 3,
+   "p25": 370.0,
+   "last_age_d": 0.0,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 3
+  },
   "scaredcat|purrlion": {
    "med": 241.31,
    "n": 6,
    "p25": 234.99,
-   "last_age_d": 0.0,
+   "last_age_d": 0.1,
    "srcs": [
     "gg"
    ],
@@ -80,7 +90,7 @@
    "med": 740.0,
    "n": 7,
    "p25": 690.0,
-   "last_age_d": 0.0,
+   "last_age_d": 0.1,
    "srcs": [
     "gg"
    ],
@@ -90,7 +100,7 @@
    "med": 457.5,
    "n": 6,
    "p25": 389.0,
-   "last_age_d": 0.0,
+   "last_age_d": 0.1,
    "srcs": [
     "gg"
    ],
@@ -100,7 +110,7 @@
    "med": 277.0,
    "n": 10,
    "p25": 255.0,
-   "last_age_d": 0.0,
+   "last_age_d": 0.1,
    "srcs": [
     "gg"
    ],
@@ -140,7 +150,7 @@
    "med": 264.9,
    "n": 3,
    "p25": 230.0,
-   "last_age_d": 0.1,
+   "last_age_d": 0.2,
    "srcs": [
     "gg"
    ],
@@ -150,7 +160,7 @@
    "med": 280.0,
    "n": 5,
    "p25": 232.99,
-   "last_age_d": 0.2,
+   "last_age_d": 0.3,
    "srcs": [
     "gg"
    ],
@@ -170,7 +180,7 @@
    "med": 280.0,
    "n": 9,
    "p25": 270.0,
-   "last_age_d": 0.3,
+   "last_age_d": 0.4,
    "srcs": [
     "gg"
    ],
@@ -180,7 +190,7 @@
    "med": 3101.5,
    "n": 10,
    "p25": 2850.0,
-   "last_age_d": 0.5,
+   "last_age_d": 0.6,
    "srcs": [
     "gg"
    ],
@@ -210,7 +220,7 @@
    "med": 1350.0,
    "n": 3,
    "p25": 345.0,
-   "last_age_d": 1.4,
+   "last_age_d": 1.5,
    "srcs": [
     "gg"
    ],
@@ -250,7 +260,7 @@
    "med": 364.0,
    "n": 10,
    "p25": 349.0,
-   "last_age_d": 2.6,
+   "last_age_d": 2.7,
    "srcs": [
     "gg"
    ],
@@ -260,7 +270,7 @@
    "med": 270.0,
    "n": 3,
    "p25": 250.0,
-   "last_age_d": 2.9,
+   "last_age_d": 3.0,
    "srcs": [
     "gg"
    ],
@@ -270,7 +280,7 @@
    "med": 360.0,
    "n": 11,
    "p25": 340.0,
-   "last_age_d": 3.0,
+   "last_age_d": 3.1,
    "srcs": [
     "gg"
    ],
@@ -280,7 +290,7 @@
    "med": 1074.5,
    "n": 4,
    "p25": 949.0,
-   "last_age_d": 4.0,
+   "last_age_d": 4.1,
    "srcs": [
     "gg"
    ],
@@ -295,16 +305,6 @@
     "gg"
    ],
    "uniq_nums": 6
-  },
-  "scaredcat|salem": {
-   "med": 2000.0,
-   "n": 3,
-   "p25": 2000.0,
-   "last_age_d": 4.4,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 3
   },
   "scaredcat|endercat": {
    "med": 510.0,
@@ -380,21 +380,21 @@
    "med": 120.0,
    "n": 3,
    "p25": 100.0,
-   "last_age_d": 0.6,
+   "last_age_d": 0.7,
    "srcs": [
     "gg"
    ],
    "uniq_nums": 3
   },
   "swisswatch|gold band": {
-   "med": 150.0,
-   "n": 7,
+   "med": 151.0,
+   "n": 6,
    "p25": 150.0,
-   "last_age_d": 0.9,
+   "last_age_d": 1.0,
    "srcs": [
     "gg"
    ],
-   "uniq_nums": 7
+   "uniq_nums": 6
   },
   "swisswatch|top gun": {
    "med": 188.0,
@@ -410,7 +410,7 @@
    "med": 136.5,
    "n": 4,
    "p25": 135.0,
-   "last_age_d": 1.3,
+   "last_age_d": 1.4,
    "srcs": [
     "gg"
    ],
@@ -420,7 +420,7 @@
    "med": 56.656,
    "n": 13,
    "p25": 55.01,
-   "last_age_d": 1.7,
+   "last_age_d": 1.8,
    "srcs": [
     "gg"
    ],
@@ -460,7 +460,7 @@
    "med": 54.9,
    "n": 9,
    "p25": 49.8,
-   "last_age_d": 2.9,
+   "last_age_d": 3.0,
    "srcs": [
     "gg"
    ],
@@ -470,7 +470,7 @@
    "med": 432.0,
    "n": 6,
    "p25": 399.0,
-   "last_age_d": 2.9,
+   "last_age_d": 3.0,
    "srcs": [
     "gg"
    ],
@@ -490,7 +490,7 @@
    "med": 65.0,
    "n": 3,
    "p25": 63.0,
-   "last_age_d": 3.3,
+   "last_age_d": 3.4,
    "srcs": [
     "gg"
    ],
@@ -500,7 +500,7 @@
    "med": 143.5,
    "n": 6,
    "p25": 100.0,
-   "last_age_d": 4.1,
+   "last_age_d": 4.2,
    "srcs": [
     "gg"
    ],
@@ -510,7 +510,7 @@
    "med": 199.0,
    "n": 3,
    "p25": 145.0,
-   "last_age_d": 5.0,
+   "last_age_d": 5.1,
    "srcs": [
     "gg"
    ],
@@ -520,7 +520,7 @@
    "med": 140.0,
    "n": 3,
    "p25": 135.0,
-   "last_age_d": 5.2,
+   "last_age_d": 5.3,
    "srcs": [
     "gg"
    ],
@@ -530,7 +530,7 @@
    "med": 99.0,
    "n": 5,
    "p25": 98.0,
-   "last_age_d": 5.2,
+   "last_age_d": 5.3,
    "srcs": [
     "gg"
    ],
@@ -550,7 +550,7 @@
    "med": 69.0,
    "n": 3,
    "p25": 65.0,
-   "last_age_d": 6.1,
+   "last_age_d": 6.2,
    "srcs": [
     "gg"
    ],
@@ -630,7 +630,7 @@
    "med": 420.4,
    "n": 4,
    "p25": 410.8,
-   "last_age_d": 5.8,
+   "last_age_d": 5.9,
    "srcs": [
     "gg"
    ],
@@ -640,7 +640,7 @@
    "med": 415.0,
    "n": 3,
    "p25": 385.0,
-   "last_age_d": 6.0,
+   "last_age_d": 6.1,
    "srcs": [
     "gg"
    ],
@@ -657,20 +657,20 @@
    "uniq_nums": 3
   },
   "voodoodoll|royal gold": {
-   "med": 43.0,
-   "n": 4,
+   "med": 48.0,
+   "n": 3,
    "p25": 38.0,
    "last_age_d": 0.2,
    "srcs": [
     "gg"
    ],
-   "uniq_nums": 4
+   "uniq_nums": 3
   },
   "voodoodoll|tan gent": {
    "med": 38.0,
    "n": 5,
    "p25": 37.8,
-   "last_age_d": 0.2,
+   "last_age_d": 0.3,
    "srcs": [
     "gg"
    ],
@@ -680,7 +680,7 @@
    "med": 45.3,
    "n": 4,
    "p25": 42.8,
-   "last_age_d": 0.2,
+   "last_age_d": 0.3,
    "srcs": [
     "gg"
    ],
@@ -690,7 +690,7 @@
    "med": 50.0,
    "n": 5,
    "p25": 44.0,
-   "last_age_d": 0.2,
+   "last_age_d": 0.3,
    "srcs": [
     "gg"
    ],
@@ -700,7 +700,7 @@
    "med": 68.0,
    "n": 4,
    "p25": 60.0,
-   "last_age_d": 0.2,
+   "last_age_d": 0.3,
    "srcs": [
     "gg"
    ],
@@ -710,7 +710,7 @@
    "med": 43.0,
    "n": 3,
    "p25": 40.0,
-   "last_age_d": 0.2,
+   "last_age_d": 0.3,
    "srcs": [
     "gg"
    ],
@@ -720,7 +720,7 @@
    "med": 88.0,
    "n": 3,
    "p25": 42.7,
-   "last_age_d": 0.2,
+   "last_age_d": 0.3,
    "srcs": [
     "gg"
    ],
@@ -730,7 +730,7 @@
    "med": 82.5,
    "n": 4,
    "p25": 77.0,
-   "last_age_d": 0.2,
+   "last_age_d": 0.3,
    "srcs": [
     "gg"
    ],
@@ -740,7 +740,7 @@
    "med": 80.0,
    "n": 5,
    "p25": 58.0,
-   "last_age_d": 0.2,
+   "last_age_d": 0.3,
    "srcs": [
     "gg"
    ],
@@ -790,7 +790,7 @@
    "med": 43.961734694,
    "n": 4,
    "p25": 37.923469388,
-   "last_age_d": 0.3,
+   "last_age_d": 0.4,
    "srcs": [
     "gg"
    ],
@@ -800,7 +800,7 @@
    "med": 74.0,
    "n": 3,
    "p25": 55.0,
-   "last_age_d": 0.3,
+   "last_age_d": 0.4,
    "srcs": [
     "gg"
    ],
@@ -817,14 +817,14 @@
    "uniq_nums": 3
   },
   "voodoodoll|toxicity": {
-   "med": 42.0,
-   "n": 4,
+   "med": 45.0,
+   "n": 3,
    "p25": 39.0,
    "last_age_d": 0.7,
    "srcs": [
     "gg"
    ],
-   "uniq_nums": 4
+   "uniq_nums": 3
   },
   "voodoodoll|mocha man": {
    "med": 38.0,
@@ -880,7 +880,7 @@
    "med": 37.9,
    "n": 3,
    "p25": 37.8,
-   "last_age_d": 7.3,
+   "last_age_d": 7.4,
    "srcs": [
     "gg"
    ],
@@ -911,16 +911,6 @@
    "n": 3,
    "p25": 150.0,
    "last_age_d": 6.8,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 3
-  },
-  "nailbracelet|hologram": {
-   "med": 200.0,
-   "n": 3,
-   "p25": 140.0,
-   "last_age_d": 2.4,
    "srcs": [
     "gg"
    ],
@@ -980,7 +970,7 @@
    "med": 15.995000000000001,
    "n": 4,
    "p25": 14.99,
-   "last_age_d": 0.5,
+   "last_age_d": 0.6,
    "srcs": [
     "gg"
    ],
@@ -1080,7 +1070,7 @@
    "med": 16.0,
    "n": 3,
    "p25": 15.0,
-   "last_age_d": 1.2,
+   "last_age_d": 1.3,
    "srcs": [
     "gg"
    ],
@@ -1090,7 +1080,7 @@
    "med": 23.0,
    "n": 5,
    "p25": 22.0,
-   "last_age_d": 1.2,
+   "last_age_d": 1.3,
    "srcs": [
     "gg"
    ],
@@ -1110,7 +1100,7 @@
    "med": 20.0,
    "n": 3,
    "p25": 15.359999,
-   "last_age_d": 2.0,
+   "last_age_d": 2.1,
    "srcs": [
     "gg"
    ],
@@ -1150,7 +1140,7 @@
    "med": 15.0,
    "n": 5,
    "p25": 15.0,
-   "last_age_d": 3.2,
+   "last_age_d": 3.3,
    "srcs": [
     "gg"
    ],
@@ -1160,7 +1150,7 @@
    "med": 19.0,
    "n": 8,
    "p25": 16.0,
-   "last_age_d": 3.3,
+   "last_age_d": 3.4,
    "srcs": [
     "gg"
    ],
@@ -1170,7 +1160,7 @@
    "med": 18.0,
    "n": 6,
    "p25": 14.9,
-   "last_age_d": 3.3,
+   "last_age_d": 3.4,
    "srcs": [
     "gg"
    ],
@@ -1180,7 +1170,7 @@
    "med": 16.0,
    "n": 5,
    "p25": 16.0,
-   "last_age_d": 3.3,
+   "last_age_d": 3.4,
    "srcs": [
     "gg"
    ],
@@ -1190,7 +1180,7 @@
    "med": 15.1,
    "n": 7,
    "p25": 14.95,
-   "last_age_d": 3.4,
+   "last_age_d": 3.5,
    "srcs": [
     "gg"
    ],
@@ -1220,7 +1210,7 @@
    "med": 17.0,
    "n": 10,
    "p25": 15.0,
-   "last_age_d": 4.0,
+   "last_age_d": 4.1,
    "srcs": [
     "gg"
    ],
@@ -1260,7 +1250,7 @@
    "med": 35.0,
    "n": 17,
    "p25": 30.0,
-   "last_age_d": 5.2,
+   "last_age_d": 5.3,
    "srcs": [
     "gg"
    ],
@@ -1277,14 +1267,14 @@
    "uniq_nums": 4
   },
   "snoopcigar|cartoon roll": {
-   "med": 24.494999999999997,
-   "n": 4,
+   "med": 24.99,
+   "n": 3,
    "p25": 24.0,
    "last_age_d": 6.2,
    "srcs": [
     "gg"
    ],
-   "uniq_nums": 4
+   "uniq_nums": 3
   },
   "snoopcigar|royalty": {
    "med": 30.0,
@@ -1300,7 +1290,7 @@
    "med": 20.0,
    "n": 5,
    "p25": 18.0,
-   "last_age_d": 6.3,
+   "last_age_d": 6.4,
    "srcs": [
     "gg"
    ],
@@ -1320,7 +1310,7 @@
    "med": 18.0,
    "n": 3,
    "p25": 14.0,
-   "last_age_d": 8.2,
+   "last_age_d": 8.3,
    "srcs": [
     "gg"
    ],
@@ -1330,27 +1320,27 @@
    "med": 15.0,
    "n": 3,
    "p25": 14.1,
-   "last_age_d": 9.0,
+   "last_age_d": 9.1,
    "srcs": [
     "gg"
    ],
    "uniq_nums": 3
   },
   "lootbag|racing stripes": {
-   "med": 121.30867346950001,
-   "n": 4,
-   "p25": 120.0,
-   "last_age_d": 0.2,
+   "med": 120.0,
+   "n": 3,
+   "p25": 108.0,
+   "last_age_d": 0.3,
    "srcs": [
     "gg"
    ],
-   "uniq_nums": 4
+   "uniq_nums": 3
   },
   "lootbag|jade serpent": {
    "med": 133.664999999,
    "n": 5,
    "p25": 125.0,
-   "last_age_d": 5.1,
+   "last_age_d": 5.2,
    "srcs": [
     "gg"
    ],
@@ -1360,7 +1350,7 @@
    "med": 133.0,
    "n": 7,
    "p25": 125.0,
-   "last_age_d": 5.3,
+   "last_age_d": 5.4,
    "srcs": [
     "gg"
    ],
@@ -1370,7 +1360,7 @@
    "med": 6.5,
    "n": 5,
    "p25": 6.190224773,
-   "last_age_d": 0.0,
+   "last_age_d": 0.1,
    "srcs": [
     "gg"
    ],
@@ -1380,7 +1370,7 @@
    "med": 6.5,
    "n": 5,
    "p25": 6.5,
-   "last_age_d": 0.2,
+   "last_age_d": 0.3,
    "srcs": [
     "gg"
    ],
@@ -1410,7 +1400,7 @@
    "med": 7.5,
    "n": 7,
    "p25": 6.8,
-   "last_age_d": 2.1,
+   "last_age_d": 2.2,
    "srcs": [
     "gg"
    ],
@@ -1427,20 +1417,20 @@
    "uniq_nums": 4
   },
   "surgeboard|tiki spirit": {
-   "med": 7.1949,
-   "n": 5,
+   "med": 7.10745,
+   "n": 4,
    "p25": 7.02,
    "last_age_d": 2.5,
    "srcs": [
     "gg"
    ],
-   "uniq_nums": 5
+   "uniq_nums": 4
   },
   "surgeboard|drakkar": {
    "med": 7.8,
    "n": 5,
    "p25": 7.0,
-   "last_age_d": 2.6,
+   "last_age_d": 2.7,
    "srcs": [
     "gg"
    ],
@@ -1450,7 +1440,7 @@
    "med": 7.2,
    "n": 5,
    "p25": 6.95,
-   "last_age_d": 3.6,
+   "last_age_d": 3.7,
    "srcs": [
     "gg"
    ],
@@ -1470,7 +1460,7 @@
    "med": 6.95,
    "n": 4,
    "p25": 6.9,
-   "last_age_d": 5.6,
+   "last_age_d": 5.7,
    "srcs": [
     "gg"
    ],
@@ -1480,7 +1470,7 @@
    "med": 8.0,
    "n": 3,
    "p25": 6.6,
-   "last_age_d": 5.9,
+   "last_age_d": 6.0,
    "srcs": [
     "gg"
    ],
@@ -1500,7 +1490,7 @@
    "med": 7.1949,
    "n": 3,
    "p25": 6.5,
-   "last_age_d": 12.0,
+   "last_age_d": 12.1,
    "srcs": [
     "gg"
    ],
@@ -1510,7 +1500,7 @@
    "med": 9.0,
    "n": 3,
    "p25": 7.0,
-   "last_age_d": 1.2,
+   "last_age_d": 1.3,
    "srcs": [
     "gg"
    ],
@@ -1520,7 +1510,7 @@
    "med": 6.0,
    "n": 3,
    "p25": 5.0,
-   "last_age_d": 2.1,
+   "last_age_d": 2.2,
    "srcs": [
     "gg"
    ],
@@ -1530,7 +1520,7 @@
    "med": 23.5,
    "n": 6,
    "p25": 6.195,
-   "last_age_d": 2.3,
+   "last_age_d": 2.4,
    "srcs": [
     "gg"
    ],
@@ -1540,7 +1530,7 @@
    "med": 370.0,
    "n": 7,
    "p25": 315.0,
-   "last_age_d": 2.5,
+   "last_age_d": 2.6,
    "srcs": [
     "gg"
    ],
@@ -1560,7 +1550,7 @@
    "med": 40.95,
    "n": 3,
    "p25": 34.95,
-   "last_age_d": 0.0,
+   "last_age_d": 0.1,
    "srcs": [
     "gg"
    ],
@@ -1570,7 +1560,7 @@
    "med": 35.0,
    "n": 7,
    "p25": 31.0,
-   "last_age_d": 0.2,
+   "last_age_d": 0.3,
    "srcs": [
     "gg"
    ],
@@ -1620,7 +1610,7 @@
    "med": 43.99,
    "n": 3,
    "p25": 40.0,
-   "last_age_d": 1.2,
+   "last_age_d": 1.3,
    "srcs": [
     "gg"
    ],
@@ -1650,7 +1640,7 @@
    "med": 44.0,
    "n": 3,
    "p25": 38.0,
-   "last_age_d": 2.3,
+   "last_age_d": 2.4,
    "srcs": [
     "gg"
    ],
@@ -1660,7 +1650,7 @@
    "med": 210.0,
    "n": 5,
    "p25": 150.0,
-   "last_age_d": 2.4,
+   "last_age_d": 2.5,
    "srcs": [
     "gg"
    ],
@@ -1670,7 +1660,7 @@
    "med": 77.0,
    "n": 6,
    "p25": 61.0,
-   "last_age_d": 2.8,
+   "last_age_d": 2.9,
    "srcs": [
     "gg"
    ],
@@ -1690,7 +1680,7 @@
    "med": 47.0,
    "n": 4,
    "p25": 39.0,
-   "last_age_d": 4.6,
+   "last_age_d": 4.7,
    "srcs": [
     "gg"
    ],
@@ -1716,21 +1706,11 @@
    ],
    "uniq_nums": 4
   },
-  "toybear|pineapple": {
-   "med": 38.7975,
-   "n": 3,
-   "p25": 37.25,
-   "last_age_d": 8.4,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 3
-  },
   "toybear|cowboy": {
    "med": 49.5,
    "n": 4,
    "p25": 44.0,
-   "last_age_d": 10.2,
+   "last_age_d": 10.3,
    "srcs": [
     "gg"
    ],
@@ -1750,21 +1730,21 @@
    "med": 33.0,
    "n": 5,
    "p25": 29.9,
-   "last_age_d": 0.2,
+   "last_age_d": 0.3,
    "srcs": [
     "gg"
    ],
    "uniq_nums": 5
   },
   "signetring|onyx demon": {
-   "med": 32.5,
-   "n": 6,
+   "med": 32.0,
+   "n": 5,
    "p25": 31.0,
    "last_age_d": 0.3,
    "srcs": [
     "gg"
    ],
-   "uniq_nums": 6
+   "uniq_nums": 5
   },
   "signetring|christmas": {
    "med": 34.0,
@@ -1780,7 +1760,27 @@
    "med": 33.681122449,
    "n": 4,
    "p25": 32.5,
-   "last_age_d": 4.1,
+   "last_age_d": 4.2,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 4
+  },
+  "snoopdogg|bow wizzle": {
+   "med": 5.672222222,
+   "n": 6,
+   "p25": 5.17,
+   "last_age_d": 0.0,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 6
+  },
+  "snoopdogg|plastic beach": {
+   "med": 6.27,
+   "n": 4,
+   "p25": 5.54,
+   "last_age_d": 0.0,
    "srcs": [
     "gg"
    ],
@@ -1830,21 +1830,21 @@
    "med": 5.654999999999999,
    "n": 10,
    "p25": 5.06,
-   "last_age_d": 0.1,
+   "last_age_d": 0.2,
    "srcs": [
     "gg"
    ],
    "uniq_nums": 10
   },
   "snoopdogg|team usa": {
-   "med": 5.745,
-   "n": 6,
+   "med": 5.8,
+   "n": 5,
    "p25": 5.313333334,
-   "last_age_d": 0.1,
+   "last_age_d": 0.2,
    "srcs": [
     "gg"
    ],
-   "uniq_nums": 6
+   "uniq_nums": 5
   },
   "snoopdogg|y2k skin": {
    "med": 5.21,
@@ -1865,16 +1865,6 @@
     "gg"
    ],
    "uniq_nums": 11
-  },
-  "snoopdogg|plastic beach": {
-   "med": 5.54,
-   "n": 3,
-   "p25": 4.000001,
-   "last_age_d": 0.2,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 3
   },
   "snoopdogg|huggy bear": {
    "med": 5.885,
@@ -1910,7 +1900,7 @@
    "med": 29.4745,
    "n": 6,
    "p25": 21.0,
-   "last_age_d": 0.2,
+   "last_age_d": 0.3,
    "srcs": [
     "gg"
    ],
@@ -1920,7 +1910,7 @@
    "med": 5.8149999999999995,
    "n": 4,
    "p25": 5.63,
-   "last_age_d": 0.3,
+   "last_age_d": 0.4,
    "srcs": [
     "gg"
    ],
@@ -1930,7 +1920,7 @@
    "med": 5.947222222000001,
    "n": 6,
    "p25": 4.9,
-   "last_age_d": 0.4,
+   "last_age_d": 0.5,
    "srcs": [
     "gg"
    ],
@@ -1960,7 +1950,7 @@
    "med": 5.494999999999999,
    "n": 6,
    "p25": 4.5,
-   "last_age_d": 0.8,
+   "last_age_d": 0.9,
    "srcs": [
     "gg"
    ],
@@ -1977,24 +1967,14 @@
    "uniq_nums": 7
   },
   "snoopdogg|beanie": {
-   "med": 5.970000000000001,
-   "n": 10,
+   "med": 5.7175,
+   "n": 8,
    "p25": 5.2949,
    "last_age_d": 1.0,
    "srcs": [
     "gg"
    ],
-   "uniq_nums": 10
-  },
-  "snoopdogg|bow wizzle": {
-   "med": 5.585,
-   "n": 4,
-   "p25": 5.17,
-   "last_age_d": 1.0,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 4
+   "uniq_nums": 8
   },
   "snoopdogg|peach mode": {
    "med": 6.0,
@@ -2020,7 +2000,7 @@
    "med": 10.0,
    "n": 6,
    "p25": 8.0,
-   "last_age_d": 1.1,
+   "last_age_d": 1.2,
    "srcs": [
     "gg"
    ],
@@ -2040,7 +2020,7 @@
    "med": 5.62,
    "n": 7,
    "p25": 5.0,
-   "last_age_d": 1.2,
+   "last_age_d": 1.3,
    "srcs": [
     "gg"
    ],
@@ -2060,7 +2040,7 @@
    "med": 6.0,
    "n": 6,
    "p25": 5.0,
-   "last_age_d": 1.3,
+   "last_age_d": 1.4,
    "srcs": [
     "gg"
    ],
@@ -2090,7 +2070,7 @@
    "med": 6.5,
    "n": 4,
    "p25": 6.0,
-   "last_age_d": 1.6,
+   "last_age_d": 1.7,
    "srcs": [
     "gg"
    ],
@@ -2100,7 +2080,7 @@
    "med": 6.5,
    "n": 4,
    "p25": 6.0,
-   "last_age_d": 1.9,
+   "last_age_d": 2.0,
    "srcs": [
     "gg"
    ],
@@ -2120,7 +2100,7 @@
    "med": 5.9399999999999995,
    "n": 6,
    "p25": 5.87,
-   "last_age_d": 2.1,
+   "last_age_d": 2.2,
    "srcs": [
     "gg"
    ],
@@ -2130,7 +2110,7 @@
    "med": 6.0,
    "n": 3,
    "p25": 4.513333334,
-   "last_age_d": 2.1,
+   "last_age_d": 2.2,
    "srcs": [
     "gg"
    ],
@@ -2170,7 +2150,7 @@
    "med": 5.54,
    "n": 6,
    "p25": 5.54,
-   "last_age_d": 3.1,
+   "last_age_d": 3.2,
    "srcs": [
     "gg"
    ],
@@ -2180,7 +2160,7 @@
    "med": 6.66,
    "n": 4,
    "p25": 5.55,
-   "last_age_d": 3.2,
+   "last_age_d": 3.3,
    "srcs": [
     "gg"
    ],
@@ -2190,7 +2170,7 @@
    "med": 5.4,
    "n": 6,
    "p25": 5.3,
-   "last_age_d": 3.5,
+   "last_age_d": 3.6,
    "srcs": [
     "gg"
    ],
@@ -2201,16 +2181,6 @@
    "n": 4,
    "p25": 8.0,
    "last_age_d": 3.9,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 4
-  },
-  "preciouspeach|cutout": {
-   "med": 1792.1,
-   "n": 4,
-   "p25": 1734.2,
-   "last_age_d": 9.2,
    "srcs": [
     "gg"
    ],
@@ -2240,7 +2210,7 @@
    "med": 6.0,
    "n": 3,
    "p25": 4.4012,
-   "last_age_d": 0.1,
+   "last_age_d": 0.2,
    "srcs": [
     "gg"
    ],
@@ -2340,7 +2310,7 @@
    "med": 5.68,
    "n": 4,
    "p25": 5.42,
-   "last_age_d": 0.3,
+   "last_age_d": 0.4,
    "srcs": [
     "gg"
    ],
@@ -2520,7 +2490,7 @@
    "med": 9.0,
    "n": 3,
    "p25": 4.560204081,
-   "last_age_d": 1.1,
+   "last_age_d": 1.2,
    "srcs": [
     "gg"
    ],
@@ -2530,7 +2500,7 @@
    "med": 6.0,
    "n": 4,
    "p25": 6.0,
-   "last_age_d": 1.1,
+   "last_age_d": 1.2,
    "srcs": [
     "gg"
    ],
@@ -2540,7 +2510,7 @@
    "med": 5.5,
    "n": 8,
    "p25": 5.0,
-   "last_age_d": 1.1,
+   "last_age_d": 1.2,
    "srcs": [
     "gg"
    ],
@@ -2550,7 +2520,7 @@
    "med": 9.5,
    "n": 10,
    "p25": 7.0,
-   "last_age_d": 1.1,
+   "last_age_d": 1.2,
    "srcs": [
     "gg"
    ],
@@ -2560,7 +2530,7 @@
    "med": 4.5506,
    "n": 4,
    "p25": 4.4012,
-   "last_age_d": 1.5,
+   "last_age_d": 1.6,
    "srcs": [
     "gg"
    ],
@@ -2570,7 +2540,7 @@
    "med": 4.551200001,
    "n": 3,
    "p25": 4.4,
-   "last_age_d": 1.5,
+   "last_age_d": 1.6,
    "srcs": [
     "gg"
    ],
@@ -2600,7 +2570,7 @@
    "med": 11.0,
    "n": 7,
    "p25": 6.0,
-   "last_age_d": 2.3,
+   "last_age_d": 2.4,
    "srcs": [
     "gg"
    ],
@@ -2610,7 +2580,7 @@
    "med": 5.0,
    "n": 3,
    "p25": 5.0,
-   "last_age_d": 3.1,
+   "last_age_d": 3.2,
    "srcs": [
     "gg"
    ],
@@ -2626,6 +2596,26 @@
    ],
    "uniq_nums": 3
   },
+  "chillflame|lego": {
+   "med": 4.0,
+   "n": 5,
+   "p25": 4.0,
+   "last_age_d": 0.0,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 5
+  },
+  "chillflame|los angeles": {
+   "med": 4.0,
+   "n": 14,
+   "p25": 3.6,
+   "last_age_d": 0.0,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 14
+  },
   "chillflame|lava lamp": {
    "med": 3.89,
    "n": 11,
@@ -2640,27 +2630,17 @@
    "med": 4.0,
    "n": 10,
    "p25": 4.0,
-   "last_age_d": 0.0,
+   "last_age_d": 0.1,
    "srcs": [
     "gg"
    ],
    "uniq_nums": 10
   },
-  "chillflame|los angeles": {
-   "med": 4.0,
-   "n": 13,
-   "p25": 3.6,
-   "last_age_d": 0.0,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 13
-  },
   "chillflame|revolt": {
    "med": 4.2,
    "n": 3,
    "p25": 4.01,
-   "last_age_d": 0.0,
+   "last_age_d": 0.1,
    "srcs": [
     "gg"
    ],
@@ -2676,31 +2656,21 @@
    ],
    "uniq_nums": 13
   },
-  "chillflame|lego": {
-   "med": 4.0,
-   "n": 4,
-   "p25": 4.0,
-   "last_age_d": 0.1,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 4
-  },
   "chillflame|spark plug": {
    "med": 4.0,
-   "n": 4,
-   "p25": 4.0,
-   "last_age_d": 0.1,
+   "n": 3,
+   "p25": 3.78,
+   "last_age_d": 0.2,
    "srcs": [
     "gg"
    ],
-   "uniq_nums": 4
+   "uniq_nums": 3
   },
   "chillflame|dungeon": {
    "med": 3.8351020415,
    "n": 8,
    "p25": 3.78,
-   "last_age_d": 0.1,
+   "last_age_d": 0.2,
    "srcs": [
     "gg"
    ],
@@ -2780,7 +2750,7 @@
    "med": 4.0,
    "n": 10,
    "p25": 4.0,
-   "last_age_d": 0.3,
+   "last_age_d": 0.4,
    "srcs": [
     "gg"
    ],
@@ -2790,7 +2760,7 @@
    "med": 4.0,
    "n": 8,
    "p25": 4.0,
-   "last_age_d": 0.3,
+   "last_age_d": 0.4,
    "srcs": [
     "gg"
    ],
@@ -2800,7 +2770,7 @@
    "med": 4.095,
    "n": 5,
    "p25": 4.0,
-   "last_age_d": 0.3,
+   "last_age_d": 0.4,
    "srcs": [
     "gg"
    ],
@@ -2820,7 +2790,7 @@
    "med": 4.465,
    "n": 4,
    "p25": 3.93,
-   "last_age_d": 0.4,
+   "last_age_d": 0.5,
    "srcs": [
     "gg"
    ],
@@ -2830,27 +2800,27 @@
    "med": 4.0,
    "n": 12,
    "p25": 3.98,
-   "last_age_d": 0.4,
+   "last_age_d": 0.5,
    "srcs": [
     "gg"
    ],
    "uniq_nums": 12
   },
   "chillflame|balinese": {
-   "med": 3.98,
-   "n": 12,
+   "med": 4.0,
+   "n": 11,
    "p25": 3.760204081,
    "last_age_d": 0.5,
    "srcs": [
     "gg"
    ],
-   "uniq_nums": 12
+   "uniq_nums": 11
   },
   "chillflame|iron rose": {
    "med": 4.0,
    "n": 8,
    "p25": 3.93,
-   "last_age_d": 0.5,
+   "last_age_d": 0.6,
    "srcs": [
     "gg"
    ],
@@ -2870,7 +2840,7 @@
    "med": 4.0,
    "n": 8,
    "p25": 4.0,
-   "last_age_d": 0.7,
+   "last_age_d": 0.8,
    "srcs": [
     "gg"
    ],
@@ -2890,7 +2860,7 @@
    "med": 4.0,
    "n": 7,
    "p25": 3.810240157,
-   "last_age_d": 0.9,
+   "last_age_d": 1.0,
    "srcs": [
     "gg"
    ],
@@ -2920,7 +2890,7 @@
    "med": 5.0,
    "n": 4,
    "p25": 5.0,
-   "last_age_d": 1.1,
+   "last_age_d": 1.2,
    "srcs": [
     "gg"
    ],
@@ -2950,7 +2920,7 @@
    "med": 4.0,
    "n": 3,
    "p25": 4.0,
-   "last_age_d": 1.8,
+   "last_age_d": 1.9,
    "srcs": [
     "gg"
    ],
@@ -2960,7 +2930,7 @@
    "med": 4.0,
    "n": 3,
    "p25": 3.810240157,
-   "last_age_d": 1.9,
+   "last_age_d": 2.0,
    "srcs": [
     "gg"
    ],
@@ -2976,11 +2946,21 @@
    ],
    "uniq_nums": 8
   },
+  "preciouspeach|cutout": {
+   "med": 1792.1,
+   "n": 4,
+   "p25": 1734.2,
+   "last_age_d": 9.2,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 4
+  },
   "vintagecigar|sunset orange": {
    "med": 36.495000000000005,
    "n": 4,
    "p25": 35.99,
-   "last_age_d": 0.4,
+   "last_age_d": 0.5,
    "srcs": [
     "gg"
    ],
@@ -3020,7 +3000,7 @@
    "med": 35.99,
    "n": 3,
    "p25": 33.0,
-   "last_age_d": 1.3,
+   "last_age_d": 1.4,
    "srcs": [
     "gg"
    ],
@@ -3030,7 +3010,7 @@
    "med": 57.5,
    "n": 12,
    "p25": 46.0,
-   "last_age_d": 1.3,
+   "last_age_d": 1.4,
    "srcs": [
     "gg"
    ],
@@ -3050,7 +3030,7 @@
    "med": 38.85,
    "n": 3,
    "p25": 36.5,
-   "last_age_d": 2.0,
+   "last_age_d": 2.1,
    "srcs": [
     "gg"
    ],
@@ -3070,7 +3050,7 @@
    "med": 35.9,
    "n": 6,
    "p25": 35.6,
-   "last_age_d": 2.7,
+   "last_age_d": 2.8,
    "srcs": [
     "gg"
    ],
@@ -3080,7 +3060,7 @@
    "med": 39.75,
    "n": 6,
    "p25": 36.0,
-   "last_age_d": 2.8,
+   "last_age_d": 2.9,
    "srcs": [
     "gg"
    ],
@@ -3090,7 +3070,7 @@
    "med": 37.9,
    "n": 4,
    "p25": 37.8,
-   "last_age_d": 3.5,
+   "last_age_d": 3.6,
    "srcs": [
     "gg"
    ],
@@ -3170,7 +3150,7 @@
    "med": 45.5,
    "n": 4,
    "p25": 38.0,
-   "last_age_d": 10.5,
+   "last_age_d": 10.6,
    "srcs": [
     "gg"
    ],
@@ -3180,7 +3160,7 @@
    "med": 4.091836734,
    "n": 9,
    "p25": 3.8,
-   "last_age_d": 0.0,
+   "last_age_d": 0.1,
    "srcs": [
     "gg"
    ],
@@ -3190,7 +3170,7 @@
    "med": 3.8049999999999997,
    "n": 4,
    "p25": 3.6,
-   "last_age_d": 0.0,
+   "last_age_d": 0.1,
    "srcs": [
     "gg"
    ],
@@ -3260,7 +3240,7 @@
    "med": 3.94,
    "n": 15,
    "p25": 3.724394046,
-   "last_age_d": 0.1,
+   "last_age_d": 0.2,
    "srcs": [
     "gg"
    ],
@@ -3270,7 +3250,7 @@
    "med": 5.0,
    "n": 3,
    "p25": 5.0,
-   "last_age_d": 0.1,
+   "last_age_d": 0.2,
    "srcs": [
     "gg"
    ],
@@ -3280,7 +3260,7 @@
    "med": 6.0,
    "n": 3,
    "p25": 4.5,
-   "last_age_d": 0.1,
+   "last_age_d": 0.2,
    "srcs": [
     "gg"
    ],
@@ -3290,7 +3270,7 @@
    "med": 3.0,
    "n": 9,
    "p25": 3.0,
-   "last_age_d": 0.1,
+   "last_age_d": 0.2,
    "srcs": [
     "gg"
    ],
@@ -3300,7 +3280,7 @@
    "med": 3.7949,
    "n": 7,
    "p25": 3.1,
-   "last_age_d": 0.1,
+   "last_age_d": 0.2,
    "srcs": [
     "gg"
    ],
@@ -3340,7 +3320,7 @@
    "med": 5.0,
    "n": 3,
    "p25": 4.7,
-   "last_age_d": 0.2,
+   "last_age_d": 0.3,
    "srcs": [
     "gg"
    ],
@@ -3350,7 +3330,7 @@
    "med": 3.7901000015,
    "n": 6,
    "p25": 3.63,
-   "last_age_d": 0.2,
+   "last_age_d": 0.3,
    "srcs": [
     "gg"
    ],
@@ -3366,16 +3346,6 @@
    ],
    "uniq_nums": 10
   },
-  "vicecream|love glazed": {
-   "med": 12.0,
-   "n": 3,
-   "p25": 6.0,
-   "last_age_d": 0.3,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 3
-  },
   "vicecream|classic": {
    "med": 3.630204081,
    "n": 3,
@@ -3390,7 +3360,7 @@
    "med": 3.79,
    "n": 7,
    "p25": 3.690404084,
-   "last_age_d": 0.3,
+   "last_age_d": 0.4,
    "srcs": [
     "gg"
    ],
@@ -3400,7 +3370,7 @@
    "med": 4.505,
    "n": 10,
    "p25": 3.123333334,
-   "last_age_d": 0.3,
+   "last_age_d": 0.4,
    "srcs": [
     "gg"
    ],
@@ -3490,7 +3460,7 @@
    "med": 3.720202042,
    "n": 6,
    "p25": 3.64,
-   "last_age_d": 0.8,
+   "last_age_d": 0.9,
    "srcs": [
     "gg"
    ],
@@ -3520,7 +3490,7 @@
    "med": 3.955,
    "n": 10,
    "p25": 3.734598128,
-   "last_age_d": 1.1,
+   "last_age_d": 1.2,
    "srcs": [
     "gg"
    ],
@@ -3580,7 +3550,7 @@
    "med": 3.79,
    "n": 4,
    "p25": 3.64,
-   "last_age_d": 2.3,
+   "last_age_d": 2.4,
    "srcs": [
     "gg"
    ],
@@ -3630,7 +3600,7 @@
    "med": 10.89,
    "n": 5,
    "p25": 10.2,
-   "last_age_d": 2.9,
+   "last_age_d": 3.0,
    "srcs": [
     "gg"
    ],
@@ -3640,7 +3610,7 @@
    "med": 10.0,
    "n": 3,
    "p25": 9.99,
-   "last_age_d": 3.0,
+   "last_age_d": 3.1,
    "srcs": [
     "gg"
    ],
@@ -3650,7 +3620,7 @@
    "med": 10.845,
    "n": 6,
    "p25": 10.0,
-   "last_age_d": 3.2,
+   "last_age_d": 3.3,
    "srcs": [
     "gg"
    ],
@@ -3660,7 +3630,7 @@
    "med": 10.125,
    "n": 6,
    "p25": 10.0,
-   "last_age_d": 3.2,
+   "last_age_d": 3.3,
    "srcs": [
     "gg"
    ],
@@ -3670,7 +3640,7 @@
    "med": 10.45,
    "n": 4,
    "p25": 10.4,
-   "last_age_d": 4.2,
+   "last_age_d": 4.3,
    "srcs": [
     "gg"
    ],
@@ -3750,7 +3720,7 @@
    "med": 9.545,
    "n": 4,
    "p25": 9.4,
-   "last_age_d": 1.8,
+   "last_age_d": 1.9,
    "srcs": [
     "gg"
    ],
@@ -3770,7 +3740,7 @@
    "med": 9.69,
    "n": 3,
    "p25": 8.99,
-   "last_age_d": 4.0,
+   "last_age_d": 4.1,
    "srcs": [
     "gg"
    ],
@@ -3780,7 +3750,7 @@
    "med": 17.0,
    "n": 3,
    "p25": 9.28001,
-   "last_age_d": 5.0,
+   "last_age_d": 5.1,
    "srcs": [
     "gg"
    ],
@@ -3790,7 +3760,7 @@
    "med": 13.0,
    "n": 5,
    "p25": 11.24,
-   "last_age_d": 0.3,
+   "last_age_d": 0.4,
    "srcs": [
     "gg"
    ],
@@ -3810,7 +3780,7 @@
    "med": 14.35,
    "n": 6,
    "p25": 13.295155,
-   "last_age_d": 0.4,
+   "last_age_d": 0.5,
    "srcs": [
     "gg"
    ],
@@ -3820,7 +3790,7 @@
    "med": 17.0,
    "n": 5,
    "p25": 15.0,
-   "last_age_d": 0.4,
+   "last_age_d": 0.5,
    "srcs": [
     "gg"
    ],
@@ -3830,7 +3800,7 @@
    "med": 17.0,
    "n": 9,
    "p25": 15.33,
-   "last_age_d": 0.4,
+   "last_age_d": 0.5,
    "srcs": [
     "gg"
    ],
@@ -3840,7 +3810,7 @@
    "med": 17.494999999999997,
    "n": 4,
    "p25": 17.0,
-   "last_age_d": 0.4,
+   "last_age_d": 0.5,
    "srcs": [
     "gg"
    ],
@@ -3900,7 +3870,7 @@
    "med": 16.0,
    "n": 3,
    "p25": 15.0,
-   "last_age_d": 3.0,
+   "last_age_d": 3.1,
    "srcs": [
     "gg"
    ],
@@ -3920,7 +3890,7 @@
    "med": 16.0,
    "n": 3,
    "p25": 15.0,
-   "last_age_d": 4.4,
+   "last_age_d": 4.5,
    "srcs": [
     "gg"
    ],
@@ -3966,21 +3936,31 @@
    ],
    "uniq_nums": 3
   },
-  "inputkey|raido rune": {
-   "med": 7.5,
-   "n": 8,
-   "p25": 7.0,
-   "last_age_d": 0.2,
+  "inputkey|blockchain": {
+   "med": 9.0,
+   "n": 3,
+   "p25": 8.0,
+   "last_age_d": 0.0,
    "srcs": [
     "gg"
    ],
-   "uniq_nums": 8
+   "uniq_nums": 3
+  },
+  "inputkey|raido rune": {
+   "med": 8.0,
+   "n": 9,
+   "p25": 7.0,
+   "last_age_d": 0.0,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 9
   },
   "inputkey|swimming pool": {
    "med": 8.83,
    "n": 4,
    "p25": 6.66,
-   "last_age_d": 0.2,
+   "last_age_d": 0.3,
    "srcs": [
     "gg"
    ],
@@ -3990,7 +3970,7 @@
    "med": 7.0,
    "n": 15,
    "p25": 6.3,
-   "last_age_d": 0.3,
+   "last_age_d": 0.4,
    "srcs": [
     "gg"
    ],
@@ -4010,7 +3990,7 @@
    "med": 7.0,
    "n": 5,
    "p25": 6.64,
-   "last_age_d": 1.1,
+   "last_age_d": 1.2,
    "srcs": [
     "gg"
    ],
@@ -4020,7 +4000,7 @@
    "med": 10.0,
    "n": 5,
    "p25": 8.0,
-   "last_age_d": 1.1,
+   "last_age_d": 1.2,
    "srcs": [
     "gg"
    ],
@@ -4050,7 +4030,7 @@
    "med": 13.5,
    "n": 6,
    "p25": 10.78,
-   "last_age_d": 1.2,
+   "last_age_d": 1.3,
    "srcs": [
     "gg"
    ],
@@ -4060,7 +4040,7 @@
    "med": 8.275,
    "n": 6,
    "p25": 6.0,
-   "last_age_d": 1.6,
+   "last_age_d": 1.7,
    "srcs": [
     "gg"
    ],
@@ -4070,7 +4050,7 @@
    "med": 9.0,
    "n": 7,
    "p25": 7.0,
-   "last_age_d": 1.9,
+   "last_age_d": 2.0,
    "srcs": [
     "gg"
    ],
@@ -4090,7 +4070,7 @@
    "med": 11.0,
    "n": 4,
    "p25": 11.0,
-   "last_age_d": 3.2,
+   "last_age_d": 3.3,
    "srcs": [
     "gg"
    ],
@@ -4110,7 +4090,7 @@
    "med": 13.5,
    "n": 4,
    "p25": 11.0,
-   "last_age_d": 5.1,
+   "last_age_d": 5.2,
    "srcs": [
     "gg"
    ],
@@ -4130,7 +4110,7 @@
    "med": 6.9,
    "n": 3,
    "p25": 6.64,
-   "last_age_d": 5.4,
+   "last_age_d": 5.5,
    "srcs": [
     "gg"
    ],
@@ -4180,7 +4160,7 @@
    "med": 9.0,
    "n": 5,
    "p25": 8.0,
-   "last_age_d": 7.0,
+   "last_age_d": 7.1,
    "srcs": [
     "gg"
    ],
@@ -4200,7 +4180,7 @@
    "med": 11.0,
    "n": 5,
    "p25": 9.0,
-   "last_age_d": 7.5,
+   "last_age_d": 7.6,
    "srcs": [
     "gg"
    ],
@@ -4220,7 +4200,7 @@
    "med": 11.0,
    "n": 3,
    "p25": 8.0,
-   "last_age_d": 10.0,
+   "last_age_d": 10.1,
    "srcs": [
     "gg"
    ],
@@ -4230,7 +4210,17 @@
    "med": 9.0,
    "n": 3,
    "p25": 8.0,
-   "last_age_d": 11.0,
+   "last_age_d": 11.1,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 3
+  },
+  "lowrider|dry eyes": {
+   "med": 54.25,
+   "n": 3,
+   "p25": 53.0,
+   "last_age_d": 0.0,
    "srcs": [
     "gg"
    ],
@@ -4280,7 +4270,7 @@
    "med": 54.0,
    "n": 3,
    "p25": 48.0,
-   "last_age_d": 6.5,
+   "last_age_d": 6.6,
    "srcs": [
     "gg"
    ],
@@ -4290,7 +4280,7 @@
    "med": 54.0,
    "n": 3,
    "p25": 50.0,
-   "last_age_d": 7.5,
+   "last_age_d": 7.6,
    "srcs": [
     "gg"
    ],
@@ -4320,7 +4310,7 @@
    "med": 5.0,
    "n": 5,
    "p25": 4.785,
-   "last_age_d": 0.1,
+   "last_age_d": 0.2,
    "srcs": [
     "gg"
    ],
@@ -4350,7 +4340,7 @@
    "med": 6.819999999999999,
    "n": 4,
    "p25": 4.77,
-   "last_age_d": 1.1,
+   "last_age_d": 1.2,
    "srcs": [
     "gg"
    ],
@@ -4360,7 +4350,7 @@
    "med": 4.505,
    "n": 8,
    "p25": 4.0,
-   "last_age_d": 1.2,
+   "last_age_d": 1.3,
    "srcs": [
     "gg"
    ],
@@ -4370,7 +4360,7 @@
    "med": 6.0,
    "n": 5,
    "p25": 5.85,
-   "last_age_d": 1.3,
+   "last_age_d": 1.4,
    "srcs": [
     "gg"
    ],
@@ -4380,7 +4370,7 @@
    "med": 5.99,
    "n": 5,
    "p25": 5.0,
-   "last_age_d": 2.0,
+   "last_age_d": 2.1,
    "srcs": [
     "gg"
    ],
@@ -4390,7 +4380,7 @@
    "med": 4.25615367,
    "n": 3,
    "p25": 4.2,
-   "last_age_d": 2.0,
+   "last_age_d": 2.1,
    "srcs": [
     "gg"
    ],
@@ -4450,7 +4440,7 @@
    "med": 5.76,
    "n": 3,
    "p25": 5.0,
-   "last_age_d": 3.5,
+   "last_age_d": 3.6,
    "srcs": [
     "gg"
    ],
@@ -4460,7 +4450,7 @@
    "med": 5.0,
    "n": 3,
    "p25": 4.0,
-   "last_age_d": 3.6,
+   "last_age_d": 3.7,
    "srcs": [
     "gg"
    ],
@@ -4470,7 +4460,7 @@
    "med": 4.45,
    "n": 5,
    "p25": 4.000001,
-   "last_age_d": 4.1,
+   "last_age_d": 4.2,
    "srcs": [
     "gg"
    ],
@@ -4500,7 +4490,7 @@
    "med": 5.99,
    "n": 3,
    "p25": 4.31,
-   "last_age_d": 5.0,
+   "last_age_d": 5.1,
    "srcs": [
     "gg"
    ],
@@ -4530,7 +4520,7 @@
    "med": 4.4853000015,
    "n": 4,
    "p25": 3.870600003,
-   "last_age_d": 0.0,
+   "last_age_d": 0.1,
    "srcs": [
     "gg"
    ],
@@ -4550,7 +4540,7 @@
    "med": 4.25,
    "n": 3,
    "p25": 3.000001,
-   "last_age_d": 0.1,
+   "last_age_d": 0.2,
    "srcs": [
     "gg"
    ],
@@ -4560,7 +4550,7 @@
    "med": 6.05,
    "n": 6,
    "p25": 4.29,
-   "last_age_d": 0.1,
+   "last_age_d": 0.2,
    "srcs": [
     "gg"
    ],
@@ -4667,14 +4657,14 @@
    "uniq_nums": 6
   },
   "lolpop|cotton candy": {
-   "med": 5.0,
-   "n": 5,
+   "med": 4.5,
+   "n": 4,
    "p25": 4.0,
    "last_age_d": 0.9,
    "srcs": [
     "gg"
    ],
-   "uniq_nums": 5
+   "uniq_nums": 4
   },
   "lolpop|wonka berry": {
    "med": 4.5,
@@ -4740,7 +4730,7 @@
    "med": 4.21,
    "n": 3,
    "p25": 4.19,
-   "last_age_d": 1.8,
+   "last_age_d": 1.9,
    "srcs": [
     "gg"
    ],
@@ -4750,7 +4740,7 @@
    "med": 5.0,
    "n": 8,
    "p25": 5.0,
-   "last_age_d": 1.9,
+   "last_age_d": 2.0,
    "srcs": [
     "gg"
    ],
@@ -4780,7 +4770,7 @@
    "med": 22.5,
    "n": 4,
    "p25": 5.0,
-   "last_age_d": 2.1,
+   "last_age_d": 2.2,
    "srcs": [
     "gg"
    ],
@@ -4790,27 +4780,27 @@
    "med": 4.15,
    "n": 3,
    "p25": 4.0,
-   "last_age_d": 2.2,
+   "last_age_d": 2.3,
    "srcs": [
     "gg"
    ],
    "uniq_nums": 3
   },
   "lolpop|blue goo": {
-   "med": 4.365,
-   "n": 6,
+   "med": 4.39,
+   "n": 5,
    "p25": 4.32,
    "last_age_d": 2.3,
    "srcs": [
     "gg"
    ],
-   "uniq_nums": 6
+   "uniq_nums": 5
   },
   "lolpop|comic crunch": {
    "med": 4.25,
    "n": 5,
    "p25": 3.980204081,
-   "last_age_d": 2.5,
+   "last_age_d": 2.6,
    "srcs": [
     "gg"
    ],
@@ -4820,7 +4810,7 @@
    "med": 5.0,
    "n": 3,
    "p25": 4.3,
-   "last_age_d": 2.7,
+   "last_age_d": 2.8,
    "srcs": [
     "gg"
    ],
@@ -4830,7 +4820,7 @@
    "med": 5.32,
    "n": 3,
    "p25": 5.0,
-   "last_age_d": 3.0,
+   "last_age_d": 3.1,
    "srcs": [
     "gg"
    ],
@@ -4870,7 +4860,7 @@
    "med": 5.0,
    "n": 3,
    "p25": 4.0,
-   "last_age_d": 4.9,
+   "last_age_d": 5.0,
    "srcs": [
     "gg"
    ],
@@ -4910,7 +4900,7 @@
    "med": 4.158,
    "n": 3,
    "p25": 3.7,
-   "last_age_d": 6.1,
+   "last_age_d": 6.2,
    "srcs": [
     "gg"
    ],
@@ -4920,7 +4910,7 @@
    "med": 4.0,
    "n": 3,
    "p25": 3.323333334,
-   "last_age_d": 6.1,
+   "last_age_d": 6.2,
    "srcs": [
     "gg"
    ],
@@ -4930,7 +4920,7 @@
    "med": 8.64,
    "n": 3,
    "p25": 8.0,
-   "last_age_d": 6.3,
+   "last_age_d": 6.4,
    "srcs": [
     "gg"
    ],
@@ -4940,7 +4930,7 @@
    "med": 5.0,
    "n": 3,
    "p25": 4.4,
-   "last_age_d": 8.7,
+   "last_age_d": 8.8,
    "srcs": [
     "gg"
    ],
@@ -4956,381 +4946,31 @@
    ],
    "uniq_nums": 3
   },
-  "instantramen|chicken": {
-   "med": 4.089645,
-   "n": 13,
-   "p25": 3.7,
+  "stellarrocket|sky ghost": {
+   "med": 10.0,
+   "n": 12,
+   "p25": 6.237,
    "last_age_d": 0.0,
    "srcs": [
     "gg"
    ],
-   "uniq_nums": 13
-  },
-  "instantramen|sewing stew": {
-   "med": 4.2,
-   "n": 11,
-   "p25": 4.000001,
-   "last_age_d": 0.1,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 11
-  },
-  "instantramen|cat food": {
-   "med": 4.3474999995,
-   "n": 8,
-   "p25": 3.46,
-   "last_age_d": 0.1,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 8
-  },
-  "instantramen|homemade": {
-   "med": 5.0,
-   "n": 7,
-   "p25": 3.000001,
-   "last_age_d": 0.1,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 7
-  },
-  "instantramen|seafood": {
-   "med": 4.1166666670000005,
-   "n": 8,
-   "p25": 4.0,
-   "last_age_d": 0.1,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 8
-  },
-  "instantramen|giant crab": {
-   "med": 4.28,
-   "n": 8,
-   "p25": 4.15,
-   "last_age_d": 0.1,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 8
-  },
-  "instantramen|black pasta": {
-   "med": 4.99,
-   "n": 13,
-   "p25": 4.0,
-   "last_age_d": 0.1,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 13
-  },
-  "instantramen|squid wok": {
-   "med": 4.04,
-   "n": 6,
-   "p25": 3.6,
-   "last_age_d": 0.2,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 6
-  },
-  "instantramen|gold chain": {
-   "med": 5.1250000005,
-   "n": 8,
-   "p25": 4.14,
-   "last_age_d": 0.4,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 8
-  },
-  "instantramen|dragon soup": {
-   "med": 5.5,
-   "n": 4,
-   "p25": 5.0,
-   "last_age_d": 0.4,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 4
-  },
-  "instantramen|bacon": {
-   "med": 4.1,
-   "n": 7,
-   "p25": 3.5,
-   "last_age_d": 0.5,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 7
-  },
-  "instantramen|classic ramen": {
-   "med": 5.0,
-   "n": 3,
-   "p25": 4.99,
-   "last_age_d": 0.5,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 3
-  },
-  "instantramen|shrimp": {
-   "med": 5.0,
-   "n": 7,
-   "p25": 4.38,
-   "last_age_d": 0.8,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 7
-  },
-  "instantramen|bento": {
-   "med": 4.1,
-   "n": 11,
-   "p25": 4.0,
-   "last_age_d": 0.8,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 11
-  },
-  "instantramen|ratatouille": {
-   "med": 4.08,
-   "n": 11,
-   "p25": 4.0,
-   "last_age_d": 0.9,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 11
-  },
-  "instantramen|slurp-slurp": {
-   "med": 4.0,
-   "n": 5,
-   "p25": 3.000001,
-   "last_age_d": 0.9,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 5
-  },
-  "instantramen|jade dragon": {
-   "med": 5.000001,
-   "n": 9,
-   "p25": 4.47,
-   "last_age_d": 1.0,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 9
-  },
-  "instantramen|eyeballs": {
-   "med": 4.25,
-   "n": 9,
-   "p25": 4.000001,
-   "last_age_d": 1.0,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 9
-  },
-  "instantramen|topokki": {
-   "med": 3.360204081,
-   "n": 3,
-   "p25": 3.000001,
-   "last_age_d": 1.1,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 3
-  },
-  "instantramen|hotpot": {
-   "med": 3.222333333,
-   "n": 3,
-   "p25": 3.000001,
-   "last_age_d": 1.3,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 3
-  },
-  "instantramen|octopus": {
-   "med": 4.4,
-   "n": 9,
-   "p25": 4.0,
-   "last_age_d": 1.3,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 9
-  },
-  "instantramen|broccoli": {
-   "med": 4.08,
-   "n": 10,
-   "p25": 3.000001,
-   "last_age_d": 1.3,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 10
-  },
-  "instantramen|anti-gravity": {
-   "med": 4.2,
-   "n": 5,
-   "p25": 4.01,
-   "last_age_d": 1.4,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 5
-  },
-  "instantramen|sunny loops": {
-   "med": 4.2,
-   "n": 13,
-   "p25": 4.0,
-   "last_age_d": 1.4,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 13
-  },
-  "instantramen|sacred grove": {
-   "med": 4.125,
-   "n": 6,
-   "p25": 3.283333334,
-   "last_age_d": 1.4,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 6
-  },
-  "instantramen|samurai": {
-   "med": 4.5,
-   "n": 5,
-   "p25": 4.000001,
-   "last_age_d": 1.4,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 5
-  },
-  "instantramen|abduction": {
-   "med": 4.04,
-   "n": 8,
-   "p25": 3.75,
-   "last_age_d": 1.4,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 8
-  },
-  "instantramen|bitcoins": {
-   "med": 11.18,
-   "n": 4,
-   "p25": 11.0,
-   "last_age_d": 1.4,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 4
-  },
-  "instantramen|khinkali": {
-   "med": 4.505,
-   "n": 6,
-   "p25": 4.01,
-   "last_age_d": 1.4,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 6
-  },
-  "instantramen|first date": {
-   "med": 5.989999999,
-   "n": 9,
-   "p25": 5.0,
-   "last_age_d": 2.3,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 9
-  },
-  "instantramen|ramen snack": {
-   "med": 4.19,
-   "n": 5,
-   "p25": 3.400001,
-   "last_age_d": 2.3,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 5
-  },
-  "instantramen|arcane bowl": {
-   "med": 4.75,
-   "n": 4,
-   "p25": 4.5,
-   "last_age_d": 2.9,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 4
-  },
-  "instantramen|family jewels": {
-   "med": 4.2,
-   "n": 5,
-   "p25": 4.1,
-   "last_age_d": 3.0,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 5
-  },
-  "instantramen|sausage duo": {
-   "med": 4.154999999999999,
-   "n": 4,
-   "p25": 4.01,
-   "last_age_d": 4.2,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 4
-  },
-  "instantramen|mushroom": {
-   "med": 4.1850000000000005,
-   "n": 6,
-   "p25": 4.0,
-   "last_age_d": 5.3,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 6
+   "uniq_nums": 12
   },
   "stellarrocket|mission uranus": {
    "med": 124.5,
    "n": 6,
    "p25": 110.0,
-   "last_age_d": 0.0,
+   "last_age_d": 0.1,
    "srcs": [
     "gg"
    ],
    "uniq_nums": 6
   },
-  "stellarrocket|sky ghost": {
-   "med": 10.0,
-   "n": 11,
-   "p25": 6.0,
-   "last_age_d": 0.0,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 11
-  },
   "stellarrocket|ruby sparkle": {
    "med": 6.83,
    "n": 6,
    "p25": 5.65,
-   "last_age_d": 0.0,
+   "last_age_d": 0.1,
    "srcs": [
     "gg"
    ],
@@ -5340,7 +4980,7 @@
    "med": 6.75,
    "n": 4,
    "p25": 5.5,
-   "last_age_d": 0.3,
+   "last_age_d": 0.4,
    "srcs": [
     "gg"
    ],
@@ -5380,7 +5020,7 @@
    "med": 6.625,
    "n": 4,
    "p25": 5.25,
-   "last_age_d": 0.8,
+   "last_age_d": 0.9,
    "srcs": [
     "gg"
    ],
@@ -5390,7 +5030,7 @@
    "med": 10.0,
    "n": 4,
    "p25": 9.0,
-   "last_age_d": 0.8,
+   "last_age_d": 0.9,
    "srcs": [
     "gg"
    ],
@@ -5400,7 +5040,7 @@
    "med": 6.0,
    "n": 5,
    "p25": 4.860204081,
-   "last_age_d": 1.1,
+   "last_age_d": 1.2,
    "srcs": [
     "gg"
    ],
@@ -5420,7 +5060,7 @@
    "med": 16.75625,
    "n": 4,
    "p25": 5.5125,
-   "last_age_d": 1.2,
+   "last_age_d": 1.3,
    "srcs": [
     "gg"
    ],
@@ -5430,7 +5070,7 @@
    "med": 5.32,
    "n": 5,
    "p25": 5.0,
-   "last_age_d": 1.3,
+   "last_age_d": 1.4,
    "srcs": [
     "gg"
    ],
@@ -5510,7 +5150,7 @@
    "med": 5.2217995395,
    "n": 4,
    "p25": 5.0,
-   "last_age_d": 4.0,
+   "last_age_d": 4.1,
    "srcs": [
     "gg"
    ],
@@ -5520,7 +5160,7 @@
    "med": 7.625,
    "n": 4,
    "p25": 6.25,
-   "last_age_d": 4.1,
+   "last_age_d": 4.2,
    "srcs": [
     "gg"
    ],
@@ -5550,7 +5190,7 @@
    "med": 15.23,
    "n": 4,
    "p25": 14.0,
-   "last_age_d": 5.1,
+   "last_age_d": 5.2,
    "srcs": [
     "gg"
    ],
@@ -5580,17 +5220,377 @@
    "med": 5.6,
    "n": 3,
    "p25": 4.369433334,
-   "last_age_d": 11.5,
+   "last_age_d": 11.6,
    "srcs": [
     "gg"
    ],
    "uniq_nums": 3
   },
-  "durovsglass|aliens": {
-   "med": 93.0,
+  "instantramen|chicken": {
+   "med": 4.089645,
+   "n": 13,
+   "p25": 3.7,
+   "last_age_d": 0.0,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 13
+  },
+  "instantramen|sewing stew": {
+   "med": 4.2,
+   "n": 11,
+   "p25": 4.000001,
+   "last_age_d": 0.1,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 11
+  },
+  "instantramen|cat food": {
+   "med": 4.3474999995,
+   "n": 8,
+   "p25": 3.46,
+   "last_age_d": 0.1,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 8
+  },
+  "instantramen|homemade": {
+   "med": 5.0,
+   "n": 7,
+   "p25": 3.000001,
+   "last_age_d": 0.1,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 7
+  },
+  "instantramen|seafood": {
+   "med": 4.1166666670000005,
+   "n": 8,
+   "p25": 4.0,
+   "last_age_d": 0.2,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 8
+  },
+  "instantramen|giant crab": {
+   "med": 4.28,
+   "n": 8,
+   "p25": 4.15,
+   "last_age_d": 0.2,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 8
+  },
+  "instantramen|black pasta": {
+   "med": 4.99,
+   "n": 13,
+   "p25": 4.0,
+   "last_age_d": 0.2,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 13
+  },
+  "instantramen|squid wok": {
+   "med": 4.04,
+   "n": 6,
+   "p25": 3.6,
+   "last_age_d": 0.3,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 6
+  },
+  "instantramen|gold chain": {
+   "med": 5.1250000005,
+   "n": 8,
+   "p25": 4.14,
+   "last_age_d": 0.4,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 8
+  },
+  "instantramen|dragon soup": {
+   "med": 5.5,
    "n": 4,
-   "p25": 90.0,
-   "last_age_d": 7.1,
+   "p25": 5.0,
+   "last_age_d": 0.4,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 4
+  },
+  "instantramen|bacon": {
+   "med": 4.1,
+   "n": 7,
+   "p25": 3.5,
+   "last_age_d": 0.5,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 7
+  },
+  "instantramen|classic ramen": {
+   "med": 5.0,
+   "n": 3,
+   "p25": 4.99,
+   "last_age_d": 0.6,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 3
+  },
+  "instantramen|shrimp": {
+   "med": 5.0,
+   "n": 7,
+   "p25": 4.38,
+   "last_age_d": 0.9,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 7
+  },
+  "instantramen|bento": {
+   "med": 4.1,
+   "n": 11,
+   "p25": 4.0,
+   "last_age_d": 0.9,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 11
+  },
+  "instantramen|ratatouille": {
+   "med": 4.08,
+   "n": 11,
+   "p25": 4.0,
+   "last_age_d": 0.9,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 11
+  },
+  "instantramen|slurp-slurp": {
+   "med": 4.0,
+   "n": 5,
+   "p25": 3.000001,
+   "last_age_d": 0.9,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 5
+  },
+  "instantramen|jade dragon": {
+   "med": 5.000001,
+   "n": 9,
+   "p25": 4.47,
+   "last_age_d": 1.0,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 9
+  },
+  "instantramen|eyeballs": {
+   "med": 4.25,
+   "n": 9,
+   "p25": 4.000001,
+   "last_age_d": 1.1,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 9
+  },
+  "instantramen|topokki": {
+   "med": 3.360204081,
+   "n": 3,
+   "p25": 3.000001,
+   "last_age_d": 1.1,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 3
+  },
+  "instantramen|hotpot": {
+   "med": 3.222333333,
+   "n": 3,
+   "p25": 3.000001,
+   "last_age_d": 1.3,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 3
+  },
+  "instantramen|octopus": {
+   "med": 4.4,
+   "n": 9,
+   "p25": 4.0,
+   "last_age_d": 1.3,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 9
+  },
+  "instantramen|broccoli": {
+   "med": 4.08,
+   "n": 10,
+   "p25": 3.000001,
+   "last_age_d": 1.4,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 10
+  },
+  "instantramen|anti-gravity": {
+   "med": 4.2,
+   "n": 5,
+   "p25": 4.01,
+   "last_age_d": 1.5,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 5
+  },
+  "instantramen|sunny loops": {
+   "med": 4.2,
+   "n": 13,
+   "p25": 4.0,
+   "last_age_d": 1.5,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 13
+  },
+  "instantramen|sacred grove": {
+   "med": 4.125,
+   "n": 6,
+   "p25": 3.283333334,
+   "last_age_d": 1.5,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 6
+  },
+  "instantramen|samurai": {
+   "med": 4.5,
+   "n": 5,
+   "p25": 4.000001,
+   "last_age_d": 1.5,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 5
+  },
+  "instantramen|abduction": {
+   "med": 4.04,
+   "n": 8,
+   "p25": 3.75,
+   "last_age_d": 1.5,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 8
+  },
+  "instantramen|bitcoins": {
+   "med": 11.18,
+   "n": 4,
+   "p25": 11.0,
+   "last_age_d": 1.5,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 4
+  },
+  "instantramen|khinkali": {
+   "med": 4.505,
+   "n": 6,
+   "p25": 4.01,
+   "last_age_d": 1.5,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 6
+  },
+  "instantramen|first date": {
+   "med": 5.989999999,
+   "n": 9,
+   "p25": 5.0,
+   "last_age_d": 2.3,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 9
+  },
+  "instantramen|ramen snack": {
+   "med": 4.19,
+   "n": 5,
+   "p25": 3.400001,
+   "last_age_d": 2.4,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 5
+  },
+  "instantramen|arcane bowl": {
+   "med": 4.75,
+   "n": 4,
+   "p25": 4.5,
+   "last_age_d": 3.0,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 4
+  },
+  "instantramen|family jewels": {
+   "med": 4.2,
+   "n": 5,
+   "p25": 4.1,
+   "last_age_d": 3.1,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 5
+  },
+  "instantramen|sausage duo": {
+   "med": 4.154999999999999,
+   "n": 4,
+   "p25": 4.01,
+   "last_age_d": 4.3,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 4
+  },
+  "instantramen|mushroom": {
+   "med": 4.1850000000000005,
+   "n": 6,
+   "p25": 4.0,
+   "last_age_d": 5.4,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 6
+  },
+  "swagbag|doggystyle": {
+   "med": 5.48,
+   "n": 7,
+   "p25": 4.37,
+   "last_age_d": 0.0,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 7
+  },
+  "swagbag|rastafari": {
+   "med": 21.5,
+   "n": 4,
+   "p25": 14.0,
+   "last_age_d": 0.0,
    "srcs": [
     "gg"
    ],
@@ -5600,7 +5600,7 @@
    "med": 5.74245,
    "n": 12,
    "p25": 5.0,
-   "last_age_d": 0.0,
+   "last_age_d": 0.1,
    "srcs": [
     "gg"
    ],
@@ -5610,7 +5610,7 @@
    "med": 7.0,
    "n": 3,
    "p25": 5.693333334,
-   "last_age_d": 0.1,
+   "last_age_d": 0.2,
    "srcs": [
     "gg"
    ],
@@ -5620,7 +5620,7 @@
    "med": 6.5,
    "n": 3,
    "p25": 5.01,
-   "last_age_d": 0.1,
+   "last_age_d": 0.2,
    "srcs": [
     "gg"
    ],
@@ -5630,7 +5630,7 @@
    "med": 5.7,
    "n": 3,
    "p25": 5.25,
-   "last_age_d": 0.2,
+   "last_age_d": 0.3,
    "srcs": [
     "gg"
    ],
@@ -5658,13 +5658,13 @@
   },
   "swagbag|lollipops": {
    "med": 6.99,
-   "n": 13,
+   "n": 12,
    "p25": 5.9,
-   "last_age_d": 0.4,
+   "last_age_d": 0.5,
    "srcs": [
     "gg"
    ],
-   "uniq_nums": 13
+   "uniq_nums": 12
   },
   "swagbag|choco kush": {
    "med": 5.9949,
@@ -5681,16 +5681,6 @@
    "n": 5,
    "p25": 5.3892,
    "last_age_d": 0.8,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 5
-  },
-  "swagbag|doggystyle": {
-   "med": 5.1,
-   "n": 5,
-   "p25": 4.37,
-   "last_age_d": 0.9,
    "srcs": [
     "gg"
    ],
@@ -5730,7 +5720,7 @@
    "med": 6.0,
    "n": 3,
    "p25": 5.0,
-   "last_age_d": 1.1,
+   "last_age_d": 1.2,
    "srcs": [
     "gg"
    ],
@@ -5750,7 +5740,7 @@
    "med": 5.39,
    "n": 7,
    "p25": 4.693333334,
-   "last_age_d": 1.4,
+   "last_age_d": 1.5,
    "srcs": [
     "gg"
    ],
@@ -5760,7 +5750,7 @@
    "med": 7.247450000000001,
    "n": 4,
    "p25": 7.0,
-   "last_age_d": 1.5,
+   "last_age_d": 1.6,
    "srcs": [
     "gg"
    ],
@@ -5796,16 +5786,6 @@
    ],
    "uniq_nums": 8
   },
-  "swagbag|rastafari": {
-   "med": 29.0,
-   "n": 3,
-   "p25": 9.0,
-   "last_age_d": 2.0,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 3
-  },
   "swagbag|bulk order": {
    "med": 8.85,
    "n": 4,
@@ -5840,7 +5820,7 @@
    "med": 10.0,
    "n": 3,
    "p25": 5.494,
-   "last_age_d": 3.4,
+   "last_age_d": 3.5,
    "srcs": [
     "gg"
    ],
@@ -5850,7 +5830,7 @@
    "med": 6.0,
    "n": 11,
    "p25": 5.5,
-   "last_age_d": 3.4,
+   "last_age_d": 3.5,
    "srcs": [
     "gg"
    ],
@@ -5880,7 +5860,7 @@
    "med": 5.51738064,
    "n": 6,
    "p25": 5.01,
-   "last_age_d": 4.7,
+   "last_age_d": 4.8,
    "srcs": [
     "gg"
    ],
@@ -5890,7 +5870,7 @@
    "med": 5.99,
    "n": 3,
    "p25": 5.8,
-   "last_age_d": 4.7,
+   "last_age_d": 4.8,
    "srcs": [
     "gg"
    ],
@@ -5910,7 +5890,7 @@
    "med": 5.82,
    "n": 5,
    "p25": 5.79,
-   "last_age_d": 8.0,
+   "last_age_d": 8.1,
    "srcs": [
     "gg"
    ],
@@ -5920,7 +5900,7 @@
    "med": 7.0,
    "n": 3,
    "p25": 6.9,
-   "last_age_d": 8.3,
+   "last_age_d": 8.4,
    "srcs": [
     "gg"
    ],
@@ -5930,7 +5910,7 @@
    "med": 6.595000000000001,
    "n": 4,
    "p25": 5.19,
-   "last_age_d": 0.0,
+   "last_age_d": 0.1,
    "srcs": [
     "gg"
    ],
@@ -5940,7 +5920,7 @@
    "med": 7.0,
    "n": 13,
    "p25": 6.2949,
-   "last_age_d": 0.1,
+   "last_age_d": 0.2,
    "srcs": [
     "gg"
    ],
@@ -5950,7 +5930,7 @@
    "med": 10.0,
    "n": 3,
    "p25": 9.0,
-   "last_age_d": 0.2,
+   "last_age_d": 0.3,
    "srcs": [
     "gg"
    ],
@@ -5960,7 +5940,7 @@
    "med": 6.6949,
    "n": 3,
    "p25": 6.0,
-   "last_age_d": 0.4,
+   "last_age_d": 0.5,
    "srcs": [
     "gg"
    ],
@@ -5980,7 +5960,7 @@
    "med": 13.0,
    "n": 3,
    "p25": 8.0,
-   "last_age_d": 1.2,
+   "last_age_d": 1.3,
    "srcs": [
     "gg"
    ],
@@ -6100,7 +6080,7 @@
    "med": 7.0,
    "n": 3,
    "p25": 5.0,
-   "last_age_d": 2.9,
+   "last_age_d": 3.0,
    "srcs": [
     "gg"
    ],
@@ -6160,7 +6140,7 @@
    "med": 8.0,
    "n": 5,
    "p25": 6.5637,
-   "last_age_d": 4.0,
+   "last_age_d": 4.1,
    "srcs": [
     "gg"
    ],
@@ -6170,7 +6150,7 @@
    "med": 8.0,
    "n": 3,
    "p25": 6.0,
-   "last_age_d": 4.2,
+   "last_age_d": 4.3,
    "srcs": [
     "gg"
    ],
@@ -6216,371 +6196,11 @@
    ],
    "uniq_nums": 5
   },
-  "poolfloat|peach shake": {
-   "med": 4.470000000000001,
-   "n": 10,
-   "p25": 4.0,
-   "last_age_d": 0.1,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 10
-  },
-  "poolfloat|pelican decoy": {
-   "med": 4.000001,
-   "n": 15,
-   "p25": 3.8,
-   "last_age_d": 0.1,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 15
-  },
-  "poolfloat|water scooter": {
-   "med": 4.135,
-   "n": 4,
-   "p25": 4.0,
-   "last_age_d": 0.1,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 4
-  },
-  "poolfloat|private jet": {
-   "med": 4.35,
-   "n": 11,
-   "p25": 4.0,
-   "last_age_d": 0.2,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 11
-  },
-  "poolfloat|show seal": {
-   "med": 4.0,
-   "n": 7,
-   "p25": 3.7,
-   "last_age_d": 0.2,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 7
-  },
-  "poolfloat|crypto whale": {
-   "med": 4.6,
-   "n": 7,
-   "p25": 3.6,
-   "last_age_d": 0.3,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 7
-  },
-  "poolfloat|sebastian": {
-   "med": 5.0,
-   "n": 5,
-   "p25": 4.34,
-   "last_age_d": 0.3,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 5
-  },
-  "poolfloat|golden cobra": {
-   "med": 4.005,
-   "n": 18,
-   "p25": 4.0,
-   "last_age_d": 0.3,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 18
-  },
-  "poolfloat|bald eagle": {
-   "med": 4.0,
-   "n": 12,
-   "p25": 4.0,
-   "last_age_d": 0.5,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 12
-  },
-  "poolfloat|toucan": {
-   "med": 4.0,
-   "n": 10,
-   "p25": 3.5,
-   "last_age_d": 0.6,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 10
-  },
-  "poolfloat|anubis": {
-   "med": 5.2,
+  "icecream|fresh berry": {
+   "med": 6.634386,
    "n": 3,
    "p25": 5.0,
-   "last_age_d": 0.6,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 3
-  },
-  "poolfloat|pool pepe": {
-   "med": 30.0,
-   "n": 4,
-   "p25": 30.0,
-   "last_age_d": 0.9,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 4
-  },
-  "poolfloat|gzhel": {
-   "med": 5.0,
-   "n": 4,
-   "p25": 5.0,
-   "last_age_d": 0.9,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 4
-  },
-  "poolfloat|disco": {
-   "med": 4.3,
-   "n": 7,
-   "p25": 4.0,
-   "last_age_d": 1.0,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 7
-  },
-  "poolfloat|duck boss": {
-   "med": 4.7,
-   "n": 21,
-   "p25": 4.0,
-   "last_age_d": 1.1,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 21
-  },
-  "poolfloat|lizard": {
-   "med": 4.397959183,
-   "n": 7,
-   "p25": 4.0,
-   "last_age_d": 1.1,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 7
-  },
-  "poolfloat|rescue mission": {
-   "med": 4.0,
-   "n": 7,
-   "p25": 4.0,
-   "last_age_d": 1.1,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 7
-  },
-  "poolfloat|giraffe": {
-   "med": 4.0,
-   "n": 3,
-   "p25": 3.8,
-   "last_age_d": 1.2,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 3
-  },
-  "poolfloat|alpaca": {
-   "med": 4.75,
-   "n": 6,
-   "p25": 4.313333334,
-   "last_age_d": 1.4,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 6
-  },
-  "poolfloat|safari": {
-   "med": 4.433,
-   "n": 7,
-   "p25": 4.0,
-   "last_age_d": 1.5,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 7
-  },
-  "poolfloat|unicorn": {
-   "med": 4.0,
-   "n": 5,
-   "p25": 4.0,
-   "last_age_d": 1.8,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 5
-  },
-  "poolfloat|skibidi": {
-   "med": 4.5,
-   "n": 4,
-   "p25": 4.0,
-   "last_age_d": 1.8,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 4
-  },
-  "poolfloat|stonks": {
-   "med": 5.0,
-   "n": 7,
-   "p25": 4.0,
-   "last_age_d": 1.9,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 7
-  },
-  "poolfloat|leonardo": {
-   "med": 6.0,
-   "n": 3,
-   "p25": 4.03,
-   "last_age_d": 2.0,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 3
-  },
-  "poolfloat|slick track": {
-   "med": 4.7995000005,
-   "n": 10,
-   "p25": 4.04,
-   "last_age_d": 2.1,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 10
-  },
-  "poolfloat|pool party": {
-   "med": 4.0,
-   "n": 5,
-   "p25": 4.0,
-   "last_age_d": 2.1,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 5
-  },
-  "poolfloat|los muertos": {
-   "med": 4.49,
-   "n": 7,
-   "p25": 4.4,
-   "last_age_d": 2.2,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 7
-  },
-  "poolfloat|hong long": {
-   "med": 4.38,
-   "n": 4,
-   "p25": 4.26,
-   "last_age_d": 2.4,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 4
-  },
-  "poolfloat|motorboat": {
-   "med": 4.5,
-   "n": 6,
-   "p25": 4.0,
-   "last_age_d": 2.4,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 6
-  },
-  "poolfloat|kitsune": {
-   "med": 5.0,
-   "n": 4,
-   "p25": 5.0,
-   "last_age_d": 2.8,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 4
-  },
-  "poolfloat|quacky": {
-   "med": 4.0999995,
-   "n": 4,
-   "p25": 3.999999,
-   "last_age_d": 2.9,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 4
-  },
-  "poolfloat|lucky dragon": {
-   "med": 5.0,
-   "n": 6,
-   "p25": 5.0,
-   "last_age_d": 3.3,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 6
-  },
-  "poolfloat|giant panda": {
-   "med": 5.0,
-   "n": 6,
-   "p25": 4.7,
-   "last_age_d": 3.3,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 6
-  },
-  "poolfloat|dark swan": {
-   "med": 5.0,
-   "n": 7,
-   "p25": 4.0,
-   "last_age_d": 3.3,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 7
-  },
-  "poolfloat|royal peacock": {
-   "med": 4.3,
-   "n": 3,
-   "p25": 4.0,
-   "last_age_d": 3.3,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 3
-  },
-  "poolfloat|air bunny": {
-   "med": 4.6500000005,
-   "n": 4,
-   "p25": 4.450000001,
-   "last_age_d": 4.5,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 4
-  },
-  "poolfloat|stretching": {
-   "med": 4.75,
-   "n": 3,
-   "p25": 4.2,
-   "last_age_d": 5.0,
+   "last_age_d": 0.0,
    "srcs": [
     "gg"
    ],
@@ -6588,13 +6208,13 @@
   },
   "icecream|bitecoin": {
    "med": 7.0,
-   "n": 12,
+   "n": 11,
    "p25": 6.0,
-   "last_age_d": 0.0,
+   "last_age_d": 0.1,
    "srcs": [
     "gg"
    ],
-   "uniq_nums": 12
+   "uniq_nums": 11
   },
   "icecream|kiwi sorbet": {
    "med": 4.49,
@@ -6610,7 +6230,7 @@
    "med": 4.0,
    "n": 12,
    "p25": 3.6,
-   "last_age_d": 0.1,
+   "last_age_d": 0.2,
    "srcs": [
     "gg"
    ],
@@ -6620,7 +6240,7 @@
    "med": 5.0,
    "n": 7,
    "p25": 4.8,
-   "last_age_d": 0.1,
+   "last_age_d": 0.2,
    "srcs": [
     "gg"
    ],
@@ -6630,7 +6250,7 @@
    "med": 4.15,
    "n": 11,
    "p25": 3.050001,
-   "last_age_d": 0.1,
+   "last_age_d": 0.2,
    "srcs": [
     "gg"
    ],
@@ -6640,7 +6260,7 @@
    "med": 4.193877551,
    "n": 5,
    "p25": 4.04,
-   "last_age_d": 0.1,
+   "last_age_d": 0.2,
    "srcs": [
     "gg"
    ],
@@ -6670,7 +6290,7 @@
    "med": 7.22,
    "n": 3,
    "p25": 5.1,
-   "last_age_d": 0.2,
+   "last_age_d": 0.3,
    "srcs": [
     "gg"
    ],
@@ -6680,7 +6300,7 @@
    "med": 4.775,
    "n": 4,
    "p25": 4.66,
-   "last_age_d": 0.2,
+   "last_age_d": 0.3,
    "srcs": [
     "gg"
    ],
@@ -6740,7 +6360,7 @@
    "med": 4.6,
    "n": 6,
    "p25": 4.0,
-   "last_age_d": 0.9,
+   "last_age_d": 1.0,
    "srcs": [
     "gg"
    ],
@@ -6750,7 +6370,7 @@
    "med": 18.0,
    "n": 20,
    "p25": 7.0,
-   "last_age_d": 1.1,
+   "last_age_d": 1.2,
    "srcs": [
     "gg"
    ],
@@ -6760,7 +6380,7 @@
    "med": 5.0,
    "n": 5,
    "p25": 3.9,
-   "last_age_d": 1.1,
+   "last_age_d": 1.2,
    "srcs": [
     "gg"
    ],
@@ -6770,7 +6390,7 @@
    "med": 5.0,
    "n": 5,
    "p25": 4.25,
-   "last_age_d": 1.1,
+   "last_age_d": 1.2,
    "srcs": [
     "gg"
    ],
@@ -6840,7 +6460,7 @@
    "med": 4.3,
    "n": 3,
    "p25": 4.233333334,
-   "last_age_d": 2.9,
+   "last_age_d": 3.0,
    "srcs": [
     "gg"
    ],
@@ -6850,7 +6470,7 @@
    "med": 4.75,
    "n": 7,
    "p25": 4.0,
-   "last_age_d": 2.9,
+   "last_age_d": 3.0,
    "srcs": [
     "gg"
    ],
@@ -6860,7 +6480,7 @@
    "med": 4.595000000000001,
    "n": 6,
    "p25": 4.0,
-   "last_age_d": 3.1,
+   "last_age_d": 3.2,
    "srcs": [
     "gg"
    ],
@@ -6870,7 +6490,7 @@
    "med": 5.989999999,
    "n": 3,
    "p25": 4.08001,
-   "last_age_d": 3.3,
+   "last_age_d": 3.4,
    "srcs": [
     "gg"
    ],
@@ -6910,7 +6530,7 @@
    "med": 5.374499999999999,
    "n": 6,
    "p25": 4.7949,
-   "last_age_d": 4.4,
+   "last_age_d": 4.5,
    "srcs": [
     "gg"
    ],
@@ -6930,17 +6550,397 @@
    "med": 42.0,
    "n": 4,
    "p25": 39.0,
-   "last_age_d": 7.4,
+   "last_age_d": 7.5,
    "srcs": [
     "gg"
    ],
    "uniq_nums": 4
   },
+  "durovsglass|aliens": {
+   "med": 93.0,
+   "n": 4,
+   "p25": 90.0,
+   "last_age_d": 7.2,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 4
+  },
+  "poolfloat|peach shake": {
+   "med": 4.19,
+   "n": 11,
+   "p25": 3.877632,
+   "last_age_d": 0.0,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 11
+  },
+  "poolfloat|pelican decoy": {
+   "med": 4.000001,
+   "n": 15,
+   "p25": 3.8,
+   "last_age_d": 0.1,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 15
+  },
+  "poolfloat|water scooter": {
+   "med": 4.135,
+   "n": 4,
+   "p25": 4.0,
+   "last_age_d": 0.2,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 4
+  },
+  "poolfloat|private jet": {
+   "med": 4.35,
+   "n": 11,
+   "p25": 4.0,
+   "last_age_d": 0.2,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 11
+  },
+  "poolfloat|show seal": {
+   "med": 4.0,
+   "n": 7,
+   "p25": 3.7,
+   "last_age_d": 0.2,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 7
+  },
+  "poolfloat|crypto whale": {
+   "med": 4.6,
+   "n": 7,
+   "p25": 3.6,
+   "last_age_d": 0.3,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 7
+  },
+  "poolfloat|sebastian": {
+   "med": 5.0,
+   "n": 5,
+   "p25": 4.34,
+   "last_age_d": 0.3,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 5
+  },
+  "poolfloat|golden cobra": {
+   "med": 4.005,
+   "n": 18,
+   "p25": 4.0,
+   "last_age_d": 0.3,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 18
+  },
+  "poolfloat|bald eagle": {
+   "med": 4.0,
+   "n": 12,
+   "p25": 4.0,
+   "last_age_d": 0.6,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 12
+  },
+  "poolfloat|toucan": {
+   "med": 4.0,
+   "n": 10,
+   "p25": 3.5,
+   "last_age_d": 0.6,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 10
+  },
+  "poolfloat|anubis": {
+   "med": 5.2,
+   "n": 3,
+   "p25": 5.0,
+   "last_age_d": 0.6,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 3
+  },
+  "poolfloat|pool pepe": {
+   "med": 30.0,
+   "n": 4,
+   "p25": 30.0,
+   "last_age_d": 0.9,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 4
+  },
+  "poolfloat|gzhel": {
+   "med": 5.0,
+   "n": 4,
+   "p25": 5.0,
+   "last_age_d": 1.0,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 4
+  },
+  "poolfloat|disco": {
+   "med": 4.3,
+   "n": 7,
+   "p25": 4.0,
+   "last_age_d": 1.0,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 7
+  },
+  "poolfloat|duck boss": {
+   "med": 4.7,
+   "n": 21,
+   "p25": 4.0,
+   "last_age_d": 1.2,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 21
+  },
+  "poolfloat|lizard": {
+   "med": 4.397959183,
+   "n": 7,
+   "p25": 4.0,
+   "last_age_d": 1.2,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 7
+  },
+  "poolfloat|rescue mission": {
+   "med": 4.0,
+   "n": 7,
+   "p25": 4.0,
+   "last_age_d": 1.2,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 7
+  },
+  "poolfloat|giraffe": {
+   "med": 4.0,
+   "n": 3,
+   "p25": 3.8,
+   "last_age_d": 1.3,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 3
+  },
+  "poolfloat|alpaca": {
+   "med": 4.5,
+   "n": 5,
+   "p25": 4.313333334,
+   "last_age_d": 1.4,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 5
+  },
+  "poolfloat|safari": {
+   "med": 4.433,
+   "n": 7,
+   "p25": 4.0,
+   "last_age_d": 1.5,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 7
+  },
+  "poolfloat|unicorn": {
+   "med": 4.0,
+   "n": 5,
+   "p25": 4.0,
+   "last_age_d": 1.8,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 5
+  },
+  "poolfloat|skibidi": {
+   "med": 4.5,
+   "n": 4,
+   "p25": 4.0,
+   "last_age_d": 1.8,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 4
+  },
+  "poolfloat|stonks": {
+   "med": 5.0,
+   "n": 7,
+   "p25": 4.0,
+   "last_age_d": 2.0,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 7
+  },
+  "poolfloat|leonardo": {
+   "med": 6.0,
+   "n": 3,
+   "p25": 4.03,
+   "last_age_d": 2.0,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 3
+  },
+  "poolfloat|slick track": {
+   "med": 4.7995000005,
+   "n": 10,
+   "p25": 4.04,
+   "last_age_d": 2.1,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 10
+  },
+  "poolfloat|pool party": {
+   "med": 4.0,
+   "n": 5,
+   "p25": 4.0,
+   "last_age_d": 2.2,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 5
+  },
+  "poolfloat|los muertos": {
+   "med": 4.49,
+   "n": 7,
+   "p25": 4.4,
+   "last_age_d": 2.3,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 7
+  },
+  "poolfloat|hong long": {
+   "med": 4.38,
+   "n": 4,
+   "p25": 4.26,
+   "last_age_d": 2.4,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 4
+  },
+  "poolfloat|motorboat": {
+   "med": 4.5,
+   "n": 6,
+   "p25": 4.0,
+   "last_age_d": 2.5,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 6
+  },
+  "poolfloat|kitsune": {
+   "med": 5.0,
+   "n": 4,
+   "p25": 5.0,
+   "last_age_d": 2.8,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 4
+  },
+  "poolfloat|quacky": {
+   "med": 4.0999995,
+   "n": 4,
+   "p25": 3.999999,
+   "last_age_d": 2.9,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 4
+  },
+  "poolfloat|lucky dragon": {
+   "med": 5.0,
+   "n": 6,
+   "p25": 5.0,
+   "last_age_d": 3.3,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 6
+  },
+  "poolfloat|giant panda": {
+   "med": 5.0,
+   "n": 6,
+   "p25": 4.7,
+   "last_age_d": 3.4,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 6
+  },
+  "poolfloat|dark swan": {
+   "med": 5.0,
+   "n": 7,
+   "p25": 4.0,
+   "last_age_d": 3.4,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 7
+  },
+  "poolfloat|royal peacock": {
+   "med": 4.3,
+   "n": 3,
+   "p25": 4.0,
+   "last_age_d": 3.4,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 3
+  },
+  "poolfloat|air bunny": {
+   "med": 4.6500000005,
+   "n": 4,
+   "p25": 4.450000001,
+   "last_age_d": 4.6,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 4
+  },
+  "poolfloat|stretching": {
+   "med": 4.75,
+   "n": 3,
+   "p25": 4.2,
+   "last_age_d": 5.1,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 3
+  },
   "jinglebell|fabergé": {
    "med": 195.0,
    "n": 3,
    "p25": 194.0,
-   "last_age_d": 6.0,
+   "last_age_d": 6.1,
    "srcs": [
     "gg"
    ],
@@ -6980,7 +6980,7 @@
    "med": 5.1850000000000005,
    "n": 4,
    "p25": 5.0,
-   "last_age_d": 0.6,
+   "last_age_d": 0.7,
    "srcs": [
     "gg"
    ],
@@ -7010,7 +7010,7 @@
    "med": 6.725,
    "n": 8,
    "p25": 6.25,
-   "last_age_d": 1.0,
+   "last_age_d": 1.1,
    "srcs": [
     "gg"
    ],
@@ -7040,7 +7040,7 @@
    "med": 7.0,
    "n": 6,
    "p25": 6.0,
-   "last_age_d": 1.3,
+   "last_age_d": 1.4,
    "srcs": [
     "gg"
    ],
@@ -7050,7 +7050,7 @@
    "med": 14.745000000000001,
    "n": 4,
    "p25": 14.49,
-   "last_age_d": 1.3,
+   "last_age_d": 1.4,
    "srcs": [
     "gg"
    ],
@@ -7070,7 +7070,7 @@
    "med": 5.2,
    "n": 3,
    "p25": 5.0,
-   "last_age_d": 2.3,
+   "last_age_d": 2.4,
    "srcs": [
     "gg"
    ],
@@ -7080,7 +7080,7 @@
    "med": 13.0,
    "n": 7,
    "p25": 8.1,
-   "last_age_d": 3.1,
+   "last_age_d": 3.2,
    "srcs": [
     "gg"
    ],
@@ -7090,7 +7090,7 @@
    "med": 4.9716766670000005,
    "n": 4,
    "p25": 4.933333334,
-   "last_age_d": 3.3,
+   "last_age_d": 3.4,
    "srcs": [
     "gg"
    ],
@@ -7100,7 +7100,7 @@
    "med": 13.0,
    "n": 5,
    "p25": 9.381042,
-   "last_age_d": 3.3,
+   "last_age_d": 3.4,
    "srcs": [
     "gg"
    ],
@@ -7110,7 +7110,7 @@
    "med": 6.75,
    "n": 6,
    "p25": 5.933333334,
-   "last_age_d": 3.3,
+   "last_age_d": 3.4,
    "srcs": [
     "gg"
    ],
@@ -7130,7 +7130,7 @@
    "med": 10.0,
    "n": 4,
    "p25": 8.0,
-   "last_age_d": 4.0,
+   "last_age_d": 4.1,
    "srcs": [
     "gg"
    ],
@@ -7140,7 +7140,7 @@
    "med": 5.8635000005,
    "n": 8,
    "p25": 5.5,
-   "last_age_d": 4.1,
+   "last_age_d": 4.2,
    "srcs": [
     "gg"
    ],
@@ -7170,7 +7170,7 @@
    "med": 6.99,
    "n": 3,
    "p25": 4.933333334,
-   "last_age_d": 5.2,
+   "last_age_d": 5.3,
    "srcs": [
     "gg"
    ],
@@ -7180,7 +7180,7 @@
    "med": 17.26,
    "n": 3,
    "p25": 16.22,
-   "last_age_d": 5.3,
+   "last_age_d": 5.4,
    "srcs": [
     "gg"
    ],
@@ -7210,7 +7210,7 @@
    "med": 10.0,
    "n": 3,
    "p25": 4.933333334,
-   "last_age_d": 8.2,
+   "last_age_d": 8.3,
    "srcs": [
     "gg"
    ],
@@ -7220,7 +7220,7 @@
    "med": 5.79,
    "n": 3,
    "p25": 5.65,
-   "last_age_d": 8.3,
+   "last_age_d": 8.4,
    "srcs": [
     "gg"
    ],
@@ -7240,11 +7240,21 @@
    "med": 23.0,
    "n": 3,
    "p25": 6.8706,
-   "last_age_d": 9.2,
+   "last_age_d": 9.3,
    "srcs": [
     "gg"
    ],
    "uniq_nums": 3
+  },
+  "moodpack|fashionista": {
+   "med": 9.5,
+   "n": 14,
+   "p25": 5.0,
+   "last_age_d": 0.0,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 14
   },
   "moodpack|gingerbread": {
    "med": 4.045,
@@ -7330,7 +7340,7 @@
    "med": 5.0,
    "n": 8,
    "p25": 4.31,
-   "last_age_d": 0.3,
+   "last_age_d": 0.4,
    "srcs": [
     "gg"
    ],
@@ -7340,7 +7350,7 @@
    "med": 5.0,
    "n": 5,
    "p25": 4.0,
-   "last_age_d": 0.3,
+   "last_age_d": 0.4,
    "srcs": [
     "gg"
    ],
@@ -7350,7 +7360,7 @@
    "med": 9.0,
    "n": 5,
    "p25": 7.0,
-   "last_age_d": 0.3,
+   "last_age_d": 0.4,
    "srcs": [
     "gg"
    ],
@@ -7360,21 +7370,21 @@
    "med": 6.0,
    "n": 5,
    "p25": 5.0,
-   "last_age_d": 0.3,
+   "last_age_d": 0.4,
    "srcs": [
     "gg"
    ],
    "uniq_nums": 5
   },
   "moodpack|rock and roll": {
-   "med": 6.39,
-   "n": 5,
+   "med": 5.494999999999999,
+   "n": 4,
    "p25": 4.6,
    "last_age_d": 0.5,
    "srcs": [
     "gg"
    ],
-   "uniq_nums": 5
+   "uniq_nums": 4
   },
   "moodpack|bank vault": {
    "med": 9.5,
@@ -7450,7 +7460,7 @@
    "med": 6.220000000000001,
    "n": 4,
    "p25": 4.44,
-   "last_age_d": 1.5,
+   "last_age_d": 1.6,
    "srcs": [
     "gg"
    ],
@@ -7487,20 +7497,20 @@
    "uniq_nums": 9
   },
   "moodpack|fast courier": {
-   "med": 6.0,
-   "n": 7,
+   "med": 5.45,
+   "n": 6,
    "p25": 4.4,
    "last_age_d": 2.2,
    "srcs": [
     "gg"
    ],
-   "uniq_nums": 7
+   "uniq_nums": 6
   },
   "moodpack|road rebel": {
    "med": 5.5,
    "n": 8,
    "p25": 5.0,
-   "last_age_d": 2.2,
+   "last_age_d": 2.3,
    "srcs": [
     "gg"
    ],
@@ -7530,7 +7540,7 @@
    "med": 5.2,
    "n": 4,
    "p25": 4.4,
-   "last_age_d": 2.9,
+   "last_age_d": 3.0,
    "srcs": [
     "gg"
    ],
@@ -7540,27 +7550,17 @@
    "med": 10.0,
    "n": 4,
    "p25": 5.0,
-   "last_age_d": 3.0,
+   "last_age_d": 3.1,
    "srcs": [
     "gg"
    ],
    "uniq_nums": 4
   },
-  "moodpack|fashionista": {
-   "med": 8.0,
-   "n": 13,
-   "p25": 5.0,
-   "last_age_d": 3.4,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 13
-  },
   "moodpack|love letters": {
    "med": 7.0,
    "n": 5,
    "p25": 6.0,
-   "last_age_d": 3.4,
+   "last_age_d": 3.5,
    "srcs": [
     "gg"
    ],
@@ -7570,7 +7570,7 @@
    "med": 4.32254,
    "n": 4,
    "p25": 4.0,
-   "last_age_d": 3.6,
+   "last_age_d": 3.7,
    "srcs": [
     "gg"
    ],
@@ -7580,7 +7580,7 @@
    "med": 5.2244999995,
    "n": 4,
    "p25": 4.5,
-   "last_age_d": 5.2,
+   "last_age_d": 5.3,
    "srcs": [
     "gg"
    ],
@@ -7590,7 +7590,7 @@
    "med": 4.949,
    "n": 5,
    "p25": 4.49,
-   "last_age_d": 5.4,
+   "last_age_d": 5.5,
    "srcs": [
     "gg"
    ],
@@ -7600,7 +7600,7 @@
    "med": 6.0,
    "n": 6,
    "p25": 5.0,
-   "last_age_d": 7.0,
+   "last_age_d": 7.1,
    "srcs": [
     "gg"
    ],
@@ -7620,7 +7620,7 @@
    "med": 1678.01,
    "n": 2,
    "p25": 1506.02,
-   "last_age_d": 2.9,
+   "last_age_d": 3.0,
    "srcs": [
     "gg"
    ],
@@ -7630,7 +7630,7 @@
    "med": 780.0,
    "n": 2,
    "p25": 360.0,
-   "last_age_d": 2.9,
+   "last_age_d": 3.0,
    "srcs": [
     "gg"
    ],
@@ -7670,7 +7670,7 @@
    "med": 47.5,
    "n": 2,
    "p25": 29.0,
-   "last_age_d": 5.2,
+   "last_age_d": 5.3,
    "srcs": [
     "gg"
    ],
@@ -7700,7 +7700,7 @@
    "med": 498.0,
    "n": 2,
    "p25": 466.0,
-   "last_age_d": 5.1,
+   "last_age_d": 5.2,
    "srcs": [
     "gg"
    ],
@@ -7730,7 +7730,7 @@
    "med": 30.85,
    "n": 2,
    "p25": 29.7,
-   "last_age_d": 2.4,
+   "last_age_d": 2.5,
    "srcs": [
     "gg"
    ],
@@ -7790,7 +7790,7 @@
    "med": 22.395,
    "n": 2,
    "p25": 21.0,
-   "last_age_d": 0.8,
+   "last_age_d": 0.9,
    "srcs": [
     "gg"
    ],
@@ -7810,7 +7810,7 @@
    "med": 299.0,
    "n": 2,
    "p25": 299.0,
-   "last_age_d": 3.5,
+   "last_age_d": 3.6,
    "srcs": [
     "gg"
    ],
@@ -7820,7 +7820,7 @@
    "med": 399.5,
    "n": 2,
    "p25": 299.0,
-   "last_age_d": 3.5,
+   "last_age_d": 3.6,
    "srcs": [
     "gg"
    ],
@@ -7830,7 +7830,7 @@
    "med": 85.5,
    "n": 2,
    "p25": 60.0,
-   "last_age_d": 3.5,
+   "last_age_d": 3.6,
    "srcs": [
     "gg"
    ],
@@ -7840,7 +7840,7 @@
    "med": 115.0,
    "n": 2,
    "p25": 8.0,
-   "last_age_d": 1.1,
+   "last_age_d": 1.2,
    "srcs": [
     "gg"
    ],
@@ -7860,7 +7860,7 @@
    "med": 8.925,
    "n": 2,
    "p25": 5.85,
-   "last_age_d": 11.2,
+   "last_age_d": 11.3,
    "srcs": [
     "gg"
    ],
@@ -7870,7 +7870,7 @@
    "med": 40.0,
    "n": 2,
    "p25": 40.0,
-   "last_age_d": 2.1,
+   "last_age_d": 2.2,
    "srcs": [
     "gg"
    ],
@@ -7891,6 +7891,26 @@
    "n": 2,
    "p25": 60.0,
    "last_age_d": 5.8,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 2
+  },
+  "stellarrocket|sky ghost|celtic blue": {
+   "med": 14.5,
+   "n": 2,
+   "p25": 9.0,
+   "last_age_d": 6.0,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 2
+  },
+  "stellarrocket|lava lamp|black": {
+   "med": 29.630000000000003,
+   "n": 2,
+   "p25": 28.0,
+   "last_age_d": 7.0,
    "srcs": [
     "gg"
    ],
@@ -7930,27 +7950,17 @@
    "med": 7.0,
    "n": 2,
    "p25": 7.0,
-   "last_age_d": 7.5,
+   "last_age_d": 7.6,
    "srcs": [
     "gg"
    ],
    "uniq_nums": 2
   },
-  "stellarrocket|sky ghost|celtic blue": {
-   "med": 14.5,
+  "swagbag|rastafari|black": {
+   "med": 34.5,
    "n": 2,
-   "p25": 9.0,
-   "last_age_d": 6.0,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 2
-  },
-  "stellarrocket|lava lamp|black": {
-   "med": 29.630000000000003,
-   "n": 2,
-   "p25": 28.0,
-   "last_age_d": 7.0,
+   "p25": 29.0,
+   "last_age_d": 2.1,
    "srcs": [
     "gg"
    ],
@@ -7960,7 +7970,7 @@
    "med": 202.75,
    "n": 2,
    "p25": 178.5,
-   "last_age_d": 3.5,
+   "last_age_d": 3.6,
    "srcs": [
     "gg"
    ],
@@ -7980,17 +7990,7 @@
    "med": 12.375,
    "n": 2,
    "p25": 10.81,
-   "last_age_d": 11.0,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 2
-  },
-  "poolfloat|duck boss|gunmetal": {
-   "med": 12.0,
-   "n": 2,
-   "p25": 12.0,
-   "last_age_d": 1.3,
+   "last_age_d": 11.1,
    "srcs": [
     "gg"
    ],
@@ -8000,7 +8000,7 @@
    "med": 6.0,
    "n": 2,
    "p25": 5.0,
-   "last_age_d": 0.1,
+   "last_age_d": 0.2,
    "srcs": [
     "gg"
    ],
@@ -8020,11 +8020,21 @@
    "med": 23.5,
    "n": 3,
    "p25": 5.99,
-   "last_age_d": 1.1,
+   "last_age_d": 1.2,
    "srcs": [
     "gg"
    ],
    "uniq_nums": 3
+  },
+  "poolfloat|duck boss|gunmetal": {
+   "med": 12.0,
+   "n": 2,
+   "p25": 12.0,
+   "last_age_d": 1.3,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 2
   },
   "springbasket|baby dragon|midnight blue": {
    "med": 9.75,
@@ -8050,7 +8060,7 @@
    "med": 29.9999999995,
    "n": 2,
    "p25": 15.0,
-   "last_age_d": 3.0,
+   "last_age_d": 3.1,
    "srcs": [
     "gg"
    ],

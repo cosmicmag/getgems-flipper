@@ -44,10 +44,10 @@ jobs:
           MNEMONIC: ${{ secrets.MNEMONIC }}
           TONCENTER_KEY: ${{ secrets.TONCENTER_KEY }}        # bot wallet seed; trading is capped by MAX_LOT_TON / DAILY_CAP_TON
           AUTO_BUY: "1"
-          MAX_LOT_TON: "150"
-          DAILY_CAP_TON: "300"
+          MAX_LOT_TON: "250"
+          DAILY_CAP_TON: "400"
           WEEKLY_LOSS_STOP_TON: "30"
-          MAX_SINGLE_TON: "170"
+          MAX_SINGLE_TON: "270"
           TICK_SECONDS: "3"
           MAX_RUN_SEC: "20400"   # 5h40m, then exit so the re-dispatch step starts a fresh instance
         run: |

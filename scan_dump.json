@@ -22,7 +22,7 @@
    "version": "1d24202252aa9000,s:shd7668:TON,m:2777a6ad6d4672f6"
   }
  ],
- "ts": 1791578843.745215,
+ "ts": 1791580653.7523267,
  "refs": {
   "plushpepe|spectrum": {
    "med": 5454.0,
@@ -138,7 +138,7 @@
    "med": 909.185,
    "n": 8,
    "p25": 500.0,
-   "last_age_d": 0.3,
+   "last_age_d": 0.4,
    "srcs": [
     "gg"
    ],
@@ -148,7 +148,7 @@
    "med": 355.0,
    "n": 12,
    "p25": 334.8,
-   "last_age_d": 0.8,
+   "last_age_d": 0.9,
    "srcs": [
     "gg"
    ],
@@ -158,7 +158,7 @@
    "med": 250.0,
    "n": 3,
    "p25": 242.8,
-   "last_age_d": 0.9,
+   "last_age_d": 1.0,
    "srcs": [
     "gg"
    ],
@@ -198,7 +198,7 @@
    "med": 248.75,
    "n": 8,
    "p25": 240.0,
-   "last_age_d": 1.0,
+   "last_age_d": 1.1,
    "srcs": [
     "gg"
    ],
@@ -208,7 +208,7 @@
    "med": 337.5,
    "n": 6,
    "p25": 330.0,
-   "last_age_d": 1.1,
+   "last_age_d": 1.2,
    "srcs": [
     "gg"
    ],
@@ -218,7 +218,7 @@
    "med": 241.495,
    "n": 4,
    "p25": 240.0,
-   "last_age_d": 1.1,
+   "last_age_d": 1.2,
    "srcs": [
     "gg"
    ],
@@ -278,7 +278,7 @@
    "med": 424.5,
    "n": 4,
    "p25": 349.0,
-   "last_age_d": 1.4,
+   "last_age_d": 1.5,
    "srcs": [
     "gg"
    ],
@@ -298,7 +298,7 @@
    "med": 479.0,
    "n": 7,
    "p25": 398.0,
-   "last_age_d": 1.6,
+   "last_age_d": 1.7,
    "srcs": [
     "gg"
    ],
@@ -368,7 +368,7 @@
    "med": 258.5,
    "n": 4,
    "p25": 247.0,
-   "last_age_d": 3.8,
+   "last_age_d": 3.9,
    "srcs": [
     "gg"
    ],
@@ -378,7 +378,7 @@
    "med": 234.99,
    "n": 5,
    "p25": 218.0,
-   "last_age_d": 5.4,
+   "last_age_d": 5.5,
    "srcs": [
     "gg"
    ],
@@ -418,7 +418,7 @@
    "med": 102.0,
    "n": 5,
    "p25": 100.0,
-   "last_age_d": 0.2,
+   "last_age_d": 0.3,
    "srcs": [
     "gg"
    ],
@@ -428,7 +428,7 @@
    "med": 65.0,
    "n": 3,
    "p25": 55.2,
-   "last_age_d": 0.3,
+   "last_age_d": 0.4,
    "srcs": [
     "gg"
    ],
@@ -458,7 +458,7 @@
    "med": 55.35,
    "n": 4,
    "p25": 53.0,
-   "last_age_d": 1.3,
+   "last_age_d": 1.4,
    "srcs": [
     "gg"
    ],
@@ -488,7 +488,7 @@
    "med": 159.5,
    "n": 6,
    "p25": 155.0,
-   "last_age_d": 1.5,
+   "last_age_d": 1.6,
    "srcs": [
     "gg"
    ],
@@ -578,7 +578,7 @@
    "med": 110.0,
    "n": 3,
    "p25": 110.0,
-   "last_age_d": 9.2,
+   "last_age_d": 9.3,
    "srcs": [
     "gg"
    ],
@@ -628,7 +628,7 @@
    "med": 390.0,
    "n": 3,
    "p25": 350.0,
-   "last_age_d": 11.5,
+   "last_age_d": 11.6,
    "srcs": [
     "gg"
    ],
@@ -638,7 +638,7 @@
    "med": 42.0,
    "n": 5,
    "p25": 40.0,
-   "last_age_d": 0.1,
+   "last_age_d": 0.2,
    "srcs": [
     "gg"
    ],
@@ -824,15 +824,25 @@
    ],
    "uniq_nums": 7
   },
-  "libertyfigure|aquamarine": {
-   "med": 7.0,
-   "n": 7,
-   "p25": 5.0,
+  "libertyfigure|peridot": {
+   "med": 12.5,
+   "n": 4,
+   "p25": 11.0,
    "last_age_d": 0.0,
    "srcs": [
     "gg"
    ],
-   "uniq_nums": 7
+   "uniq_nums": 4
+  },
+  "libertyfigure|aquamarine": {
+   "med": 7.5,
+   "n": 8,
+   "p25": 7.0,
+   "last_age_d": 0.0,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 8
   },
   "libertyfigure|pitcher": {
    "med": 5.0,
@@ -858,7 +868,7 @@
    "med": 5.5,
    "n": 6,
    "p25": 5.0,
-   "last_age_d": 0.0,
+   "last_age_d": 0.1,
    "srcs": [
     "gg"
    ],
@@ -933,16 +943,6 @@
     "gg"
    ],
    "uniq_nums": 4
-  },
-  "libertyfigure|peridot": {
-   "med": 11.0,
-   "n": 3,
-   "p25": 7.0,
-   "last_age_d": 0.3,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 3
   },
   "libertyfigure|quarterback": {
    "med": 4.9744999995,
@@ -1088,7 +1088,7 @@
    "med": 5.0,
    "n": 8,
    "p25": 5.0,
-   "last_age_d": 1.2,
+   "last_age_d": 1.3,
    "srcs": [
     "gg"
    ],
@@ -1098,7 +1098,7 @@
    "med": 4.6,
    "n": 6,
    "p25": 4.06,
-   "last_age_d": 1.2,
+   "last_age_d": 1.3,
    "srcs": [
     "gg"
    ],
@@ -1118,7 +1118,7 @@
    "med": 4.74,
    "n": 5,
    "p25": 4.5,
-   "last_age_d": 1.5,
+   "last_age_d": 1.6,
    "srcs": [
     "gg"
    ],
@@ -1198,7 +1198,7 @@
    "med": 43.99,
    "n": 4,
    "p25": 43.99,
-   "last_age_d": 0.2,
+   "last_age_d": 0.3,
    "srcs": [
     "gg"
    ],
@@ -1218,7 +1218,7 @@
    "med": 37.052630527,
    "n": 5,
    "p25": 35.0,
-   "last_age_d": 1.5,
+   "last_age_d": 1.6,
    "srcs": [
     "gg"
    ],
@@ -1238,7 +1238,7 @@
    "med": 162.5,
    "n": 4,
    "p25": 125.0,
-   "last_age_d": 2.3,
+   "last_age_d": 2.4,
    "srcs": [
     "gg"
    ],
@@ -1298,7 +1298,7 @@
    "med": 38.0,
    "n": 4,
    "p25": 35.0,
-   "last_age_d": 5.4,
+   "last_age_d": 5.5,
    "srcs": [
     "gg"
    ],
@@ -1448,7 +1448,7 @@
    "med": 14.280000000000001,
    "n": 14,
    "p25": 13.0,
-   "last_age_d": 1.1,
+   "last_age_d": 1.2,
    "srcs": [
     "gg"
    ],
@@ -1498,7 +1498,7 @@
    "med": 18.0,
    "n": 4,
    "p25": 18.0,
-   "last_age_d": 1.2,
+   "last_age_d": 1.3,
    "srcs": [
     "gg"
    ],
@@ -1508,7 +1508,7 @@
    "med": 15.0,
    "n": 5,
    "p25": 14.99,
-   "last_age_d": 1.2,
+   "last_age_d": 1.3,
    "srcs": [
     "gg"
    ],
@@ -1568,7 +1568,7 @@
    "med": 52.0,
    "n": 4,
    "p25": 49.0,
-   "last_age_d": 3.1,
+   "last_age_d": 3.2,
    "srcs": [
     "gg"
    ],
@@ -1578,7 +1578,7 @@
    "med": 17.0,
    "n": 3,
    "p25": 12.7,
-   "last_age_d": 4.1,
+   "last_age_d": 4.2,
    "srcs": [
     "gg"
    ],
@@ -1668,7 +1668,7 @@
    "med": 26.0,
    "n": 4,
    "p25": 25.0,
-   "last_age_d": 9.0,
+   "last_age_d": 9.1,
    "srcs": [
     "gg"
    ],
@@ -1688,7 +1688,7 @@
    "med": 100.0,
    "n": 3,
    "p25": 75.0,
-   "last_age_d": 1.2,
+   "last_age_d": 1.3,
    "srcs": [
     "gg"
    ],
@@ -1738,7 +1738,7 @@
    "med": 120.0,
    "n": 3,
    "p25": 110.0,
-   "last_age_d": 6.9,
+   "last_age_d": 7.0,
    "srcs": [
     "gg"
    ],
@@ -1758,7 +1758,7 @@
    "med": 119.75,
    "n": 3,
    "p25": 118.0,
-   "last_age_d": 5.9,
+   "last_age_d": 6.0,
    "srcs": [
     "gg"
    ],
@@ -1818,7 +1818,7 @@
    "med": 7.795,
    "n": 6,
    "p25": 5.1732,
-   "last_age_d": 0.8,
+   "last_age_d": 0.9,
    "srcs": [
     "gg"
    ],
@@ -1828,7 +1828,7 @@
    "med": 6.5,
    "n": 4,
    "p25": 6.0,
-   "last_age_d": 0.8,
+   "last_age_d": 0.9,
    "srcs": [
     "gg"
    ],
@@ -1988,7 +1988,7 @@
    "med": 8.0,
    "n": 9,
    "p25": 7.948999999,
-   "last_age_d": 3.3,
+   "last_age_d": 3.4,
    "srcs": [
     "gg"
    ],
@@ -1998,7 +1998,7 @@
    "med": 8.0,
    "n": 6,
    "p25": 7.1,
-   "last_age_d": 3.3,
+   "last_age_d": 3.4,
    "srcs": [
     "gg"
    ],
@@ -2028,7 +2028,7 @@
    "med": 4.895,
    "n": 4,
    "p25": 4.79,
-   "last_age_d": 5.3,
+   "last_age_d": 5.4,
    "srcs": [
     "gg"
    ],
@@ -2058,7 +2058,7 @@
    "med": 127.0,
    "n": 4,
    "p25": 69.0,
-   "last_age_d": 0.1,
+   "last_age_d": 0.2,
    "srcs": [
     "gg"
    ],
@@ -2108,7 +2108,7 @@
    "med": 40.0,
    "n": 5,
    "p25": 37.923469388,
-   "last_age_d": 0.3,
+   "last_age_d": 0.4,
    "srcs": [
     "gg"
    ],
@@ -2178,7 +2178,7 @@
    "med": 98.0,
    "n": 3,
    "p25": 50.0,
-   "last_age_d": 2.1,
+   "last_age_d": 2.2,
    "srcs": [
     "gg"
    ],
@@ -2208,7 +2208,7 @@
    "med": 148.0,
    "n": 3,
    "p25": 105.0,
-   "last_age_d": 3.5,
+   "last_age_d": 3.6,
    "srcs": [
     "gg"
    ],
@@ -2218,7 +2218,7 @@
    "med": 75.0,
    "n": 3,
    "p25": 74.8,
-   "last_age_d": 4.1,
+   "last_age_d": 4.2,
    "srcs": [
     "gg"
    ],
@@ -2248,7 +2248,7 @@
    "med": 38.19375,
    "n": 3,
    "p25": 36.0,
-   "last_age_d": 7.8,
+   "last_age_d": 7.9,
    "srcs": [
     "gg"
    ],
@@ -2273,6 +2273,26 @@
     "gg"
    ],
    "uniq_nums": 3
+  },
+  "chillflame|victory": {
+   "med": 5.0,
+   "n": 3,
+   "p25": 5.0,
+   "last_age_d": 0.0,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 3
+  },
+  "chillflame|oil lamp": {
+   "med": 4.24,
+   "n": 8,
+   "p25": 3.6432,
+   "last_age_d": 0.0,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 8
   },
   "chillflame|flashlight": {
    "med": 4.0,
@@ -2318,7 +2338,7 @@
    "med": 4.5,
    "n": 8,
    "p25": 4.0,
-   "last_age_d": 0.1,
+   "last_age_d": 0.2,
    "srcs": [
     "gg"
    ],
@@ -2328,7 +2348,7 @@
    "med": 5.0,
    "n": 9,
    "p25": 4.5,
-   "last_age_d": 0.1,
+   "last_age_d": 0.2,
    "srcs": [
     "gg"
    ],
@@ -2345,14 +2365,14 @@
    "uniq_nums": 6
   },
   "chillflame|ionic column": {
-   "med": 4.605,
-   "n": 4,
-   "p25": 4.21,
+   "med": 4.21,
+   "n": 3,
+   "p25": 3.2252,
    "last_age_d": 0.2,
    "srcs": [
     "gg"
    ],
-   "uniq_nums": 4
+   "uniq_nums": 3
   },
   "chillflame|flamethrower": {
    "med": 3.675,
@@ -2408,7 +2428,7 @@
    "med": 4.45,
    "n": 4,
    "p25": 3.9,
-   "last_age_d": 0.3,
+   "last_age_d": 0.4,
    "srcs": [
     "gg"
    ],
@@ -2444,16 +2464,6 @@
    ],
    "uniq_nums": 12
   },
-  "chillflame|oil lamp": {
-   "med": 4.0,
-   "n": 7,
-   "p25": 3.53,
-   "last_age_d": 0.6,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 7
-  },
   "chillflame|eternal flame": {
    "med": 5.0,
    "n": 9,
@@ -2468,7 +2478,7 @@
    "med": 5.0,
    "n": 6,
    "p25": 5.0,
-   "last_age_d": 0.6,
+   "last_age_d": 0.7,
    "srcs": [
     "gg"
    ],
@@ -2478,7 +2488,7 @@
    "med": 5.0,
    "n": 8,
    "p25": 4.05,
-   "last_age_d": 0.9,
+   "last_age_d": 1.0,
    "srcs": [
     "gg"
    ],
@@ -2558,7 +2568,7 @@
    "med": 4.0,
    "n": 4,
    "p25": 4.0,
-   "last_age_d": 3.2,
+   "last_age_d": 3.3,
    "srcs": [
     "gg"
    ],
@@ -2588,7 +2598,7 @@
    "med": 5.0,
    "n": 5,
    "p25": 5.0,
-   "last_age_d": 0.1,
+   "last_age_d": 0.2,
    "srcs": [
     "gg"
    ],
@@ -2598,7 +2608,7 @@
    "med": 5.6407499995000006,
    "n": 4,
    "p25": 5.281499999,
-   "last_age_d": 0.1,
+   "last_age_d": 0.2,
    "srcs": [
     "gg"
    ],
@@ -2648,7 +2658,7 @@
    "med": 5.25,
    "n": 7,
    "p25": 5.0,
-   "last_age_d": 0.2,
+   "last_age_d": 0.3,
    "srcs": [
     "gg"
    ],
@@ -2668,7 +2678,7 @@
    "med": 5.0949,
    "n": 5,
    "p25": 5.0,
-   "last_age_d": 0.3,
+   "last_age_d": 0.4,
    "srcs": [
     "gg"
    ],
@@ -2678,7 +2688,7 @@
    "med": 5.0,
    "n": 5,
    "p25": 5.0,
-   "last_age_d": 0.3,
+   "last_age_d": 0.4,
    "srcs": [
     "gg"
    ],
@@ -2688,7 +2698,7 @@
    "med": 6.0,
    "n": 7,
    "p25": 5.02,
-   "last_age_d": 0.4,
+   "last_age_d": 0.5,
    "srcs": [
     "gg"
    ],
@@ -2698,7 +2708,7 @@
    "med": 5.0,
    "n": 3,
    "p25": 4.9,
-   "last_age_d": 0.4,
+   "last_age_d": 0.5,
    "srcs": [
     "gg"
    ],
@@ -2708,7 +2718,7 @@
    "med": 5.86,
    "n": 5,
    "p25": 5.3,
-   "last_age_d": 0.4,
+   "last_age_d": 0.5,
    "srcs": [
     "gg"
    ],
@@ -2718,7 +2728,7 @@
    "med": 5.03,
    "n": 3,
    "p25": 5.03,
-   "last_age_d": 0.4,
+   "last_age_d": 0.5,
    "srcs": [
     "gg"
    ],
@@ -2758,7 +2768,7 @@
    "med": 5.948999997,
    "n": 5,
    "p25": 5.03,
-   "last_age_d": 1.0,
+   "last_age_d": 1.1,
    "srcs": [
     "gg"
    ],
@@ -2778,7 +2788,7 @@
    "med": 6.0,
    "n": 7,
    "p25": 6.0,
-   "last_age_d": 1.1,
+   "last_age_d": 1.2,
    "srcs": [
     "gg"
    ],
@@ -2888,7 +2898,7 @@
    "med": 9.0,
    "n": 5,
    "p25": 8.0,
-   "last_age_d": 2.3,
+   "last_age_d": 2.4,
    "srcs": [
     "gg"
    ],
@@ -2898,7 +2908,7 @@
    "med": 8.5,
    "n": 3,
    "p25": 8.2,
-   "last_age_d": 2.3,
+   "last_age_d": 2.4,
    "srcs": [
     "gg"
    ],
@@ -2928,7 +2938,7 @@
    "med": 5.03,
    "n": 7,
    "p25": 4.87,
-   "last_age_d": 3.4,
+   "last_age_d": 3.5,
    "srcs": [
     "gg"
    ],
@@ -2938,7 +2948,7 @@
    "med": 6.0,
    "n": 5,
    "p25": 5.03,
-   "last_age_d": 4.9,
+   "last_age_d": 5.0,
    "srcs": [
     "gg"
    ],
@@ -3018,7 +3028,7 @@
    "med": 7.0,
    "n": 4,
    "p25": 6.0,
-   "last_age_d": 0.1,
+   "last_age_d": 0.2,
    "srcs": [
     "gg"
    ],
@@ -3078,7 +3088,7 @@
    "med": 3.8,
    "n": 9,
    "p25": 3.785714285,
-   "last_age_d": 0.2,
+   "last_age_d": 0.3,
    "srcs": [
     "gg"
    ],
@@ -3088,7 +3098,7 @@
    "med": 4.5,
    "n": 12,
    "p25": 4.0,
-   "last_age_d": 0.2,
+   "last_age_d": 0.3,
    "srcs": [
     "gg"
    ],
@@ -3168,7 +3178,7 @@
    "med": 5.0,
    "n": 3,
    "p25": 3.51,
-   "last_age_d": 0.4,
+   "last_age_d": 0.5,
    "srcs": [
     "gg"
    ],
@@ -3188,7 +3198,7 @@
    "med": 3.845,
    "n": 6,
    "p25": 3.53,
-   "last_age_d": 0.6,
+   "last_age_d": 0.7,
    "srcs": [
     "gg"
    ],
@@ -3208,7 +3218,7 @@
    "med": 3.55,
    "n": 5,
    "p25": 3.53,
-   "last_age_d": 0.7,
+   "last_age_d": 0.8,
    "srcs": [
     "gg"
    ],
@@ -3258,7 +3268,7 @@
    "med": 3.8,
    "n": 7,
    "p25": 3.5,
-   "last_age_d": 1.4,
+   "last_age_d": 1.5,
    "srcs": [
     "gg"
    ],
@@ -3278,7 +3288,7 @@
    "med": 5.0,
    "n": 5,
    "p25": 3.53,
-   "last_age_d": 2.1,
+   "last_age_d": 2.2,
    "srcs": [
     "gg"
    ],
@@ -3358,7 +3368,7 @@
    "med": 12.33745,
    "n": 4,
    "p25": 12.1949,
-   "last_age_d": 4.8,
+   "last_age_d": 4.9,
    "srcs": [
     "gg"
    ],
@@ -3388,7 +3398,7 @@
    "med": 115.0,
    "n": 3,
    "p25": 55.0,
-   "last_age_d": 1.0,
+   "last_age_d": 1.1,
    "srcs": [
     "gg"
    ],
@@ -3458,7 +3468,7 @@
    "med": 4.61,
    "n": 8,
    "p25": 4.4,
-   "last_age_d": 0.1,
+   "last_age_d": 0.2,
    "srcs": [
     "gg"
    ],
@@ -3518,7 +3528,7 @@
    "med": 612.5,
    "n": 3,
    "p25": 35.0,
-   "last_age_d": 3.8,
+   "last_age_d": 3.9,
    "srcs": [
     "gg"
    ],
@@ -3548,17 +3558,27 @@
    "med": 7.0,
    "n": 3,
    "p25": 4.656,
-   "last_age_d": 8.0,
+   "last_age_d": 8.1,
    "srcs": [
     "gg"
    ],
    "uniq_nums": 3
   },
+  "instantramen|sunny loops": {
+   "med": 3.8427500004999997,
+   "n": 10,
+   "p25": 3.5,
+   "last_age_d": 0.0,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 10
+  },
   "instantramen|shrimp": {
    "med": 6.5,
    "n": 6,
    "p25": 5.0,
-   "last_age_d": 0.0,
+   "last_age_d": 0.1,
    "srcs": [
     "gg"
    ],
@@ -3674,25 +3694,15 @@
    ],
    "uniq_nums": 6
   },
-  "instantramen|sunny loops": {
-   "med": 3.8745,
-   "n": 9,
-   "p25": 3.5,
-   "last_age_d": 1.4,
-   "srcs": [
-    "gg"
-   ],
-   "uniq_nums": 9
-  },
   "instantramen|squid wok": {
-   "med": 6.0,
-   "n": 5,
-   "p25": 4.99,
-   "last_age_d": 1.4,
+   "med": 13.0,
+   "n": 4,
+   "p25": 6.0,
+   "last_age_d": 1.5,
    "srcs": [
     "gg"
    ],
-   "uniq_nums": 5
+   "uniq_nums": 4
   },
   "instantramen|bento": {
    "med": 4.000000001,
@@ -3708,7 +3718,7 @@
    "med": 3.89,
    "n": 3,
    "p25": 3.000001,
-   "last_age_d": 1.5,
+   "last_age_d": 1.6,
    "srcs": [
     "gg"
    ],
@@ -3718,7 +3728,7 @@
    "med": 3.75,
    "n": 4,
    "p25": 3.7,
-   "last_age_d": 1.5,
+   "last_age_d": 1.6,
    "srcs": [
     "gg"
    ],
@@ -3728,7 +3738,7 @@
    "med": 3.7,
    "n": 11,
    "p25": 3.69,
-   "last_age_d": 1.5,
+   "last_age_d": 1.6,
    "srcs": [
     "gg"
    ],
@@ -3758,21 +3768,21 @@
    "med": 20.0,
    "n": 5,
    "p25": 5.0,
-   "last_age_d": 1.7,
+   "last_age_d": 1.8,
    "srcs": [
     "gg"
    ],
    "uniq_nums": 5
   },
   "instantramen|khinkali": {
-   "med": 4.0,
-   "n": 13,
+   "med": 3.9745,
+   "n": 12,
    "p25": 3.9,
    "last_age_d": 1.8,
    "srcs": [
     "gg"
    ],
-   "uniq_nums": 13
+   "uniq_nums": 12
   },
   "instantramen|classic ramen": {
    "med": 4.1,
@@ -3798,7 +3808,7 @@
    "med": 4.874499999999999,
    "n": 4,
    "p25": 4.8,
-   "last_age_d": 2.2,
+   "last_age_d": 2.3,
    "srcs": [
     "gg"
    ],
@@ -3828,7 +3838,7 @@
    "med": 18.0,
    "n": 5,
    "p25": 4.15,
-   "last_age_d": 3.2,
+   "last_age_d": 3.3,
    "srcs": [
     "gg"
    ],
@@ -3848,7 +3858,7 @@
    "med": 4.15,
    "n": 5,
    "p25": 3.739795919,
-   "last_age_d": 4.3,
+   "last_age_d": 4.4,
    "srcs": [
     "gg"
    ],
@@ -3898,7 +3908,7 @@
    "med": 6.0,
    "n": 4,
    "p25": 5.0,
-   "last_age_d": 0.8,
+   "last_age_d": 0.9,
    "srcs": [
     "gg"
    ],
@@ -3988,7 +3998,7 @@
    "med": 4.2,
    "n": 4,
    "p25": 4.0,
-   "last_age_d": 5.6,
+   "last_age_d": 5.7,
    "srcs": [
     "gg"
    ],
@@ -4068,7 +4078,7 @@
    "med": 14.7,
    "n": 10,
    "p25": 14.2,
-   "last_age_d": 0.4,
+   "last_age_d": 0.5,
    "srcs": [
     "gg"
    ],
@@ -4138,7 +4148,7 @@
    "med": 13.8,
    "n": 3,
    "p25": 13.0,
-   "last_age_d": 3.9,
+   "last_age_d": 4.0,
    "srcs": [
     "gg"
    ],
@@ -4148,7 +4158,7 @@
    "med": 15.25,
    "n": 4,
    "p25": 15.0,
-   "last_age_d": 4.1,
+   "last_age_d": 4.2,
    "srcs": [
     "gg"
    ],
@@ -4158,7 +4168,7 @@
    "med": 15.0,
    "n": 3,
    "p25": 14.9949,
-   "last_age_d": 4.1,
+   "last_age_d": 4.2,
    "srcs": [
     "gg"
    ],
@@ -4218,7 +4228,7 @@
    "med": 12.5,
    "n": 6,
    "p25": 9.0,
-   "last_age_d": 0.2,
+   "last_age_d": 0.3,
    "srcs": [
     "gg"
    ],
@@ -4258,7 +4268,7 @@
    "med": 6.0649999999999995,
    "n": 4,
    "p25": 6.0,
-   "last_age_d": 0.8,
+   "last_age_d": 0.9,
    "srcs": [
     "gg"
    ],
@@ -4308,7 +4318,7 @@
    "med": 9.088650000000001,
    "n": 4,
    "p25": 9.0,
-   "last_age_d": 1.0,
+   "last_age_d": 1.1,
    "srcs": [
     "gg"
    ],
@@ -4358,7 +4368,7 @@
    "med": 7.0,
    "n": 7,
    "p25": 6.0,
-   "last_age_d": 2.4,
+   "last_age_d": 2.5,
    "srcs": [
     "gg"
    ],
@@ -4448,7 +4458,7 @@
    "med": 5.493312,
    "n": 3,
    "p25": 4.9,
-   "last_age_d": 6.3,
+   "last_age_d": 6.4,
    "srcs": [
     "gg"
    ],
@@ -4458,7 +4468,7 @@
    "med": 5.97,
    "n": 6,
    "p25": 5.25,
-   "last_age_d": 6.3,
+   "last_age_d": 6.4,
    "srcs": [
     "gg"
    ],
@@ -4535,14 +4545,14 @@
    "uniq_nums": 5
   },
   "victorymedal|golden puck": {
-   "med": 4.55,
-   "n": 8,
+   "med": 4.6,
+   "n": 7,
    "p25": 4.2949,
    "last_age_d": 0.3,
    "srcs": [
     "gg"
    ],
-   "uniq_nums": 8
+   "uniq_nums": 7
   },
   "victorymedal|racing champ": {
    "med": 5.0,
@@ -4558,7 +4568,7 @@
    "med": 5.0,
    "n": 10,
    "p25": 4.55,
-   "last_age_d": 0.4,
+   "last_age_d": 0.5,
    "srcs": [
     "gg"
    ],
@@ -4588,7 +4598,7 @@
    "med": 4.459116667,
    "n": 6,
    "p25": 4.2,
-   "last_age_d": 0.6,
+   "last_age_d": 0.7,
    "srcs": [
     "gg"
    ],
@@ -4598,7 +4608,7 @@
    "med": 8.88,
    "n": 6,
    "p25": 8.88,
-   "last_age_d": 0.8,
+   "last_age_d": 0.9,
    "srcs": [
     "gg"
    ],
@@ -4628,7 +4638,7 @@
    "med": 5.0,
    "n": 11,
    "p25": 4.949,
-   "last_age_d": 1.3,
+   "last_age_d": 1.4,
    "srcs": [
     "gg"
    ],
@@ -4798,7 +4808,7 @@
    "med": 22.9745,
    "n": 4,
    "p25": 22.0,
-   "last_age_d": 1.3,
+   "last_age_d": 1.4,
    "srcs": [
     "gg"
    ],
@@ -4818,7 +4828,7 @@
    "med": 7.0395510219999995,
    "n": 6,
    "p25": 6.94,
-   "last_age_d": 0.0,
+   "last_age_d": 0.1,
    "srcs": [
     "gg"
    ],
@@ -4868,7 +4878,7 @@
    "med": 7.169776822,
    "n": 3,
    "p25": 7.0,
-   "last_age_d": 2.1,
+   "last_age_d": 2.2,
    "srcs": [
     "gg"
    ],
@@ -4918,7 +4928,7 @@
    "med": 8.46,
    "n": 4,
    "p25": 7.92,
-   "last_age_d": 5.6,
+   "last_age_d": 5.7,
    "srcs": [
     "gg"
    ],
@@ -4948,7 +4958,7 @@
    "med": 9.0,
    "n": 3,
    "p25": 9.0,
-   "last_age_d": 7.9,
+   "last_age_d": 8.0,
    "srcs": [
     "gg"
    ],
@@ -5148,7 +5158,7 @@
    "med": 12.012229999999999,
    "n": 4,
    "p25": 11.2,
-   "last_age_d": 6.9,
+   "last_age_d": 7.0,
    "srcs": [
     "gg"
    ],
@@ -5268,7 +5278,7 @@
    "med": 4.0,
    "n": 3,
    "p25": 3.0,
-   "last_age_d": 0.1,
+   "last_age_d": 0.2,
    "srcs": [
     "gg"
    ],
@@ -5288,7 +5298,7 @@
    "med": 27.0,
    "n": 3,
    "p25": 6.0,
-   "last_age_d": 0.2,
+   "last_age_d": 0.3,
    "srcs": [
     "gg"
    ],
@@ -5328,7 +5338,7 @@
    "med": 5.497450000000001,
    "n": 4,
    "p25": 4.9949,
-   "last_age_d": 0.3,
+   "last_age_d": 0.4,
    "srcs": [
     "gg"
    ],
@@ -5358,7 +5368,7 @@
    "med": 3.9,
    "n": 9,
    "p25": 3.4506,
-   "last_age_d": 0.4,
+   "last_age_d": 0.5,
    "srcs": [
     "gg"
    ],
@@ -5428,7 +5438,7 @@
    "med": 3.870600003,
    "n": 5,
    "p25": 3.630600003,
-   "last_age_d": 1.5,
+   "last_age_d": 1.6,
    "srcs": [
     "gg"
    ],
@@ -5438,7 +5448,7 @@
    "med": 4.0,
    "n": 6,
    "p25": 3.56,
-   "last_age_d": 2.0,
+   "last_age_d": 2.1,
    "srcs": [
     "gg"
    ],
@@ -5458,7 +5468,7 @@
    "med": 25.0,
    "n": 3,
    "p25": 4.0,
-   "last_age_d": 2.2,
+   "last_age_d": 2.3,
    "srcs": [
     "gg"
    ],
@@ -5478,7 +5488,7 @@
    "med": 3.9745,
    "n": 6,
    "p25": 3.6,
-   "last_age_d": 2.9,
+   "last_age_d": 3.0,
    "srcs": [
     "gg"
    ],
@@ -5488,7 +5498,7 @@
    "med": 4.0,
    "n": 3,
    "p25": 3.000001,
-   "last_age_d": 3.0,
+   "last_age_d": 3.1,
    "srcs": [
     "gg"
    ],
@@ -5538,7 +5548,7 @@
    "med": 6.0,
    "n": 3,
    "p25": 5.0,
-   "last_age_d": 3.5,
+   "last_age_d": 3.6,
    "srcs": [
     "gg"
    ],
@@ -5548,7 +5558,7 @@
    "med": 5.0,
    "n": 3,
    "p25": 5.0,
-   "last_age_d": 4.1,
+   "last_age_d": 4.2,
    "srcs": [
     "gg"
    ],
@@ -5608,7 +5618,7 @@
    "med": 3.8949,
    "n": 3,
    "p25": 3.0,
-   "last_age_d": 5.3,
+   "last_age_d": 5.4,
    "srcs": [
     "gg"
    ],
@@ -5668,7 +5678,7 @@
    "med": 3.99,
    "n": 3,
    "p25": 3.6,
-   "last_age_d": 9.1,
+   "last_age_d": 9.2,
    "srcs": [
     "gg"
    ],
@@ -5678,7 +5688,7 @@
    "med": 3.93,
    "n": 3,
    "p25": 3.7,
-   "last_age_d": 10.1,
+   "last_age_d": 10.2,
    "srcs": [
     "gg"
    ],
@@ -5708,7 +5718,7 @@
    "med": 5.975,
    "n": 4,
    "p25": 5.95,
-   "last_age_d": 0.2,
+   "last_age_d": 0.3,
    "srcs": [
     "gg"
    ],
@@ -5738,7 +5748,7 @@
    "med": 9.0,
    "n": 4,
    "p25": 8.0,
-   "last_age_d": 1.2,
+   "last_age_d": 1.3,
    "srcs": [
     "gg"
    ],
@@ -5758,7 +5768,7 @@
    "med": 9.0,
    "n": 5,
    "p25": 8.0,
-   "last_age_d": 1.3,
+   "last_age_d": 1.4,
    "srcs": [
     "gg"
    ],
@@ -5808,7 +5818,7 @@
    "med": 11.0,
    "n": 3,
    "p25": 9.5,
-   "last_age_d": 2.4,
+   "last_age_d": 2.5,
    "srcs": [
     "gg"
    ],
@@ -5848,7 +5858,7 @@
    "med": 5.0,
    "n": 5,
    "p25": 4.95,
-   "last_age_d": 3.4,
+   "last_age_d": 3.5,
    "srcs": [
     "gg"
    ],
@@ -5878,7 +5888,7 @@
    "med": 6.0,
    "n": 5,
    "p25": 5.25,
-   "last_age_d": 4.2,
+   "last_age_d": 4.3,
    "srcs": [
     "gg"
    ],
@@ -5928,7 +5938,7 @@
    "med": 6.1185,
    "n": 8,
    "p25": 5.3,
-   "last_age_d": 7.4,
+   "last_age_d": 7.5,
    "srcs": [
     "gg"
    ],
@@ -5968,7 +5978,7 @@
    "med": 24.8204500005,
    "n": 4,
    "p25": 23.650900001,
-   "last_age_d": 6.2,
+   "last_age_d": 6.3,
    "srcs": [
     "gg"
    ],
@@ -6058,7 +6068,7 @@
    "med": 8.0,
    "n": 3,
    "p25": 6.0,
-   "last_age_d": 3.8,
+   "last_age_d": 3.9,
    "srcs": [
     "gg"
    ],
@@ -6128,7 +6138,7 @@
    "med": 588.35,
    "n": 2,
    "p25": 500.0,
-   "last_age_d": 1.4,
+   "last_age_d": 1.5,
    "srcs": [
     "gg"
    ],
@@ -6149,6 +6159,16 @@
    "n": 2,
    "p25": 300.0,
    "last_age_d": 6.2,
+   "srcs": [
+    "gg"
+   ],
+   "uniq_nums": 2
+  },
+  "libertyfigure|aquamarine|onyx black": {
+   "med": 18.0,
+   "n": 2,
+   "p25": 18.0,
+   "last_age_d": 0.0,
    "srcs": [
     "gg"
    ],
@@ -6178,7 +6198,7 @@
    "med": 6.5,
    "n": 2,
    "p25": 6.0,
-   "last_age_d": 1.2,
+   "last_age_d": 1.3,
    "srcs": [
     "gg"
    ],
@@ -6188,7 +6208,7 @@
    "med": 10.94,
    "n": 5,
    "p25": 8.5,
-   "last_age_d": 1.8,
+   "last_age_d": 1.9,
    "srcs": [
     "gg"
    ],
@@ -6218,7 +6238,7 @@
    "med": 12.559999999999999,
    "n": 2,
    "p25": 11.11,
-   "last_age_d": 3.3,
+   "last_age_d": 3.4,
    "srcs": [
     "gg"
    ],
@@ -6248,7 +6268,7 @@
    "med": 174.5,
    "n": 2,
    "p25": 169.0,
-   "last_age_d": 5.2,
+   "last_age_d": 5.3,
    "srcs": [
     "gg"
    ],
@@ -6268,7 +6288,7 @@
    "med": 7.0,
    "n": 2,
    "p25": 5.0,
-   "last_age_d": 0.4,
+   "last_age_d": 0.5,
    "srcs": [
     "gg"
    ],
@@ -6298,7 +6318,7 @@
    "med": 25.88,
    "n": 2,
    "p25": 25.88,
-   "last_age_d": 1.5,
+   "last_age_d": 1.6,
    "srcs": [
     "gg"
    ],
@@ -6328,7 +6348,7 @@
    "med": 21.0,
    "n": 2,
    "p25": 20.0,
-   "last_age_d": 1.4,
+   "last_age_d": 1.5,
    "srcs": [
     "gg"
    ],
@@ -6348,7 +6368,7 @@
    "med": 27.0,
    "n": 3,
    "p25": 20.0,
-   "last_age_d": 1.7,
+   "last_age_d": 1.8,
    "srcs": [
     "gg"
    ],
@@ -6368,7 +6388,7 @@
    "med": 18.5,
    "n": 3,
    "p25": 18.0,
-   "last_age_d": 4.9,
+   "last_age_d": 5.0,
    "srcs": [
     "gg"
    ],
